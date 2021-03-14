@@ -1,0 +1,25 @@
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="table-link">Rental Id</th>
+      <th class="table-link">Car Id</th>
+      <th class="table-link">Customer Id</th>
+      <th class="table-link">First Name</th>
+      <th class="table-link">Last Name</th>
+      <th class="table-link">Rent Date</th>
+      <th class="table-link">Return Date</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let rental of rentals">
+    <td>{{ rental.rentalId }}</td>
+    <td>{{ rental.carId}}</td>
+    <td>{{ rental.customerId }}</td>
+    <td>{{ rental.firstName }}</td>
+    <td>{{ rental.lastName }}</td>
+    <td>{{ rental.rentDate }}</td>
+    <td>{{ rental.returnDate}}</td>
+    
+  </tr>
+</table>

@@ -1,0 +1,13 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="table-link">Color ID</th>
+      <th class="table-link">Color Name</th>
+      
+    </tr>
+  </thead>
+  <tr *ngFor="let color of colors">
+      <th>{{ color.colorId }}</th>
+      <th>{{ color.colorName }}</th>
+  </tr>
+</table>
