@@ -1,10 +1,28 @@
-*
-{background-color: grey;
+@import 'https://fonts.googleapis.com/css?family=Caveat|Oxanium';
+*{
+  background-color: black;
+  font-family: Oxanium;
 }
-h4 {
-    font-family: Caveat;
-	font-size: 20px;
-	color: white;
-	text-decoration: none;
-	padding: 20px 50px 0 20px;
-}
+
+
+.list-group {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 18px;  
+  }
+  .list-group:hover{
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    font-size: 18px; 
+  }
+  ul{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+  }
+  
+  

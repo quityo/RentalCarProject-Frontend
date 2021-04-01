@@ -1,8 +1,1 @@
-table 
-{
-    font-family: Oxanium;
-	font-size: 10px;
-	color: white;
-	text-decoration: none;
-	
-}
+td:last-child {text-align:center;}

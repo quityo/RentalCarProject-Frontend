@@ -1,0 +1,40 @@
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+     
+    </div>
+    <br>
+    <div class="carousel-inner">
+      
+        <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
+          <img id="img" src="{{imageBasePath}}{{image.imagePath}}" alt="Image">
+        </div>
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+    <br>
+    <h3>{{cars.carName}}</h3> 
+    <br>
+    <h2>"{{cars.description}}"</h2>
+    <br>
+  <div class="tb">
+    <table class="table">
+          <tr>
+              <td>{{cars.brandName}}</td>
+              <td>{{cars.colorName}}</td>
+              <td>{{cars.modelYear}}</td>
+          </tr>
+    </table>
+  </div>
+
+<app-rental [car]="cars"></app-rental>  

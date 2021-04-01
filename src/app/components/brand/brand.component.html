@@ -1,14 +1,17 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th class="table-link">Brand Id</th>
-      <th class="table-link">Brand Name</th>
-      
-    </tr>
-  </thead>
-  <tr *ngFor="let brand of brands">
-      <td>{{ brand.brandId }}</td>
-      <td>{{ brand.brandName }}</td>
-  </tr>
-</table>
-    
+<br>
+<div *ngIf="filterCarText" class="alert alert-success">
+  {{filterCarText}} aradınız
+</div>
+
+  <ul class="list-group">
+    <li [class]="getAllBrandClass()"
+     routerLink="/cars">Tüm Markalar</li>
+    <li 
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{brand.brandId}}"
+    *ngFor="let brand of brands | brandFilterPipe : filterBrandText" 
+    [class]="getCurrentBrandClass(brand)">
+      {{brand.brandName}}
+    </li>
+  </ul>
+  <br>

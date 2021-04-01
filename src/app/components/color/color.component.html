@@ -1,13 +1,14 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th class="table-link">Color ID</th>
-      <th class="table-link">Color Name</th>
-      
-    </tr>
-  </thead>
-  <tr *ngFor="let color of colors">
-      <th>{{ color.colorId }}</th>
-      <th>{{ color.colorName }}</th>
-  </tr>
-</table>
+<br>
+<div *ngIf="filterColorText" class="alert alert-success">
+  {{filterColorText}} aradınız
+</div>
+
+  <ul class="list-group">
+    <li [class]="getAllColorClass()"
+     routerLink = "/cars">Tüm renkler</li>
+    <li (click)="setCurrentColor(color)"
+    routerLink="/cars/color/{{color.colorId}}"
+    *ngFor="let color of colors | colorFilterPipe : filterColorText "
+    [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
+  </ul>
+  <br><br>

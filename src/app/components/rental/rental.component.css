@@ -1,8 +1,8 @@
-table 
-{
-    font-family: Oxanium;
-	font-size: 10px;
-	color: white;
-	text-decoration: none;
-	
+.rental {
+    height: 100%;
+}
+
+
+td:last-child {
+    text-align:center;
 }

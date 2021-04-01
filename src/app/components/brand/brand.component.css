@@ -1,8 +1,14 @@
-table 
-{
-    font-family: Oxanium;
-	font-size: 10px;
-	color: white;
-	text-decoration: none;
-	
-}
+
+  .list-group-item{
+    background-color: black;
+    color: yellow;
+    text-align: center;
+    font-size: 14px;
+  }
+  .list-group-item:hover{
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    font-size: 14px; 
+    font-weight: bold;
+  }

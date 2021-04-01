@@ -1,8 +1,26 @@
-table 
-{
-    font-family: Oxanium;
-	font-size: 10px;
-	color: white;
-	text-decoration: none;
-	
+table.table.table-bordered {
+    text-align: center;
+}
+.table-bordered{
+    background-color: black;
+    border-width: 5px solid;
+    
+}
+table, td {
+    border:2px solid darkgrey;
+}
+th{
+    border:2px solid #ab7777;
+}
+.cursorPointer{
+    cursor: pointer;
+}
+
+#image{
+    vertical-align: middle;
+}
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
 }
