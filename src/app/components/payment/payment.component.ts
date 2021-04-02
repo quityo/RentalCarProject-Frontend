@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
-import { Payment } from 'src/app/models/payment';
+import { Card } from 'src/app/models/card';
+import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
-import { PaymentService } from 'src/app/services/payment.service';
+import { CardService } from 'src/app/services/card.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
@@ -15,104 +17,104 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class PaymentComponent implements OnInit {
 
-  carDetail: Car[]=[];
-  carToBeRented:Rental;
-  payment:Payment;
+  rental : Rental;
+  cars : Car;
+  customer : Customer;
+  getCustomerId : number;
+  amountOfPayment : number = 0;
+  card : Card;
+  cardExist : Boolean = false; 
+  
+  nameOnTheCard : string;
+  cardNumber : string;
+  cardCvv : string;
+  expirationDate : string;
 
-  brandName:string;
-  carName:string;
-
-  //Payment 
-  cardName!:string;
-  cardNumber!:string;
-  cardDateMonth!:string;
-  cardDateYear!:string;
-  cardDate:string;
-  cardCvv!:string;
-  amountPaye:number;
-
-  returnPayAddMessega:string;
 
   constructor(
-    private activatedRoute:ActivatedRoute,
-    private router:Router,
-    private toastrService: ToastrService,
-    private rentalService:RentalService,
-    private paymentService:PaymentService,
-    private carService: CarService,
+    private activatedRoute : ActivatedRoute,
+    private carService : CarService,
+    private customerService : CustomerService,
+    private router : Router,
+    private toastrService : ToastrService,
+    private rentalService : RentalService,
+    private cardService : CardService
   ) { }
 
   ngOnInit(): void {
-    this.carToBeRented = this.paymentService.getRental();
-    this.amountPaye = this.paymentService.getRentalAmountPaye();
-
-    if ( (this.carToBeRented === undefined) || (this.amountPaye <= 0) ){
-      this.router.navigate(['/cars']);
-      this.toastrService.error("Araç listesine yönlendiriliyorsunuz", "Hatalı işlem");
-    }
-
-    this.getCarDetailById(this.carToBeRented.carId);
-  }
-
-  getCarDetailById(carId: number) {
-    this.carService.GetCarDetailsById(carId).subscribe((response) => {
-      this.carDetail = response.data;
-      this.brandName = this.carDetail[0].brandName;
-      this.carName = this.carDetail[0].carName;
+    this.activatedRoute.params.subscribe((params) =>{
+      if(params['rental']){
+        this.rental = JSON.parse(params['rental']);
+        this.getCustomerId = JSON.parse(params['rental']).customerId;
+        this.getCustomerDetailById(this.getCustomerId);
+        this.getCarDetail();
+      }
     });
   }
+  getCustomerDetailById(customerId:number){
+    this.customerService.getCustomerById(customerId).subscribe((response) =>{
+      this.customer = response.data[0];
+      console.log(response);
+    });
+  }
+  getCarDetail(){
+    this.carService.getCarDetailsByCarId(this.rental.carId).subscribe((response) =>{
+      this.cars = response.data[0];
+      this.paymentCalculator();
+    });
+  }
+  paymentCalculator(){
+    if(this.rental.returnDate != null){
+      var returnDate = new Date(this.rental.returnDate.toString());
+      var rentDate = new Date(this.rental.rentDate.toString());
+      var difference = returnDate.getTime() - rentDate.getTime();
 
-  createPayment(){
-    if ( (this.cardName === undefined) || (!this.cardName) ) {
-      this.toastrService.warning('Kart Sahibi bilgisini kontrol ediniz.');
+      var numberOfDays = Math.ceil(difference / (1000*3600*24));
+
+      this.amountOfPayment = numberOfDays * this.cars.dailyPrice;
+      if(this.amountOfPayment <= 0){
+        this.router.navigate(['/cars']);
+        this.toastrService.error(
+          "Araç listesine yönlendiriliyorsunuz.",
+          "Hatalı işlem"
+        );
+      }
     }
-    else if ( (this.cardNumber === undefined) || (!this.cardNumber) ){
-      this.toastrService.warning('Kart Numarası bilgisini kontrol ediniz.');
-    }
-    else if ( (this.cardDateMonth === undefined) || (!this.cardDateMonth) )  {
-      this.toastrService.warning('Tarih Ay bilgisini kontrol ediniz.');
-    }
-    else if ( (this.cardDateYear === undefined) || (!this.cardDateYear) )  {
-      this.toastrService.warning('Tarih Yıl bilgisini kontrol ediniz.');
-    }
-    else if ( (this.cardCvv === undefined) || (!this.cardCvv)  ) {
-      this.toastrService.warning('CVV bilgisini kontrol ediniz.');
+  }
+  async rentACar(){
+    let card : Card = {
+      nameOnTheCard : this.nameOnTheCard,
+      cardNumber : this.cardNumber,
+      expirationDate : this.expirationDate,
+      cardCvv : this.cardCvv,
+    };
+    this.cardExist = await this.isCardExist(card);
+    if(this.cardExist){
+      this.card = await this.getCardByCardNumber(this.cardNumber);
+      console.log(this.card);
+      if(this.card.moneyInTheCard >= this.amountOfPayment){
+        this.card.moneyInTheCard = 
+        this.card.moneyInTheCard - this.amountOfPayment;
+        this.updateCard(card);
+        this.rentalService.addRental(this.rental);
+        this.toastrService.success('Arabayı kiraladınız.' , 'İşlem başarılı');
+      }
+      else{
+        this.toastrService.error("Kartınızda yeterli bakiye bulunmamaktadır." , "Hata");
+      }
     }
     else{
-      this.cardDate = this.cardDateMonth + "/" + this.cardDateYear;
-
-      this.payment = {
-        cardNameSurname : this.cardName,
-        cardNumber : this.cardNumber,
-        cardExpiryDate : this.cardDate,
-        cardCvv : this.cardCvv,
-        amountPaye : this.amountPaye
-      }
-
-      this.paymentService.add(this.payment).subscribe(
-        (response) => {
-          var splitted = response.message.toString().split("-");
-          this.returnPayAddMessega = splitted[0]; 
-          this.carToBeRented.paymentId = Number(splitted[1]);
-          
-          this.toastrService.success(this.returnPayAddMessega, "Ödeme Başarılı");
-
-          console.log(this.carToBeRented);
-
-          this.rentalService.add(this.carToBeRented).subscribe(
-            (response2) => {
-            this.toastrService.success(response2.message.toString(), "Kiralama Başarılı");
-            this.router.navigate(['/rentals']);
-            },
-            (error) => {
-            this.toastrService.error('Kiralama İşlemi Yapılamadı.','Kiralama Başarısız');
-            }
-          )
-        },
-        (error) => {
-          this.toastrService.error("Ödeme Başarısız");
-        }
-      )
-    } 
+      this.toastrService.error('Bankanız bilgilerinizi onaylamadı.',"Hata");
+    }
   }
+  async isCardExist(card : Card){
+    return (await this.cardService.isCardExist(card).toPromise()).success;
+  }
+  async getCardByCardNumber(cardNumber:string){
+    return (await this.cardService.getCardByNumber(cardNumber).toPromise()).data[0];
+  }
+  updateCard(card:Card){
+    this.cardService.updateCard(card);
+  }
+
 }

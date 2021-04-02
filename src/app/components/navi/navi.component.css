@@ -1,0 +1,130 @@
+@import 'https://fonts.googleapis.com/css?family=Caveat|Oxanium';
+#body{
+   margin: 220px 200px;
+}
+*{
+  border:0;
+  margin:0;
+  padding:0;
+  list-style: none;
+background-color: black;
+}
+
+#header{
+	background-color: black;
+	position: fixed;
+		top: 0px;
+		width: 100%;
+		z-index: 10000;		
+		left:0;
+		right: 0;
+		z-index: 99999;
+}
+
+#img-container{
+	width: 60px;
+	float: left;
+  margin: 15px 70px;
+	}
+
+
+
+#header-img{
+	display: block;
+  max-width: 100%;
+	height: auto;
+  
+}
+
+
+#nav-bar{
+  display: flex;
+	margin-top: 35px;
+	justify-content: center;
+}
+
+.nav-link{
+  font-family: Caveat;
+	font-size: 30px;
+	color: yellow;
+	text-decoration: none;
+	padding: 0px 50px 0 40px;
+  
+}
+
+.nav-link:hover{
+	color: white;
+}
+
+
+#header-img {animation-name: Sun;
+            animation-duration: 33000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+}
+ @keyframes Sun
+        {
+            from
+            {
+                transform:rotate(0deg);
+            }
+             to
+            {
+                transform:rotate(360deg);
+            }
+        }
+@media screen and (max-width: 700px){
+  *{
+     background-color: black;
+  }
+  .nav-link{
+	font-family: Caveat;
+	padding: 0 11px;
+	font-size: 21px;
+	color: yellow;
+	text-decoration: none;
+	font-weight: 150;
+ 
+  
+}
+  #nav-bar{
+  display: flex;
+	margin-top: 25px;
+	justify-content: center;
+}
+  #header-img {animation-name: Sun;
+            animation-duration: 10000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+}
+  #header-img {animation-name: Sun;
+            animation-duration: 10000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+}
+ @keyframes Sun
+        {
+            from
+            {
+                transform:rotate(0deg);
+            }
+             to
+            {
+                transform:rotate(360deg);
+            }
+        }
+    #img-container{
+	width: 50px;
+	float: left;
+	margin: 10px 10px;
+}
+
+
+
+#header-img{
+	display: block;
+  max-width: 100%;
+	height: auto;
+  margin: 0 8px;
+}
+}

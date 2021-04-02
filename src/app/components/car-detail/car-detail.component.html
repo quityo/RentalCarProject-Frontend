@@ -26,15 +26,21 @@
     <h3>{{cars.carName}}</h3> 
     <br>
     <h2>"{{cars.description}}"</h2>
-    <br>
   <div class="tb">
     <table class="table">
           <tr>
               <td>{{cars.brandName}}</td>
               <td>{{cars.colorName}}</td>
               <td>{{cars.modelYear}}</td>
+              <td>{{cars.dailyPrice}}</td>
+              
           </tr>
     </table>
+    
   </div>
+  
+    
+    
+<hr>
 
 <app-rental [car]="cars"></app-rental>  

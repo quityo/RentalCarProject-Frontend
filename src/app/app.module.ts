@@ -16,10 +16,11 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
+import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+import { PaymentComponent } from './components/payment/payment.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 
 
 @NgModule({
@@ -31,12 +32,14 @@ import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
     ColorComponent,
     CustomerComponent,
     RentalComponent,
-    FilterComponent,
+    
     CarDetailComponent,
     CarFilterPipePipe,
-    ColorFilterPipePipe,
+    FilterComponent,
     BrandFilterPipePipe,
-    
+    ColorFilterPipePipe,
+    PaymentComponent,
+
   ],
   imports: [
     BrowserModule,
