@@ -12,14 +12,16 @@ import { ListResponseModel, ResponseModel } from '../models/responseModel';
 })
 export class BrandService {
 
-  apiUrl = "https://localhost:44315/api/brands/getall"
+  apiUrl = environment.apiUrl +'brands/';;
+
 
   constructor(private httpClient:HttpClient) { }
 
   getBrands():Observable<ListResponseModel<Brand>>{
-    return this.httpClient.get<ListResponseModel<Brand>>(this.apiUrl)
+    let newPath = this.apiUrl + "getall";
+    return this.httpClient.get<ListResponseModel<Brand>>(newPath);
   }
   add(brand : Brand):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(environment.apiUrl + "add",brand)
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "add",brand)
   }
 }
