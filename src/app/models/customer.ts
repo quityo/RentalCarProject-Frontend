@@ -5,5 +5,5 @@ export interface Customer{
     lastName:string;
     companyName:string;
     email : string;
-    status:boolean
+    status:boolean;
 }

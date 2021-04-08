@@ -12,9 +12,7 @@ table, td {
 th{
   border:2px solid #ab7777;
 }
-.colorFilter{
-  background-color: indigo;
-}
+
 .list-group-item{
   background-color: black;
   color: yellow;

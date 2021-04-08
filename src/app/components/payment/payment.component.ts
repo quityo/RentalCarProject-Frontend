@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Card } from 'src/app/models/card';
 import { Customer } from 'src/app/models/customer';
+
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CardService } from 'src/app/services/card.service';
@@ -16,7 +19,6 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-
   rental : Rental;
   cars : Car;
   customer : Customer;
@@ -98,6 +100,7 @@ export class PaymentComponent implements OnInit {
         this.updateCard(card);
         this.rentalService.addRental(this.rental);
         this.toastrService.success('Arabayı kiraladınız.' , 'İşlem başarılı');
+        this.router.navigate(['/cars']);
       }
       else{
         this.toastrService.error("Kartınızda yeterli bakiye bulunmamaktadır." , "Hata");
@@ -116,5 +119,8 @@ export class PaymentComponent implements OnInit {
   updateCard(card:Card){
     this.cardService.updateCard(card);
   }
+  cardNumberSplit() {
+    document.getElementById("card-number").innerHTML = this.cardNumber.toString().replace(/\d{4}(?=.)/g, '$& ');
 
+  }
 }

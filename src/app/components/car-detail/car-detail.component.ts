@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
-
 import { CarImage } from 'src/app/models/carImage';
-
 import { CarImageService } from 'src/app/services/car-image.service';
-import { CarService } from 'src/app/services/car.service';
+import { CarService } from 'src/app/services/car.service';import { RentalService } from 'src/app/services/rental.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,6 +13,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
+
   cars : Car;
   carImages : CarImage[] = [];
   currentImage : CarImage;

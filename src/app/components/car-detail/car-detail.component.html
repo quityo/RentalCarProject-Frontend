@@ -1,46 +1,52 @@
 
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-     
-    </div>
-    <br>
-    <div class="carousel-inner">
-      
-        <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
-          <img id="img" src="{{imageBasePath}}{{image.imagePath}}" alt="Image">
-        </div>
-      
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+   
   </div>
-  
-    <br>
-    <h3>{{cars.carName}}</h3> 
-    <br>
-    <h2>"{{cars.description}}"</h2>
-  <div class="tb">
-    <table class="table">
-          <tr>
-              <td>{{cars.brandName}}</td>
-              <td>{{cars.colorName}}</td>
-              <td>{{cars.modelYear}}</td>
-              <td>{{cars.dailyPrice}}</td>
-              
-          </tr>
-    </table>
-    
+  <div class="carousel-inner">
+    <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
+      <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" alt="Image">
+    </div>
   </div>
-  
-    
-    
+  <br>
+  <h5>{{cars.carName | uppercase}}</h5>
+  <br>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="table-responsive-md">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Model Year</th>
+            <th>Daily Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{cars.brandName}}</td>
+            <td>{{cars.colorName}}</td>
+            <td>{{cars.modelYear}}</td>
+            <td>{{cars.dailyPrice}}</td>
+            <td>{{cars.description}}</td>
+        </tr>
+
+    </tbody>
+  </table>
+</div>
+  <br>
 <hr>
 
-<app-rental [car]="cars"></app-rental>  
+<app-rental [car]="cars"></app-rental> 
+

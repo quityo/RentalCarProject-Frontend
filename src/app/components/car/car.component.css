@@ -10,7 +10,7 @@ table, td {
     border:2px solid darkgrey;
 }
 th{
-    border:2px solid #ab7777;
+    border:2px solid yellow;
 }
 .cursorPointer{
     cursor: pointer;
@@ -21,6 +21,6 @@ th{
 }
 .card-img-top {
     width: 100%;
-    height: 10vw;
+    height: 8vw;
     object-fit: cover;
 }

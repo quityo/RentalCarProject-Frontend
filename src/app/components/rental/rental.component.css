@@ -1,8 +1,14 @@
-.rental {
-    height: 100%;
+table.table.table-bordered {
+    text-align: center;
 }
-
-
-td:last-child {
-    text-align:center;
+.table-bordered{
+    background-color: black;
+    border-width: 5px solid;
+    
+}
+table, td {
+    border:2px solid darkgrey;
+}
+th{
+    border:2px solid #ab7777;
 }

@@ -5,10 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
-
 import { CustomerService } from 'src/app/services/customer.service';
-
-
 @Component({
   selector: 'app-rental',
   templateUrl: './rental.component.html',
@@ -16,7 +13,7 @@ import { CustomerService } from 'src/app/services/customer.service';
   providers: [DatePipe],
 })
 export class RentalComponent implements OnInit {
-
+  
   customers:Customer[];
   customerId:number;
   rentDate: Date;
@@ -70,8 +67,8 @@ export class RentalComponent implements OnInit {
       carId : this.car.carId,
       brandName : this.car.brandName,
       colorName : this.car.colorName,
-      carDailyPrice : this.car.dailyPrice,
-      carDescription : this.car.description,
+      dailyPrice : this.car.dailyPrice,
+      description : this.car.description,
       customerId : this.customerId,
       rentDate : this.rentDate,
       returnDate : this.returnDate,

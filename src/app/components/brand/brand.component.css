@@ -1,14 +1,13 @@
-
-  .list-group-item{
-    background-color: black;
-    color: yellow;
-    text-align: center;
-    font-size: 14px;
-  }
-  .list-group-item:hover{
-    background-color: yellow;
-    color: black;
-    text-align: center;
-    font-size: 14px; 
-    font-weight: bold;
-  }
+.list-group-item{
+  background-color: black;
+  color: yellow;
+  text-align: center;
+  font-size: 14px;
+}
+.list-group-item:hover{
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  font-size: 14px; 
+  font-weight: bold;
+}

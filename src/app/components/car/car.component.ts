@@ -1,9 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { concat } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
-
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,7 +11,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-
   cars : Car[] = [];
   imageBasePath  = environment.imageUrl;
   filterText = "";
