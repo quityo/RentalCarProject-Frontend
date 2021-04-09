@@ -10,7 +10,7 @@ import { ListResponseModel, ResponseModel } from '../models/responseModel';
 })
 export class RentalService {
 
-  apiUrl = "https://localhost:44359/api/"
+  apiUrl = "https://localhost:44315/api/"
 
   constructor(private httpClient : HttpClient) { }
 

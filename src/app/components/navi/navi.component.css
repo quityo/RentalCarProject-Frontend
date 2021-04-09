@@ -18,13 +18,14 @@ background-color: black;
 		z-index: 10000;		
 		left:0;
 		right: 0;
-		z-index: 99999;
+    opacity: 90%;
+    
 }
 
 #img-container{
 	width: 60px;
 	float: left;
-  margin: 15px 70px;
+  margin: 5px 50px;
 	}
 
 
@@ -39,20 +40,48 @@ background-color: black;
 
 #nav-bar{
   display: flex;
-	margin-top: 35px;
-	justify-content: center;
+	margin-top: 30px;
+  float: right;
 }
-
-.nav-link{
+ul.menu >li >a{
+  text-decoration: none;
+  color: yellow;
+  padding: 0px 20px 0 20px;
+}
+ul.menu >li:hover ul{
+  display:block;
+}
+ul.menu{
   font-family: Caveat;
-	font-size: 30px;
-	color: yellow;
+	font-size: 23px;
 	text-decoration: none;
-	padding: 0px 50px 0 40px;
+	
+}
+ul.menu >li{
+  float: left;
+  text-decoration: none;
+}
+ul.menu li a{
+  text-decoration: none;
+  color: yellow;
+  padding: 0px 20px 0 20px;
   
 }
+ul.menu ul{
+  display:none;
+}
+.name{
+  font-family: Caveat;
+	font-size: 40px;
+	color: yellow;
+	text-decoration: none;
+	padding: 0px 40px 0 0;
+  position: absolute;
 
-.nav-link:hover{
+  left: 130px;
+  top: 20px;
+}
+a:hover{
 	color: white;
 }
 
@@ -77,7 +106,7 @@ background-color: black;
   *{
      background-color: black;
   }
-  .nav-link{
+  .ul.menu{
 	font-family: Caveat;
 	padding: 0 11px;
 	font-size: 21px;
@@ -87,11 +116,7 @@ background-color: black;
  
   
 }
-  #nav-bar{
-  display: flex;
-	margin-top: 25px;
-	justify-content: center;
-}
+  
   #header-img {animation-name: Sun;
             animation-duration: 10000ms;
             animation-iteration-count: infinite;

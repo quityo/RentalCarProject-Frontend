@@ -12,7 +12,7 @@ import { ListResponseModel, ResponseModel } from '../models/responseModel';
 })
 export class BrandService {
 
-  apiUrl = environment.apiUrl +'brands/';;
+  apiUrl = environment.apiUrl +'brands/';
 
 
   constructor(private httpClient:HttpClient) { }

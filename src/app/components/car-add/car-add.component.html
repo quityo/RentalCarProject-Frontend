@@ -3,59 +3,59 @@
         <div class="card">
                 <div class="card-header">
                     <h5 class="title">
-                        Ürün Ekle
+                        Car Page
                     </h5>
                 </div>
                 <div class="card-body">
                     <form [formGroup]="carAddForm">
                         <div class="mb-3">
-                        <label for="description">Ürün Açıklaması</label>
+                        <label for="description">Description</label>
                         <div class="form-group">
                             <input type="text" id="description" 
                             formControlName="description" class="form-control"
-                            placeholder="Araba Açıklaması"/>
+                            placeholder="Enter car descriptoin"/>
                         </div>
                         </div>
                         <div class="mb-3">
-                            <label for="brandId">Marka</label>
+                            <label for="brandId">Brand</label>
                             <div class="form-group">
                             <select type = "number" id="brandId" formControlName="brandId"
-                            class="form-select"  placeholder="Marka Adı">
+                            class="form-select">
                         <option [ngValue] = "brand.brandId"
                         *ngFor = "let brand of brands">{{brand.brandName}}</option>
                         </select>
                         </div>
                         </div>
                         <div class="mb-3">
-                            <label for="modelYear">Model Yılı</label>
+                            <label for="modelYear">Model Year</label>
                             <div class="form-group">
                                 <input type="number" id="modelYear"
                                 formControlName="modelYear" class="form-control"
-                                placeholder="Model Yılı">
+                                placeholder="Enter model year">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="colorId">Renk</label>
+                            <label for="colorId">Color</label>
                             <div class="form-group">
                                 <select type="number" id="colorId" formControlName="colorId"
-                                class="form-select" placeholder = "Renk Adı">
+                                class="form-select">
                         <option [ngValue] = "color.colorId"
                         *ngFor = "let color of colors">{{color.colorName}}</option>
                             </select>
                             </div>
                         </div>
                         <div class="mb-3">
-                        <label for="dailyPrice">Günlük Fiyat</label>
+                        <label for="dailyPrice">Daily Price</label>
                         <div class="form-group">
                             <input type="number" id="dailyPrice"
                             formControlName="dailyPrice" class="form-control"
-                            placeholder="Günlük Fiyat">
+                            placeholder="Enter daily price">
                         </div>
                         </div>
                     </form>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-fill btn-info" (click)="add()">EKLE</button>
+                    <button class="btn btn-fill btn-info" (click)="add()">ADD</button>
                 </div>
             </div>
         </div>

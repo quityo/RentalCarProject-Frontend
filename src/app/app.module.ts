@@ -5,13 +5,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import{ToastrModule} from 'ngx-toastr';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'ng2-file-upload';
+import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
-import { BrandComponent } from './components/brand/brand.component';
-import { NaviComponent } from './components/navi/navi.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
@@ -26,13 +25,17 @@ import { BrandAddComponent } from './components/brand/brand-add/brand-add.compon
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { BrandFilterComponent } from './components/filter/brand-filter/brand-filter.component';
+import { CustomerAddComponent } from './components/customer/customer-add/customer-add.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NaviComponent } from './components/navi/navi.component';
+import { ColorFilterComponent } from './components/filter/color-filter/color-filter.component';
+import { BrandComponent } from './components/brand/brand.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponent,
-    BrandComponent,
     NaviComponent,
     ColorComponent,
     CustomerComponent,
@@ -48,10 +51,13 @@ import { BrandFilterComponent } from './components/filter/brand-filter/brand-fil
     BrandAddComponent,
     ColorAddComponent,
     BrandFilterComponent,
-    
-
+    CustomerAddComponent,
+    FooterComponent,
+    ColorFilterComponent,
+    BrandComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -61,9 +67,11 @@ import { BrandFilterComponent } from './components/filter/brand-filter/brand-fil
       positionClass:"toast-bottom-right"
     }),
     BrowserAnimationsModule,
-    FileUploadModule
+    
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

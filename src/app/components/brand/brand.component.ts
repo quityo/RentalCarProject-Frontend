@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
-
 @Component({
   selector: 'app-brand',
   templateUrl: './brand.component.html',
@@ -10,7 +9,7 @@ import { BrandService } from 'src/app/services/brand.service';
 
 export class BrandComponent implements OnInit {
 
-  brands : Brand[] = [];
+  brands : Brand[] = []
   currentBrand : Brand;
   filterBrandText ="";
 

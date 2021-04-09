@@ -1,8 +1,8 @@
 .d-block{
-    width: 35%;
-    height: 400px;
+    width: 10%;
+    height: 500px;
     text-align: center;
-    border-radius: 350px;
+    border-radius: 200px;
     margin: auto;
     display: block;
 }
@@ -19,7 +19,7 @@ h2{
 }
 .tb{
     
-    height: 150px;
+    height: 100px;
   width:350px; 
   margin: auto;
   display: block;

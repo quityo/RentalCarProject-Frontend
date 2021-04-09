@@ -1,0 +1,51 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">
+                    Customer Page
+                </h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="customerAddForm">
+                    <div class="mb-3">
+                        <label for="firstName">Customer First Name : </label>
+                        <div class="form-group">
+                            <input type="text" id="firstName"
+                            formControlName = "firstName" class="form-control"
+                            placeholder="Enter first name">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName">Customer Last Name : </label>
+                        <div class="form-group">
+                            <input type="text" id="lastName"
+                            formControlName = "lastName" class="form-control"
+                            placeholder="Enter last name">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="companyName">Company Name : </label>
+                        <div class="form-group">
+                            <input type="text" id="companyName"
+                            formControlName = "companyName" class="form-control"
+                            placeholder="Enter company name">
+                        </div>
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label for="email">Email : </label>
+                        <div class="form-group">
+                            <input type="text" id="email"
+                            formControlName = "email" class="form-control"
+                            placeholder="Enter email address">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-info" (click)="add()">ADD</button>
+            </div>
+        </div>
+    </div>
+</div>
