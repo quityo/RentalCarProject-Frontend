@@ -1,6 +1,6 @@
 footer {
     background-color: black;
-    color: yellow;
+    color: rgb(75, 213, 238);;
     margin-bottom: 30px;
     margin-top: 50px;
    
@@ -17,7 +17,7 @@ footer {
   }
   
   footer a {
-    color: yellow;
+    color: rgb(75, 213, 238);
     transition: color 0.3s linear;
     margin-right: 20px;
    

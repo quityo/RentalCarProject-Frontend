@@ -5,16 +5,17 @@
 <div *ngIf="filterText" class="alert alert-success">
   {{filterText}} searching..
 </div>
+
 <div class="row">
 <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars | carFilterPipe:filterText">
-  <div  class="card bg-dark text-white" style="width: 100%;">
+  <div  class="card bg-dark text-white " style="width: 100%;">
         <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="Araba Resmi">
       <div class="card-body">
                   <h5 class="card-title text-center">{{car.carName | uppercase}}</h5>
                   <hr>
-                  <p> Model : {{car.brandName }} </p>
+                  <p> Brand Name : {{car.brandName | uppercase }} </p>
                   <hr>
-                  <p> Year : {{car.modelYear}} </p>
+                  <p> Model Year : {{car.modelYear}} </p>
                  <!-- <hr>
                   <p> Price : {{car.dailyPrice|currency: "TRY":""}} ₺</p>
                   <hr>
@@ -25,4 +26,6 @@
           </div>  
         </div>
   </div>
+</div>
+
 </div>

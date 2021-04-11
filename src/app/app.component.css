@@ -3,8 +3,16 @@
 *{
   background-color: black;
   font-family: Oxanium;
+  
+  
+}
+#mmenu_screen > .row {
+  min-height: 100vh;
 }
 
+.flex-fill {
+  flex:1 1 auto;
+}
 .list-group {
     background-color: black;
     color: white;
