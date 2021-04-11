@@ -1,0 +1,23 @@
+<h4 style="text-align: center;">Brand</h4>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-info" routerLink = "/brands/add" type="button"><b>Add</b></button>
+</div>
+<br>
+<table class="table table-bordered table-condensed table-hover" >
+    <thead class="thead-dark">
+        <tr style="text-align: center;">
+            <th scope="col">Brand</th>
+            <th scope="col">Update</th>
+            <th scope = "col">Delete/th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands" style="text-align: center;">
+          <td>{{ brand.brandName }}</td>
+          <td>
+            <button class="btn btn-warning" routerLink="/brands/update/{{brand.brandId}}">Update</button>
+          </td>
+          <td><button class="btn btn-danger" (click)="deleteBrand(brand)">Delete</button></td>
+        </tr>
+      </tbody>

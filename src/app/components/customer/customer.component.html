@@ -1,14 +1,15 @@
-<table class="table table-bordered">
-  <thead style="background-color:#bc8f8f;">
+<div class="content">
+  <table class="table table-bordered">
+  <thead>
     <tr>
-      <th>Müşteri Id</th>
-      <th>Müşteri Adı </th>
-      <th>Müşteri Soyadı </th>
-      <th>Şirket Adı</th>
-      <th>Email</th>
+      <td>Customer Id</td>
+      <td>First Name </td>
+        <td>Last Name </td>
+          <td>Company</td>
+            <td>Email Address</td>
     </tr>
   </thead>
-    <tr *ngFor = "let customer of customers" style="background-color:rgb(228, 228, 228);">
+    <tr *ngFor = "let customer of customers">
       <td>{{customer.customerId}}</td>
       <td>{{customer.firstName}}</td>
       <td>{{customer.lastName}}</td>
@@ -16,3 +17,4 @@
       <td>{{customer.email}}</td>
   </tr>
   </table>
+</div>

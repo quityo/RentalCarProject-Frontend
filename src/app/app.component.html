@@ -1,28 +1,35 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <link rel="stylesheet" src = "app.component.css">
   </head>
   <body>
-</body>
+  </body>
 </html>
 <app-navi></app-navi>
-<br><br>
-<div class="container">
-  <br>
-  <div class ="row">
+<br><br><br>
+<div class ="row">
+  <div class="col-md-2">
+    <br> 
+    <app-brand-filter></app-brand-filter>
+    <app-brand></app-brand>  
     
-    <div class="col-md-2">
-      <app-brand></app-brand>
-      
-      <app-filter></app-filter>
+  </div>
+  <div class="col-md-8">
+    <div class="body">
+      <router-outlet></router-outlet>
     </div>
-    <div class="col-md-8">
-      <div class="body">
-      <router-outlet></router-outlet></div>
-    </div>
-    <div class="col-md-2">
-      <app-color></app-color>
+  </div>
+  <div class="col-md-2">
+    <br> 
+    <app-color-filter></app-color-filter>
+    <br>
+    <app-color></app-color>
+    <br>
+    
 
   </div>
-  </div>
+  
+  <app-footer></app-footer>
+</div>

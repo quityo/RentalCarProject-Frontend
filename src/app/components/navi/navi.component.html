@@ -4,24 +4,32 @@
     id="header-img" alt="Logo">
  </div>
     <nav id="nav-bar">
-      <h1 class="name">Funky Sun</h1>
+      <h1 class="name"> <a href='_self' routerLink="home">Funky Sun</a></h1>
       <ul class="menu">
-       <li><a href='#'>About Us</a></li>
-       <li><a href='#'>List Menu</a>
+       <li><a target='_self' routerLink="home">About Us</a></li>
+       
+       <li><a href="#">List Menu</a>
             <ul>
             <li><a routerLink="cars">Cars</a></li>
             <li><a routerLink="brands">Brands</a></li>
-
             <li><a routerLink = "colors">Colors</a></li>
             <li><a routerLink = "customers">Customers</a></li>          
             </ul>
           </li>
-       <li><a href='#'>Business</a>
+       <li><a href='#'>Add List</a>
         <ul>
         <li><a routerLink="cars/add">Car</a></li>
         <li><a routerLink = "brands/add">Brand</a></li>
         <li><a routerLink = "colors/add">Color</a></li>
         <li><a routerLink = "customers/add">Customer</a></li>          
+        </ul>
+      </li>
+      <li><a href='#'>Update List</a>
+        <ul>
+        <li><a routerLink="cars/update/:carId">Car</a></li>
+        <li><a routerLink = "brands/update/:brandId">Brand</a></li>
+        <li><a routerLink = "colors/update/:colorId">Color</a></li>
+                  
         </ul>
       </li>
        <li><a href='#contact' class="nav-link">Contact</a></li>

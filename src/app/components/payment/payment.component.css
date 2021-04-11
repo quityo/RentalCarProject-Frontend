@@ -1,5 +1,8 @@
+*{
+    background-color: black;
+}
 #payment{
-    width:500px;
+    width:200px;
 }
 
 #tablerental{
@@ -10,5 +13,47 @@
     background-color: rgb(163, 206, 255);
 }
 #card{
-    width: 500px;
-}
+    width: 400px;
+    height: 15rem;
+    background: url("https://c4.wallpaperflare.com/wallpaper/797/170/504/mask-star-wars-darth-vader-sith-lord-wallpaper-preview.jpg");
+    
+    border-color: grey;
+    border-radius: 10px;
+    margin:auto;
+   }
+ .text-center{
+    font-size: 18px; 
+    color:yellow;
+    font-style: italic;
+   }
+   
+   .card-number{
+    position:absolute;
+     bottom: 0.2em;
+     color: white;
+     left:  0.2em;
+     
+   }
+   .card-user{
+    position:absolute;
+     bottom: 50%;
+     color: white;
+     left:  0.2em;
+     
+   }
+   .card-exp {
+    position:absolute;
+    bottom: 25%;
+    color: white;
+    left:  0.2em;
+   }
+   
+   .payme{
+       color: white;
+       border-color: grey;
+       border-radius: 10px;
+   }
+   
+   .payme:hover{
+       color:yellow;
+   }

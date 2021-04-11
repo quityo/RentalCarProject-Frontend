@@ -3,18 +3,18 @@
   </head>
   <body>
     <br>
-    <h4>İşlem Özeti</h4>
+    <h3 class="text-center">"A long time ago in a galaxy far, far away.."</h3>
 <br>
 <table class="table table-bordered" id="tablerental">
     <thead id="tablerentalthead">
         <tr>
-            <th>Kira Başlangıç Tarih</th>
-            <th>Kira Bitiş Tarih</th>
-            <th>Marka</th>
-            <th>Renk</th>
-            <th>Açıklama</th>
-            <th>Günlük Fiyat</th>
-            <th>Toplam Tutar</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Description</th>
+            <th>Daily Price}</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
@@ -38,28 +38,26 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <h3 class="text-center">Payment Details</h3>
-                            <div align="center">
-                            <img class="img-responsive cc-img col align-self-center" id="payment" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> 
-                            </div>
+                            
+                            
+                            
                         </div>
                     </div>
                     <div class="panel-body">
                       <div>
-                        <div class="card credit-card col-6 text-light border mx-auto" id="card"
-                        style="height: 16rem; background: linear-gradient(50deg, #325adfd5 50%, #aaaaaa 80%); ">
-                        <div class="card mx-4 my-4 position-absolute end-0" style="font-size: 22px; color:rgb(43, 43, 43); background: linear-gradient(120deg, #cfcfcf  15%, #707070 80%); "><b>KREDİ KARTI</b></div>
-                        <div class="card mx-4 my-4 position-absolute bottom-90" style="width:3rem;height: 2rem; background: #cecece">
-                        </div>
-                        <div id="card-number" class="mt-3 position-absolute top-50 start-50 translate-middle text-nowrap">
-                          {{cardNumber ? cardNumber : ''}}</div>
-                        <div class="card-user m-3 position-absolute bottom-0">{{nameOnTheCard  ? nameOnTheCard : 'Kart Üzerindeki İsim Soyisim'}}</div>
-                        <div class="card-exp m-3 mb-0 position-absolute end-0 bottom-0 "
-                          style="font-size: 14px; text-align: center;">Son Geçerlilik Tarihi <p>{{expirationDate ? expirationDate: ''}}</p>
+                        <div class="card credit-card" id="card">
+                       
+                        <div class="card-number">{{cardNumber ? cardNumber : ''}}</div>
+                        <div class="card-user">{{nameOnTheCard  ? nameOnTheCard : ''}}</div>
+                        <div class="card-exp">{{expirationDate ? expirationDate: ''}}
                         </div>
                       </div>
-                      <br><br>
-
+                      <div align="center">
+                            <img class="img-responsive cc-img col align-self-center" id="payment" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> 
+                            </div>
+                      <br>
+                      <h3 class="text-center">May The Money Be With You</h3>
+                      <br>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                               <label for="cc-name">Name on card</label>
@@ -80,7 +78,7 @@
                           <div class="row">
                             <div class="col-md-6 mb-3">
                               <label for="cc-expiration">Expiration</label>
-                              <input [(ngModel)] = "expirationDate" type="text" class="form-control" id="cc-expiration" placeholder="MM/YYYY" required>
+                              <input [(ngModel)] = "expirationDate" type="text" class="form-control" id="cc-expiration" placeholder="DD/MM/YYYY" required>
                               <div class="invalid-feedback">
                                 Expiration date required
                               </div>
@@ -100,8 +98,8 @@
     </div>
     <div class="card-footer">
         <div class="row">
-            <button (click) = "rentACar()" class="btn btn-warning">
-                {{amountOfPayment}} Ödeme Yap
+            <button (click) = "rentACar()" class="payme">
+                 Give Me {{amountOfPayment}}$
             </button>
         </div>
     </div>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Brand } from '../models/brand';
-import { ListResponseModel, ResponseModel } from '../models/responseModel';
+import { ItemResponseModel, ListResponseModel, ResponseModel } from '../models/responseModel';
 
 
 
@@ -11,8 +11,9 @@ import { ListResponseModel, ResponseModel } from '../models/responseModel';
   providedIn: 'root'
 })
 export class BrandService {
+ 
 
-  apiUrl = environment.apiUrl +'brands/';
+  apiUrl = environment.apiUrl +'brands/';;
 
 
   constructor(private httpClient:HttpClient) { }
@@ -23,5 +24,18 @@ export class BrandService {
   }
   add(brand : Brand):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "add",brand)
+  }
+  getById(brandId : number):Observable<ItemResponseModel<Brand>>{
+    let newPath = this.apiUrl + "getbyid?id=" + brandId;
+    return this.httpClient.get<ItemResponseModel<Brand>>(newPath);
+  }
+  update(brand : Brand) : Observable<ListResponseModel<Brand>>{
+    let newPath = this.apiUrl + "update";
+    return this.httpClient.post<ListResponseModel<Brand>>(newPath,brand);
+  }
+  delete(brand : Brand):Observable<ItemResponseModel<Brand>>{
+    let newPath = this.apiUrl + "delete";
+    return this.httpClient.post<ItemResponseModel<Brand>>(newPath,brand);
+
   }
 }

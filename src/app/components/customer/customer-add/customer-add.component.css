@@ -1,0 +1,29 @@
+.card-header{
+    text-align: center;
+    background-color: Black;
+    color: white;
+    
+}
+
+.card {
+    
+    border-color: yellow;
+}
+
+.card-body, .card-footer{
+    background-color: Black;
+    color: white;
+}
+.btn{
+    color:black;
+    font-size: 11px;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    background-color: #fafafa;
+}
+.content {
+width: 500px;
+height:500px;
+margin: auto;
+margin-top: 50px ;
+}

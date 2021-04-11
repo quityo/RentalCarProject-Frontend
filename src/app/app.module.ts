@@ -14,7 +14,7 @@ import { CarComponent } from './components/car/car.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { TabComponent } from './components/tab/tab.component';
+
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
@@ -30,6 +30,17 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { ColorFilterComponent } from './components/filter/color-filter/color-filter.component';
 import { BrandComponent } from './components/brand/brand.component';
+import { HomeComponent } from './components/home/home.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { CarImageComponent } from './components/car/car-image/car-image.component';
+import { CarListComponent } from './components/car/car-list/car-list.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { TabComponent } from './components/tab/tab.component';
 
 
 @NgModule({
@@ -54,7 +65,17 @@ import { BrandComponent } from './components/brand/brand.component';
     CustomerAddComponent,
     FooterComponent,
     ColorFilterComponent,
-    BrandComponent
+    BrandComponent,
+    HomeComponent,
+    BrandUpdateComponent,
+    BrandListComponent,
+    CarImageComponent,
+    CarListComponent,
+    CarUpdateComponent,
+    ColorListComponent,
+    ColorUpdateComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule,
@@ -67,7 +88,7 @@ import { BrandComponent } from './components/brand/brand.component';
       positionClass:"toast-bottom-right"
     }),
     BrowserAnimationsModule,
-    
+    FileUploadModule
    
   ],
   providers: [],

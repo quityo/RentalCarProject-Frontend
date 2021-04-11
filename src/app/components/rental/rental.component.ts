@@ -74,7 +74,7 @@ export class RentalComponent implements OnInit {
       returnDate : this.returnDate,
     };
     if (MyRental.customerId == undefined || MyRental.rentDate == undefined) {
-      this.toastrService.error("Eksik bilgi girdiniz","Bilgilerinizi kontrol edin")
+      this.toastrService.error("AUGHTUNG!!")
     } else{
       this.router.navigate(['/payment/', JSON.stringify(MyRental)]);
       this.toastrService.info(

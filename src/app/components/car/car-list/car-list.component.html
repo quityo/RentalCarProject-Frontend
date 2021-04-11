@@ -1,0 +1,31 @@
+<h3 style="text-align: center;">Car List</h3>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-info" routerLink = "/cars/add" type="button"><b>Add</b></button>
+  </div>
+  <br>
+<table class="table table-bordered table-condensed table-hover">
+    <thead class="thead-dark">
+        <tr style="text-align: center;">
+            <th>Description</th>
+            <th>Brand Name</th>
+            <th>Model Year</th>
+            <th>Daily Price</th>
+            <th>Color</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let car of cars" style="text-align: center;">
+            <td>{{car.description}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice}}</td>
+            <td>{{car.colorName}}</td>
+            <td><button class="btn btn-warning" routerLink="/cars/update/{{car.carId}}">Update</button></td>
+            <td><button class="btn btn-danger" (click)="deleteCar(car)">Sil</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

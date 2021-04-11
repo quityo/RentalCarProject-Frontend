@@ -12,6 +12,15 @@ import { BrandAddComponent } from './components/brand/brand-add/brand-add.compon
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
 import { CustomerAddComponent } from './components/customer/customer-add/customer-add.component';
 import { BrandComponent } from './components/brand/brand.component';
+import { HomeComponent } from './components/home/home.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { CarListComponent } from './components/car/car-list/car-list.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -30,7 +39,16 @@ const routes: Routes = [
   {path:"cars/add",component:CarAddComponent},
   {path:"brands/add",component:BrandAddComponent},
   {path:"colors/add",component:ColorAddComponent},
-  {path:"customers/add",component:CustomerAddComponent}
+  {path:"brands/update/:brandId",component:BrandUpdateComponent},
+  {path:"brandlist",component:BrandListComponent},
+  {path:"colors/update/:colorId",component:ColorUpdateComponent},
+  {path:"colorlist",component:ColorListComponent},
+  {path:"carlist",component:CarListComponent},
+  {path:"cars/update/:carId",component:CarUpdateComponent},
+  {path:"customers/add",component:CustomerAddComponent},
+  {path:"home",component:HomeComponent},
+  {path:"login",component:LoginComponent},
+  {path:"register",component:RegisterComponent}
 ];
 
 @NgModule({

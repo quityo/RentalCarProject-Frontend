@@ -10,7 +10,7 @@ import { ListResponseModel, ResponseModel } from '../models/responseModel';
 })
 export class CustomerService {
 
-  apiUrl = environment.apiUrl +'customers/';
+  
 
   constructor(private httpClient : HttpClient) { }
 
@@ -23,6 +23,6 @@ export class CustomerService {
     return this.httpClient.get<ListResponseModel<Customer>>(newPath);
   }
   add(customer : Customer):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "add",customer)
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + "customers/add",customer)
   }
 }

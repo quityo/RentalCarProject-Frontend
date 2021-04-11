@@ -1,21 +1,21 @@
 <div class="d-grid gap-2">
     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#rentModal">
-      Aracı Kirala
+      Drive Me
     </button>
   </div>
   
-  <!-- Modal -->
+  
   <div
     class="modal fade" id="rentModal" tabindex="-1" aria-labelledby="rentModalLabel"aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="rentModalLabel"> {{car.carName}} | Aracı Kirala</h5>
+          <h5 class="modal-title" id="rentModalLabel"> {{car.carName}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="form-group row mb-2">
-            <label for="example-date-input" class="col-4 col-form-label">Günlük Fiyat</label>
+            <label for="example-date-input" class="col-4 col-form-label">Daily Price</label>
             <div class="col-8">
               <input
                 type="number"
@@ -25,14 +25,12 @@
             </div>
           </div>
           <div class="form-group row mb-2">
-            <label for="example-date-input" class="col-4 col-form-label">Müşteri</label>
+            <label for="example-date-input" class="col-4 col-form-label">Customer</label>
             <div class="col-8">
               <select class="form-select" [(ngModel)]="customerId">
                 <option
                   [ngValue]="customer.customerId"
-                  *ngFor="let customer of customers">
-                  {{ customer.firstName }} {{ customer.lastName }} |
-                  {{ customer.companyName }}
+                  *ngFor="let customer of customers">{{ customer.companyName }}
                 </option>
               </select>
             </div>
@@ -51,7 +49,7 @@
           </div>
           
           <div class="form-group row mb-2">
-            <label for="example-date-input" class="col-4 col-form-label">Başlangıç</label>
+            <label for="example-date-input" class="col-4 col-form-label">Start</label>
             <div class="col-8">
               <input
                 (change)="onChangeEvent($event)"
@@ -66,7 +64,7 @@
           </div>
           <div class="form-group row">
             <label for="example-date-input" class="col-4 col-form-label"
-              >Bitiş</label>
+              >Finish</label>
             <div class="col-8">
               <input
                 disabled="{{ !firstDateSelected }}"
@@ -82,11 +80,11 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Kapat
+          <button type="button" class="btn" data-bs-dismiss="modal">
+            Exit
           </button>
           <button
-            data-bs-dismiss="modal" (click)="createRental()" type="button" class="btn btn-success"> Kirala
+            data-bs-dismiss="modal" (click)="createRental()" type="button" class="btn"> Rent
           </button>
         </div>
       </div>

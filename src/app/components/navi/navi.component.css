@@ -26,6 +26,7 @@ background-color: black;
 	width: 60px;
 	float: left;
   margin: 5px 50px;
+  height: 72px;
 	}
 
 
@@ -33,7 +34,7 @@ background-color: black;
 #header-img{
 	display: block;
   max-width: 100%;
-	height: auto;
+	height: 67px;
   
 }
 
@@ -70,7 +71,7 @@ ul.menu li a{
 ul.menu ul{
   display:none;
 }
-.name{
+h1.name a{
   font-family: Caveat;
 	font-size: 40px;
 	color: yellow;
@@ -81,7 +82,10 @@ ul.menu ul{
   left: 130px;
   top: 20px;
 }
-a:hover{
+h1.name a:hover{
+  color: white;
+}
+ul.menu li a:hover{
 	color: white;
 }
 

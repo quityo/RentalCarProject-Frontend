@@ -1,0 +1,23 @@
+<h3 style="text-align: center;">Color List</h3>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-info" routerLink = "/colors/add" type="button"><b>Add</b></button>
+  </div>
+  <br>
+<table class="table table-bordered table-condensed table-hover">
+    <thead class="thead-dark">
+        <tr style="text-align: center;" >
+        <th>Color</th>
+        <th>Update</th>
+        <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let color of colors" style="text-align: center;">
+            <td>{{color.colorName}}</td>
+            <td class="operations">
+                <button class="btn btn-warning" routerLink="/colors/update/{{color.colorId}}">Update</button>
+            </td>
+            <td><button class="btn btn-danger" (click)="deleteColor(color)">Sil</button></td>
+        </tr>
+    </tbody>
+</table>
