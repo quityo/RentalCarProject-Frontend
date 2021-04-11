@@ -2,27 +2,27 @@
     
     <main class="form-signin">
       <form [formGroup]="loginForm">
-        <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+        <h1 class="h3 mb-3 fw-normal">Enter</h1>
     
         <div class="form-floating">
           <input 
           formControlName="email"
           type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email adres</label>
+          <label for="floatingInput">Email Address</label>
         </div>
         <div class="form-floating">
           <input
           formControlName = "password"
           type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Parola</label>
+          <label for="floatingPassword">Password</label>
         </div>
     
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> Beni hatırla
+            <input type="checkbox" value="remember-me"> Remember Me
           </label>
         </div>
-        <button (click)="login()" class="w-100 btn btn-lg btn-primary">Giriş Yap</button>
+        <button (click)="login()" class="w-100 btn btn-lg btn-primary">Enter</button>
         
       </form>
     </main>

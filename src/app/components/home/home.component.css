@@ -14,12 +14,12 @@
 
 #sw-logo {
 	position:absolute; 
-	top:0; 
-	left:0; 
-	height:100%; 
-	width:100%;
+	top:30%;
+	left:25%; 
+	height:50%; 
+	width:50%;
 	opacity: 0;
-	animation: logo 12s linear 6s;
+	animation: logo 14s linear 6s;
 }
 
 #sw-crawl {
@@ -29,7 +29,7 @@
 	bottom: 0;
 	opacity: 0;
 	transform-origin: 50% 100%;
-	transform: perspective(300px) rotateX(40deg);
+	transform: perspective(700px) scaleZ(1) rotatex(40deg);
 	animation: crawl 60s linear 16s;
 	overflow: hidden;
 	width: 640px;
