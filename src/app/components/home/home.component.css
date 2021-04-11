@@ -30,8 +30,8 @@
 	bottom: 0;
 	opacity: 0;
 	transform-origin: 50% 100%;
-	transform: perspective(300px) rotateX(40deg);
-	animation: crawl 60s linear 16s;
+	transform: perspective(550px) rotateX(40deg);
+	animation: crawl 150s linear 16s;
 	overflow: hidden;
 	width: 640px;
 	left: calc(50% - 320px);
@@ -39,7 +39,7 @@
 }
 
 #sw-crawl-episode-number {
-	font-size: 50px;
+	font-size: 70px;
 	margin-bottom: 20px;
 }
 
@@ -51,7 +51,7 @@
 
 #sw-crawl-episode-text {
 	text-align: center;
-	font-size: 50px;
+	font-size: 70px;
 	width: 640px;
 	margin: auto;
 }
