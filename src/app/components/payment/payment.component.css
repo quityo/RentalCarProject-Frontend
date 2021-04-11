@@ -6,8 +6,9 @@
 }
 
 #tablerental{
-    background-color: rgba(223, 223, 223, 0.616);
-    border:2px solid  rgb(77, 160, 255);
+    text-align: center;
+    border:2px solid  silver;
+    color: white;
 }
 #tablerentalthead{
     background-color: rgb(163, 206, 255);
@@ -56,4 +57,7 @@
    
    .payme:hover{
        color:yellow;
+   }
+   .col-md-6{
+       color: white;
    }
