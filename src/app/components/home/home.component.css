@@ -14,14 +14,13 @@
 
 #sw-logo {
 	position:absolute; 
-	top:30%;; 
-	left:20%; 
-	height:60%; 
-	width:60%;
+	top:0; 
+	left:0; 
+	height:100%; 
+	width:100%;
 	opacity: 0;
 	animation: logo 12s linear 6s;
 }
-
 
 #sw-crawl {
 	font-family: "Franklin Gothic";
@@ -30,8 +29,8 @@
 	bottom: 0;
 	opacity: 0;
 	transform-origin: 50% 100%;
-	transform: perspective(550px) rotateX(40deg);
-	animation: crawl 150s linear 16s;
+	transform: perspective(300px) rotateX(40deg);
+	animation: crawl 60s linear 16s;
 	overflow: hidden;
 	width: 640px;
 	left: calc(50% - 320px);
@@ -39,7 +38,7 @@
 }
 
 #sw-crawl-episode-number {
-	font-size: 70px;
+	font-size: 50px;
 	margin-bottom: 20px;
 }
 
@@ -51,7 +50,7 @@
 
 #sw-crawl-episode-text {
 	text-align: center;
-	font-size: 70px;
+	font-size: 50px;
 	width: 640px;
 	margin: auto;
 }
