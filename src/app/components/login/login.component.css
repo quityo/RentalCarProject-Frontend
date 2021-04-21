@@ -31,12 +31,11 @@
 
 .display1 {
   font-size: 25px;
-  font-weight: 100;
-  line-height: 1.2;
-  color: black;
-  text-transform: inherit;
-  letter-spacing: inherit;
- 
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
     text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     
 }

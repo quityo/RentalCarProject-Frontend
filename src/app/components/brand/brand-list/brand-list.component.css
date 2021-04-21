@@ -48,13 +48,15 @@
         letter-spacing: inherit;
       }
       
-  .display1 {
+  .display1{
     font-size: 25px;
     font-weight: 100;
     line-height: 2;
     color: white;
     text-transform: inherit;
     letter-spacing: inherit;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
   }
   p{
     color: white;
@@ -138,11 +140,22 @@
     }
   } 
   .table a{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
     text-decoration: none;
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-    color: #fff6a9;
-    font-size: 21px;
+    
   }
   .table a:hover{
-color: black;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
   }

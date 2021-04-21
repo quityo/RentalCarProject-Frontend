@@ -28,9 +28,9 @@
             <td>{{car.modelYear}}</td>
             <td>{{car.colorName}}</td>
             <td>{{car.dailyPrice}}</td>
-            <td><button class="btn btn-primary" routerLink="/carimages/{{car.carId}}">Resim Ekle</button></td>
+            <td><button class="btn btn-primary" routerLink="/carimages/{{car.carId}}">Image</button></td>
             <td><button class="btn btn-warning" routerLink="/cars/update/{{car.carId}}">Update</button></td>
-            <td><button class="btn btn-danger" (click)="deleteCar(car)">Sil</button>
+            <td><button class="btn btn-danger" (click)="deleteCar(car)">Delete</button>
             </td>
         </tr>
 

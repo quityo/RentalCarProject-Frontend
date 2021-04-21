@@ -7,6 +7,7 @@
     text-align: center;
     text-decoration: none;
   }
+ 
   
   
   .btn{
@@ -28,7 +29,26 @@
     .logo-image, h1, h2, p{
       text-align: center; 
     }    
-   
+    .table td, a{
+      font-size: 18px;
+      font-weight: 100;
+      line-height: 2;
+      color: white;
+      text-transform: inherit;
+      letter-spacing: inherit;
+      text-decoration: none;
+      
+    }
+    .table a:hover{
+      font-size: 20px;
+      font-weight: 100;
+      line-height: 2;
+      color: white;
+      text-transform: inherit;
+      letter-spacing: inherit;
+      text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      
+    }
     .display2 {
         font-size: 25px;
         font-weight: 100;
@@ -45,6 +65,8 @@
     color: white;
     text-transform: inherit;
     letter-spacing: inherit;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
   }
   p{
     color: white;
@@ -127,9 +149,4 @@
       transform: scale3d(1, 1, 1);
     }
   } 
-  .table a{
-    text-decoration: none;
-  }
-  .table a:hover{
-    color: white;
-  }
+  
