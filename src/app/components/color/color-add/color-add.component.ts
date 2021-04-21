@@ -41,5 +41,7 @@ export class ColorAddComponent implements OnInit {
       this.toastrService.error("Formunuz Eksik","Dikkat");
     }
   }
+ 
+ 
 
 }

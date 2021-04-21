@@ -1,0 +1,14 @@
+div.box {
+    margin-bottom: 20px;
+}
+
+.img-fluid {
+    width: 200px;
+    height: 130px;
+}
+
+button.delete {
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+}

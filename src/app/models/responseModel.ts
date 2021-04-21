@@ -10,3 +10,6 @@ export interface ListResponseModel<T> extends ResponseModel{
 export interface ItemResponseModel<T>  extends ResponseModel{
     data:T
 }
+export interface SingleResponseModel<T> extends ResponseModel{
+    data:T;
+}

@@ -30,7 +30,7 @@
 	opacity: 0;
 	transform-origin: 50% 100%;
 	transform: perspective(700px) scaleZ(1) rotatex(40deg);
-	animation: crawl 60s linear 16s;
+	animation: crawl 100s linear 16s;
 	overflow: hidden;
 	width: 640px;
 	left: calc(50% - 320px);

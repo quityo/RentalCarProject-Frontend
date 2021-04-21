@@ -1,0 +1,82 @@
+<hr>
+<main class="form-add">
+    <div class="container">
+      <div id="add" class="add-card">
+        <div class="logo-image">
+          <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Funky Sun" id="Logo"
+            width="80">
+        </div>
+        <h1 class="display1">Funky Sun</h1>
+        <p class="subhead">Rental Car</p>
+        <hr>
+         <h2 class="display2"> <hr>Car Add Form <hr></h2>
+         </div>
+         <hr>
+         <!-- <div class="content"> -->
+    <div class="col-md-12">
+        <div class="card">
+            
+                <div class="card-body">
+                    <form [formGroup]="carAddForm">
+                        <div class="mb-3">
+                           
+                            </div>
+                        <div class="mb-3">
+                        <label for="description">Description</label>
+                        <div class="form-group">
+                            <input type="text" id="description" 
+                            formControlName="description" class="form-control"
+                            placeholder="Enter car descriptoin"/>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brandId">Brand</label>
+                            <div class="form-group">
+                            <select type = "number" id="brandId" formControlName="brandId"
+                            class="form-select">
+                        <option [ngValue] = "brand.brandId"
+                        *ngFor = "let brand of brands">{{brand.brandName}}</option>
+                        </select>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelYear">Model Year</label>
+                            <div class="form-group">
+                                <input type="number" id="modelYear"
+                                formControlName="modelYear" class="form-control"
+                                placeholder="Enter model year">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="colorId">Color</label>
+                            <div class="form-group">
+                                <select type="number" id="colorId" formControlName="colorId"
+                                class="form-select">
+                        <option [ngValue] = "color.colorId"
+                        *ngFor = "let color of colors">{{color.colorName}}</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                        <label for="dailyPrice">Daily Price</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice"
+                            formControlName="dailyPrice" class="form-control"
+                            placeholder="Enter daily price">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="carFindexPoint">Car Findex Points</label>
+                            <div class="form-group">
+                                <input type="number" id="carFindexPoint" formControlName="carFindexPoint" class="form-control" placeholder="Car Findex Points"/>
+                            </div></div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn" (click)="add()"><b>Add Car</b></button>
+                    <button class="btn" a routerLink="/brands/add" ><b>Add Brand</b></button>
+                    <button class="btn" a routerLink="/colors/add" ><b>Add Color</b></button>
+                </div>
+            </div>
+        </div>
+</div>

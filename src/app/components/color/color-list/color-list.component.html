@@ -1,20 +1,37 @@
-<h3 style="text-align: center;">Color List</h3>
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-info" routerLink = "/colors/add" type="button"><b>Add</b></button>
-  </div>
-  <br>
-<table class="table table-bordered table-condensed table-hover">
-    <thead class="thead-dark">
-        <tr style="text-align: center;" >
-        <th>Color</th>
-        <th>Update</th>
-        <th>Delete</th>
+<hr>
+<main class="form-add">
+    <div class="container">
+      <div id="add" class="add-card">
+        <div class="logo-image">
+          <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Funky Sun" id="Logo"
+            width="80">
+        </div>
+        <h1 class="display1">Funky Sun</h1>
+        <p class="subhead">Rental Car</p>
+        <hr>
+         <h2 class="display2"> <hr>Color List Page<hr></h2>
+         </div>
+         <hr>
+         <!-- <div class="content"> -->
+          
+<br>
+<!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-info" routerLink = "/brands/add" type="button"><b>Add</b></button>
+</div> -->
+
+<table class="table table-bordered table-condensed table-hover" >
+    <!-- <thead class="thead-dark">
+        <tr style="text-align: center;">
+            <th scope="col">Brand</th>
+            <th scope="col">Update</th>
+            <th scope = "col">Delete</th>
         </tr>
-    </thead>
+    </thead> -->
+    
     <tbody>
         <tr *ngFor = "let color of colors" style="text-align: center;">
-            <td>{{color.colorName}}</td>
-            <td class="operations">
+            <td> <a routerLink= "/cars/color/{{color.colorId}}">  {{color.colorName}}</a>
+                <td class="operations">
                 <button class="btn btn-warning" routerLink="/colors/update/{{color.colorId}}">Update</button>
             </td>
             <td><button class="btn btn-danger" (click)="deleteColor(color)">Sil</button></td>

@@ -1,16 +1,30 @@
-<div class="content">
+<hr>
+<main class="form-add">
+    <div class="container">
+      <div id="add" class="add-card">
+        <div class="logo-image">
+          <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Funky Sun" id="Logo"
+            width="80">
+        </div>
+        <h1 class="display1">Funky Sun</h1>
+        <p class="subhead">Rental Car</p>
+        <hr>
+         <h2 class="display2"> <hr>Customer List Form <hr></h2>
+         </div>
+         <hr>
+         <!-- <div class="content"> -->
   <table class="table table-bordered">
   <thead>
     <tr>
-      <td>Customer Id</td>
+      
       <td>First Name </td>
         <td>Last Name </td>
           <td>Company</td>
             <td>Email Address</td>
     </tr>
   </thead>
-    <tr *ngFor = "let customer of customers">
-      <td>{{customer.customerId}}</td>
+    <tr *ngFor = "let customer of customers" >
+      
       <td>{{customer.firstName}}</td>
       <td>{{customer.lastName}}</td>
       <td>{{customer.companyName}}</td>

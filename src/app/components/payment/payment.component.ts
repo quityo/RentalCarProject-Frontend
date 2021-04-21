@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Card } from 'src/app/models/card';
 import { Customer } from 'src/app/models/customer';
-
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CardService } from 'src/app/services/card.service';
@@ -19,6 +16,7 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+
   rental : Rental;
   cars : Car;
   customer : Customer;

@@ -14,22 +14,15 @@ import { CarComponent } from './components/car/car.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
-
-import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
+import { BrandComponent } from './components/brand/brand.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
-import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 import { PaymentComponent } from './components/payment/payment.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { BrandFilterComponent } from './components/filter/brand-filter/brand-filter.component';
-import { CustomerAddComponent } from './components/customer/customer-add/customer-add.component';
+import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NaviComponent } from './components/navi/navi.component';
-import { ColorFilterComponent } from './components/filter/color-filter/color-filter.component';
-import { BrandComponent } from './components/brand/brand.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
@@ -41,7 +34,15 @@ import { ColorUpdateComponent } from './components/color/color-update/color-upda
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { TabComponent } from './components/tab/tab.component';
-
+import { ProfileComponent } from './components/profile/profile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CarFilterPipe } from './pipes/car-filter.pipe';
+import { BrandFilterPipe } from './pipes/brand-filter.pipe';
+import { ColorFilterPipe } from './pipes/color-filter.pipe';
+import { JwtModule } from '@auth0/angular-jwt';
+import { CartComponent } from './components/cart/cart.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -53,18 +54,12 @@ import { TabComponent } from './components/tab/tab.component';
     RentalComponent,
     TabComponent,
     CarDetailComponent,
-    CarFilterPipePipe,
     FilterComponent,
-    BrandFilterPipePipe,
-    ColorFilterPipePipe,
     PaymentComponent,
     CarAddComponent,
     BrandAddComponent,
     ColorAddComponent,
-    BrandFilterComponent,
-    CustomerAddComponent,
     FooterComponent,
-    ColorFilterComponent,
     BrandComponent,
     HomeComponent,
     BrandUpdateComponent,
@@ -75,7 +70,16 @@ import { TabComponent } from './components/tab/tab.component';
     ColorListComponent,
     ColorUpdateComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ChangePasswordComponent,
+    UserProfileComponent,
+    ProfileComponent,
+    CartComponent,
+    CarFilterPipe,
+    BrandFilterPipe,
+    ColorFilterPipe,
+    CardComponent,
+    
   ],
   imports: [
     RouterModule,
@@ -88,7 +92,8 @@ import { TabComponent } from './components/tab/tab.component';
       positionClass:"toast-bottom-right"
     }),
     BrowserAnimationsModule,
-    FileUploadModule
+    FileUploadModule,
+    JwtModule,
    
   ],
   providers: [],

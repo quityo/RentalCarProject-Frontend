@@ -18,7 +18,7 @@ export class CarUpdateComponent implements OnInit {
 
   brands : Brand[];
   colors : Color[];
-  car : Car;
+  car : Car[];
   carUpdateForm : FormGroup;
 
   constructor(
@@ -47,18 +47,18 @@ export class CarUpdateComponent implements OnInit {
       brandId : ["",Validators.required],
       modelYear : ["",Validators.required],
       dailyPrice : ["",Validators.required],
-      colorId: ["",Validators.required]
+      colorId: ["",Validators.required],
     })
   }
   getCarById(carId:number){
-    this.carService.getById(carId).subscribe(response =>{
+    this.carService.getCarDetailsByCarId(carId).subscribe(response =>{
       this.car = response.data;
     })
   }
   updateCar(){
     if(this.carUpdateForm.valid){
       let carModel = Object.assign({},this.carUpdateForm.value)
-      carModel.carId = this.car.carId
+      carModel.carId = this.car
       this.carService.update(carModel).subscribe(response =>{
         this.toastrService.success(response.message)
       },responseError =>{
@@ -78,5 +78,4 @@ export class CarUpdateComponent implements OnInit {
       this.brands = response.data;
     })
   }
-
 }

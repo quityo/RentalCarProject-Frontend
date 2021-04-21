@@ -1,5 +1,7 @@
 
 
+
+
 .signin-card {
   -webkit-animation: cardEnter 0.75s ease-in-out 0.5s;
   animation: cardEnter 0.75s ease-in-out 0.5s;
@@ -20,20 +22,23 @@
   0 6px 6px rgba(0, 0, 0, .23); 
 }
 
+  
 .signin-card  
   .logo-image, h1, p {
     text-align: center;
   }    
+ 
 
-
-/* -- font styles ------------------------------------- */
 .display1 {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 100;
   line-height: 1.2;
-  color: #757575;
+  color: black;
   text-transform: inherit;
   letter-spacing: inherit;
+ 
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
 }
 
 .subhead {
@@ -46,9 +51,16 @@
 }
 .float-label, .checkbox {
   color: grey;
-  text-align:justify;
+  text-align: center;
 }
-/* card animation from Animate.css -------------------- */
+
+.card-footer{
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+
 @-webkit-keyframes cardEnter {
   0%, 20%, 40%, 60%, 80%, 100% {
     -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -126,4 +138,5 @@
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
-}
+} 
+

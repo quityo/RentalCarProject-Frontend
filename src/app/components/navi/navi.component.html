@@ -1,43 +1,39 @@
-<header id="header">
-  <div id="img-container">
-    <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" 
-    id="header-img" alt="Logo">
- </div>
-    <nav id="nav-bar">
-      <h1 class="name"> <a href='_self' routerLink="home">Funky Sun</a></h1>
-      <ul class="menu">
-       <li><a target='_self' routerLink="home">About Us</a></li>
-       
-       <li><a href="#">List Menu</a>
-            <ul>
-            <li><a routerLink="cars">Cars</a></li>
-            <li><a routerLink="brands">Brands</a></li>
-            <li><a routerLink = "colors">Colors</a></li>
-            <li><a routerLink = "customers">Customers</a></li>          
-            </ul>
-          </li>
-       <li><a href='#'>Add</a>
-        <ul>
-        <li><a routerLink="cars/add">Car</a></li>
-        <li><a routerLink = "brands/add">Brand</a></li>
-        <li><a routerLink = "colors/add">Color</a></li>
-        <li><a routerLink = "customers/add">Customer</a></li>          
-        </ul>
-      </li>
-      <li><a href='#'>Update</a>
-        <ul>
-        <li><a routerLink="cars/update/:carId">Car</a></li>
-        <li><a routerLink = "brands/update/:brandId">Brand</a></li>
-        <li><a routerLink = "colors/update/:colorId">Color</a></li>
-                  
-        </ul>
-      </li>
-      <li><a routerLink="login"> Login </a>
-      </li>
-      <li><a routerLink="register"> Register </a>
-      </li>
-       <li><a href='#contact' class="nav-link">Contact</a></li>
-    </ul>
-           </nav>
-   </header>
-   
+
+<header>
+   <div class="logo">
+    <a><img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" 
+      id="header-img" 
+      alt="Funky Sun" style="border-width:0px;"></a>
+  </div> 
+  
+<p id="fallout"><span>F</span>unky Sun</p>
+  <p id="code">RE<span>N</span>TAL C<span>AR</span></p>
+ 
+</header>
+  
+<div id="nav" role="navigation" >
+  
+  <ul>
+    <li><a href="home">About</a></li>
+    <li><a href="">List</a>
+      <ul>
+        <li><a routerLink="cars">Car</a></li>
+        <li><a routerLink="brandlist">Brand</a></li>
+        <li><a routerLink = "colorlist">Color</a></li>
+        <li><a routerLink = "customers/getcustomerdetail">Customer</a></li>     
+      </ul>
+    </li>
+    <li><a routerLink="carlist">Car</a></li>
+    <li><a href="brandlist">Brand</a></li>
+    <li><a href="colorlist">Color</a></li>
+    <li><a href="rentals">Rental</a></li>
+    <li><a href="login">Login</a></li>
+    <li><a href="register">Register</a></li>
+    <li><a href="profile">Profile</a></li>
+    <li><a href="contact">Contact</a></li>
+    <li><a href="cart">Cart</a></li>
+    <li><a href="payments">Payment</a></li>
+  </ul>
+
+</div>
+

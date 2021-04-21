@@ -1,37 +1,27 @@
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <link rel="stylesheet" src = "app.component.css">
-  </head>
-  <body>
-  </body>
-</html>
 <app-navi></app-navi>
-<br><br><br>
+
+
+
 <div id="mmenu_screen" class="container-fluid main_container d-flex">
 <div class ="row flex-fill">
   <div class="col-md-2">
-    <br> 
-    <app-brand-filter></app-brand-filter>
+    <br> <br> 
     <app-brand></app-brand>  
-    
+    <app-color></app-color>
   </div>
   <div class="col-md-8">
-    <div class="body">
+    <div class="xxx">
+      <br><br>
       <router-outlet></router-outlet>
     </div>
   </div>
   <div class="col-md-2">
-    <br> 
-    <app-color-filter></app-color-filter>
-    <br>
-    <app-color></app-color>
+    
     <br>
     
 
   </div>
-  
+
   <app-footer></app-footer>
 </div>
 </div>

@@ -5,7 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 import { CustomerService } from 'src/app/services/customer.service';
+
+
 @Component({
   selector: 'app-rental',
   templateUrl: './rental.component.html',
@@ -13,7 +16,7 @@ import { CustomerService } from 'src/app/services/customer.service';
   providers: [DatePipe],
 })
 export class RentalComponent implements OnInit {
-  
+
   customers:Customer[];
   customerId:number;
   rentDate: Date;
@@ -30,6 +33,7 @@ export class RentalComponent implements OnInit {
     private customerService: CustomerService,
     private router: Router,
     private toastrService: ToastrService,
+    private authService : AuthService,
     private datePipe: DatePipe,
     private activatedRoute: ActivatedRoute) { }
 
@@ -76,7 +80,7 @@ export class RentalComponent implements OnInit {
     if (MyRental.customerId == undefined || MyRental.rentDate == undefined) {
       this.toastrService.error("AUGHTUNG!!")
     } else{
-      this.router.navigate(['/payment/', JSON.stringify(MyRental)]);
+      this.router.navigate(['/payments', JSON.stringify(MyRental)]);
       this.toastrService.info(
         'Ödeme sayfasına yönlendiriliyorsunuz...',
         'Ödeme İşlemleri'

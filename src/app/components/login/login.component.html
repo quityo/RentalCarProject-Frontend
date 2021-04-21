@@ -1,64 +1,42 @@
-<!-- <body class="text-center">
-    
-    <main class="form-signin">
-      <form [formGroup]="loginForm">
-        <h1 class="h3 mb-3 fw-normal">Login</h1>
-    
-        <div class="form-floating">
-          <input 
-          formControlName="email"
-          type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email Address</label>
+ <main class="form-signin">
+  <div class="container">
+    <div id="login" class="signin-card">
+      <div class="logo-image">
+        <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Logo"
+          width="138">
+      </div>
+      <h1 class="display1">Funky Sun</h1>
+      <p class="subhead">Rental Car</p>
+      <form action="" [formGroup]="loginForm" method="" class="" role="form">
+        <div id="form-floating" class="form-group">
+          <input id="floatingInput" class="form-control" formControlName="email" placeholder="em@il" name="username"
+            type="email" size="18" alt="login" />
+          <span class="form-highlight"></span>
+          <span class="form-bar"></span>
+          <label for="floatingInput" class="float-label"></label>
         </div>
-        <div class="form-floating">
-          <input
-          formControlName = "password"
-          type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+        <div id="form-floating" class="form-group">
+          <input formControlName="password" id="floatingPassword" class="form-control" placeholder="Password"
+            name="password" type="password" size="18" alt="password" required>
+          <span class="form-highlight"></span>
+          <span class="form-bar"></span>
+          <label for="floatingPassword" class="float-label"></label>
         </div>
-    
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember Me
-          </label>
-        </div>
-        <button (click)="login()" class="w-100 btn btn-lg btn-primary">Enter</button>
-        
-      </form>
-    </main>
-</body> -->
 
-<div class="container">
-  <div id="login" class="signin-card">
-    <div class="logo-image">
-    <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Logo" width="138">
-    </div>
-    <h1 class="display1">Funky Sun</h1>
-    <p class="subhead">Rent A Car</p>
-    <form action="" method="" class="" role="form">
-      <div id="form-login-username" class="form-group">
-        <input id="username" class="form-control" name="username" type="text" size="18" alt="login" required />
-        <span class="form-highlight"></span>
-        <span class="form-bar"></span>
-        <label for="username" class="float-label">login</label>
-      </div>
-      <div id="form-login-password" class="form-group">
-        <input id="passwd" class="form-control" name="password" type="password" size="18" alt="password" required>
-        <span class="form-highlight"></span>
-        <span class="form-bar"></span>
-        <label for="password" class="float-label">password</label>
-      </div>
-      <div id="form-login-remember" class="form-group">
-        <div class="checkbox checkbox-default">       
-            <input id="remember" type="checkbox" value="yes" alt="Remember me" class="">
-            <label for="remember">Remember me</label>      
+        <div id="form-login-remember" class="form-group">
+          <div class="checkbox checkbox-default">
+            <input id="remember" type="checkbox" value="yes" alt="Remember me">
+            <label for="remember">Remember me</label>
+          </div>
         </div>
-      </div>
-      <div>
-        <button class="btn btn-block btn-info ripple-effect" type="submit" name="Submit" alt="sign in">Sign in</button>  
-      </div>
+        <div class="card-footer">
+          <button (click)="login()" name="Submit"
+            alt="sign in">Enter</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div> 
+
   
-      
-    </form>
-  </div>
-  </div>

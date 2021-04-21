@@ -1,6 +1,6 @@
 
-  export interface Payment{
-    paymentId :number;
-    customerId:number;
-    amount:number;
+ export interface Payment{
+  paymentId :number;
+  customerId:number;
+  amount:number;
 }

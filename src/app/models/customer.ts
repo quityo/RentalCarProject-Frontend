@@ -1,4 +1,5 @@
 export interface Customer{
+    
     customerId:number;
     userId:number;
     firstName:string;
@@ -6,4 +7,7 @@ export interface Customer{
     companyName:string;
     email : string;
     status:boolean;
+    customerFindex : number;
+
+    
 }

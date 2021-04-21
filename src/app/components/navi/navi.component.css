@@ -1,159 +1,223 @@
-@import 'https://fonts.googleapis.com/css?family=Caveat|Oxanium';
-#body{
-   margin: 220px 200px;
+header{
+  width: 100%;
+  height: 82px;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
 }
-*{
-  border:0;
-  margin:0;
-  padding:0;
-  list-style: none;
-background-color: black;
-}
-
-#header{
-	background-color: black;
-	position: fixed;
-		top: 0px;
-		width: 100%;
-		z-index: 10000;		
-		left:0;
-		right: 0;
-    opacity: 90%;
-    
-}
-
-#img-container{
-	width: 60px;
-	float: left;
-  margin: 5px 50px;
-  height: 72px;
-	}
-
-
-
 #header-img{
 	display: block;
   max-width: 100%;
 	height: 67px;
+  margin-left:auto;
+      margin-right:auto;
+      
+}
+div#header-logo img {
+  margin: auto;
   
 }
 
-
-#nav-bar{
-  display: flex;
-	margin-top: 30px;
-  float: right;
-}
-ul.menu >li >a{
-  text-decoration: none;
-  color: yellow;
-  padding: 0px 20px 0 20px;
-}
-ul.menu >li:hover ul{
-  display:block;
-}
-ul.menu{
-  font-family: Caveat;
-	font-size: 23px;
-	text-decoration: none;
-	
-}
-ul.menu >li{
-  float: left;
-  text-decoration: none;
-}
-ul.menu li a{
-  text-decoration: none;
-  color: yellow;
-  padding: 0px 20px 0 20px;
+#fallout {
   
-}
-ul.menu ul{
-  display:none;
-}
-h1.name a{
-  font-family: Caveat;
-	font-size: 40px;
-	color: yellow;
-	text-decoration: none;
-	padding: 0px 40px 0 0;
+  font-family: Star Jedi;
+	font-size: 37px;
+	color: Yellow;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;text-decoration: none;
+	padding: 0px 30px 0 0;
   position: absolute;
+  margin: 10px 0 0 200px;
+  left: 250px;
+  top: 13px;}
+ 
 
-  left: 130px;
-  top: 20px;
+#code {
+  font-family: Governor Bevel;
+	font-size: 40px;
+	
+	text-decoration: none;
+	padding: 0px 30px 0 0;
+  position: absolute;
+margin: 9px 0 0 575px;
+  top: 13px;
+  left: 250px;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+  0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px 
+  #ff8d00, 0 0 98px #ff0000;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
 }
-h1.name a:hover{
-  color: white;
+
+@-webkit-keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
 }
-ul.menu li a:hover{
-	color: white;
+
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+#fallout span {
+  animation: upper 11s linear infinite;
+  color: yellow;
+  
+}
+#fallout span:nth-of-type(2) {
+  animation: upper2 10s linear infinite;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: yellow;
+}
+#code span:nth-of-type(2) {
+  animation: lower 10s linear infinite;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+ 
+}
+#code span:nth-of-type(1) {
+  text-shadow: none;
+  opacity:.4;
+}
+@keyframes upper {
+  0%,19.999%,22%,62.999%,64%, 64.999%,70%,100% {
+    opacity:.99; text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: yellow;
+ 
+  }
+  20%,21.999%,63%,63.999%,65%,69.999% {
+    opacity:0.4; text-shadow: none; 
+  }
+}
+@keyframes upper2 {
+  0%, 1%,23%,23.5%,23.7%,23.9%,24.3%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
+    opacity:20; text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+ 
+  }
+  19%,22.99%,23%,23.5%,23.7%,23.9%,24.3%,31.999%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
+    opacity:0.4; text-shadow: none; 
+  }
+}
+@keyframes lower {
+  0%,12%,18.999%,23%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
+    opacity:20; text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+ 
+  }
+  19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
+    opacity:0.4; text-shadow: none; 
+  }
 }
 
 
 #header-img {animation-name: Sun;
-            animation-duration: 33000ms;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
+  animation-duration: 22000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
- @keyframes Sun
-        {
-            from
-            {
-                transform:rotate(0deg);
-            }
-             to
-            {
-                transform:rotate(360deg);
-            }
-        }
-@media screen and (max-width: 700px){
-  *{
-     background-color: black;
-  }
-  .ul.menu{
-	font-family: Caveat;
-	padding: 0 11px;
-	font-size: 21px;
-	color: yellow;
-	text-decoration: none;
-	font-weight: 150;
+@keyframes Sun
+{
+    from
+    {
+        transform:rotate(0deg);
+    }
+     to
+    {
+        transform:rotate(360deg);
+    }
+}
+
+
+
+
+#nav{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-family: Governor 3D;
+  float: left;
+  height: 50px;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  opacity: 80%;
+  border: solid;
+  border-radius: 1px;
+}
  
+
+  #nav ul {
+   
+  list-style: none;
+    width:98.8vw;
+  padding:0;
+  text-align: center;
   
+  font-size: 11px;
 }
+#nav ul ul{
+  display:none;
+}
+#nav ul >li{
+  display: inline-block;
+  list-style-type: disc;
+  margin: 5px 0 5px ;
+    padding: 0;
+    list-style: none;
+    padding:0 10px 0 0;
+    float:none;
+}
+#nav ul >li:before{
+   
+	position: absolute;
+}
+#nav li a 
+{display: inline-block;
   
-  #header-img {animation-name: Sun;
-            animation-duration: 10000ms;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-}
-  #header-img {animation-name: Sun;
-            animation-duration: 10000ms;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-}
- @keyframes Sun
-        {
-            from
-            {
-                transform:rotate(0deg);
-            }
-             to
-            {
-                transform:rotate(360deg);
-            }
-        }
-    #img-container{
-	width: 50px;
-	float: left;
-	margin: 10px 10px;
-}
-
-
-
-#header-img{
-	display: block;
-  max-width: 100%;
-	height: auto;
-  margin: 0 8px;
-}
-}
+  font-family: Governor 3D;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 9px 5px 8px 5px;
+    color: rgb(75, 213, 238);
+    z-index: 9999;
+  text-align: center;
+ }
+ #nav li a:hover{
+   color: white;
+ }

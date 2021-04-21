@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
@@ -13,134 +14,67 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./car-image.component.css']
 })
 export class CarImageComponent implements OnInit {
-
-
   @Input() car : Car;
-  carImages : CarImage[];
-  baseUrl = environment.baseUrl;
-  imageDataToUpload : any;
-  imageToDelete : CarImage;
-  imageToUpdate : CarImage;
-  carImageAddForm : FormGroup;
-  carImageUpdateForm : FormGroup;
-
-
-  constructor(
-    private imageService : CarImageService,
-    private toastrService : ToastrService,
-    private router : Router,
-    private formBuilder : FormBuilder
-  ) { }
-
-  ngOnInit(): void {
-    this.getImagesByCarID();
-    this.createImageAddForm();
-    this.createImageUpdateForm();
-  }
-  createImageAddForm():void{
-    this.carImageAddForm = this.formBuilder.group({
-      image : ['',Validators.required],
-    });
-  }
-  createImageUpdateForm():void{
-    this.carImageUpdateForm = this.formBuilder.group({
-      image : ['',Validators.required],
-    });
-  }
-  getImagesByCarID(): void {
-    this.imageService.getCarImages(this.car.carId).subscribe((response) => {
-      this.carImages = response.data;
-    });
-  }
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file.size > 10 * Math.pow(1024, 2)) {
-      this.toastrService.error(
-        `Sectiginiz dosya 10MB'tan daha buyuk olamaz: ${(
-          Math.round((file.size / Math.pow(1024, 2)) * 100) / 100
-        ).toFixed(2)}MB`,
-        'Hata'
-      );
-    } else {
-      this.imageDataToUpload = file;
-    }
-  }
-  addImage(): void {
-    if (this.carImageAddForm.valid) {
-      const formData: FormData = new FormData();
-      formData.append('image', this.imageDataToUpload);
-      formData.append('carID', this.car.carId.toString());
-      this.imageService.addImage(formData).subscribe(
-        () => {
-          this.toastrService.success('Gorsel eklendi', 'Basarili');
-          this.reload();
-        },
-        (responseError) => {
-          if (responseError.error.Errors.length > 0) {
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(
-                responseError.error.Errors[i].ErrorMessage,
-                'Doğrulama hatası'
-              );
-            }
-          }
+  
+    imageRoot = environment.imageUrl
+    carImage: CarImage[] = []
+    
+    carId: number
+    imageFile : any
+    baseUrl = environment.baseUrl;
+    imageDataToUpload : any;
+    imageToDelete : CarImage;
+    imageToUpdate : CarImage;
+    carImageAddForm : FormGroup;
+    carImageUpdateForm : FormGroup;
+    
+    constructor(
+      private activatedRoute: ActivatedRoute, 
+      private carImageService:CarImageService,
+      private formBuilder:FormBuilder,
+      private http: HttpClient,
+      private router:Router,
+      private toastrService: ToastrService) { }
+  
+    ngOnInit(): void {
+      this.activatedRoute.params.subscribe(params=>{
+        if(params["carId"]){
+          this.carId = params["carId"]
+          this.getCarDetailsById(params["carId"])
         }
-      );
-    } else {
-      this.toastrService.error('Formunuz eksik', 'Dikkat');
-    }
-  }
-  updateImage(event: any): void {
-    this.onFileSelected(event);
-    if (this.carImageUpdateForm.valid && this.imageDataToUpload != null) {
-      const formData: FormData = new FormData();
-      formData.append('image', this.imageDataToUpload);
-      Object.keys(this.imageToUpdate).forEach((value, index) => {
-        formData.append(value, Object.values(this.imageToUpdate)[index]);
-      });
-
-      this.imageService.updateImage(formData).subscribe(
-        () => {
-          this.toastrService.success('Gorsel guncellendi', 'Basarili');
-          this.reload();
-        },
-        (responseError) => {
-          if (responseError.error.Errors.length > 0) {
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(
-                responseError.error.Errors[i].ErrorMessage,
-                'Doğrulama hatası'
-              );
-            }
-          }
-        }
-      );
-    } else {
-      this.toastrService.error('Formunuz eksik', 'Dikkat');
-    }
-  }
-  deleteImage(image: CarImage): void {
-    this.imageService.deleteImage(image).subscribe(() => {
-      this.toastrService.success('Gorsel silindi', 'Basarili');
-      document.getElementById('deleteImage').click();
-      this.imageToDelete = void 0;
-      this.reload();
-    });
-  }
-  setImageToDelete(image: CarImage): void {
-    this.imageToDelete = image;
-  }
-
-  setImageToUpdate(image: CarImage): void {
-    this.imageToUpdate = image;
-  }
-  reload() {
-    this.router
-      .navigateByUrl('', {
-        skipLocationChange: true,
       })
-      .then(() => {
-        this.router.navigate(['/carUpdate/' + this.car.carId]);
+    }
+  
+    getCarDetailsById(carId:number) {
+      this.carImageService.getCarImages(carId).subscribe((response) => {
+        this.carImage = response.data;
       });
+    }
+  
+    delete(carImage:CarImage){
+      this.carImageService.delete(carImage).subscribe(response=>{
+        this.getCarDetailsById(this.carId)
+        this.toastrService.success("Resim silindi","Başarılı")
+      }, responseError => {
+        this.toastrService.success("Resim silinemedi!","Hata")
+      })
+    }
+  
+    addImage(){
+      const carImage: FormData = new FormData();
+      carImage.append('CarId', this.carId.toString());
+      carImage.append("imageFile", this.imageFile, this.imageFile.name);
+      this.carImageService.add( carImage ).subscribe(response=>{
+        this.toastrService.success(response.message)
+        this.getCarDetailsById(this.carId)
+      },responseError=>{
+        this.toastrService.error(responseError.error.message)
+      })
+    }
+  
+    fileSelected(event:any) {
+      this.imageFile = event.target.files[0]
+      event.target.nextElementSibling.innerText=this.imageFile.name
+    }
+  
   }
-}

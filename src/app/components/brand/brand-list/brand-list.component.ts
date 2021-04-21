@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
 import { BrandService } from 'src/app/services/brand.service';
 
 @Component({
@@ -8,6 +10,7 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand-list.component.css']
 })
 export class BrandListComponent implements OnInit {
+  carImages : CarImage[] = [];
 
   brands : Brand[] = [];
   constructor(private brandService : BrandService) { }

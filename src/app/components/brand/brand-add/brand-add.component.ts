@@ -10,12 +10,12 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class BrandAddComponent implements OnInit {
 
-   brandAddForm : FormGroup;
+  brandAddForm : FormGroup;
 
   constructor(private formBuilder : FormBuilder,
     private brandService : BrandService,
     private toastrService : ToastrService
-    ) { }
+     ) { }
 
   ngOnInit(): void {
     this.createBrandAddForm();
@@ -29,17 +29,16 @@ export class BrandAddComponent implements OnInit {
     if(this.brandAddForm.valid){
       let brandModel = Object.assign({},this.brandAddForm.value)
       this.brandService.add(brandModel).subscribe(response => {
-        this.toastrService.success(response.message,"Başarılı")
+        this.toastrService.success(response.message,"Successful")
       },responseError => {
         if(responseError.error.Errors.length > 0){
-          for(let i=0;i<responseError.error.Errors.length;i++){
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası");
-          }
-        }
-      });
-    }else{
-      this.toastrService.error("Formunuz Eksik","Dikkat");
+          for(let i =0; i<responseError.error.Errors.length; i++){
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Validation error");
+          } }
+        });
+      }else{
+        this.toastrService.error("Form Is Missing");
+      }
     }
-  }
-
-}
+    
+  } 

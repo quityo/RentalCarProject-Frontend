@@ -1,0 +1,47 @@
+.d-block{
+    width: 10%;
+    height: 450px;
+    text-align: center;
+    border-radius: 200px;
+    margin: auto;
+    display: block;
+}
+h5 {
+    text-align:center;
+    color: white;
+    font-size: 40px;;
+}
+h2{
+    text-align: center;
+    color:yellow;
+    font-size: 13px;
+    font-style: italic;
+}
+.tb{
+    
+    height: 100px;
+  width:350px; 
+  margin: auto;
+  display: block;
+  font-size: 23px;
+}
+.table {
+    color: yellow;
+    text-align: center;
+}
+.card{
+    background-color: black;
+}
+.table td{
+    color :white;
+
+
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+   }
+   
+   .carousel-control-next-icon {
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+   }

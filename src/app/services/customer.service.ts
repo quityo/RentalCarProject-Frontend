@@ -2,27 +2,35 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Customer } from '../models/customer';
-import { ListResponseModel, ResponseModel } from '../models/responseModel';
+
+import { Customer, } from '../models/customer';
+import {  ItemResponseModel, ListResponseModel, ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
 
+
+  export class CustomerService {
+
+    apiUrl = "https://localhost:44315/api/"
+
+    constructor(private httpClient : HttpClient) { }
   
-
-  constructor(private httpClient : HttpClient) { }
-
-  getCustomers():Observable<ListResponseModel<Customer>>{
-    let newPath = environment.apiUrl + 'customers/getall';
-    return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+    getCustomers():Observable<ListResponseModel<Customer>>{
+      let newPath = this.apiUrl + 'customers/getcustomerdetail';
+      return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+    }
+    getCustomerById(customerId : number) : Observable<ListResponseModel<Customer>>{
+      let newPath = this.apiUrl + 'customers/getcustomerdetailbyid?customerId=' + customerId;
+      return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+    }
+    getCustomerByEmail(email:string):Observable<ItemResponseModel<Customer>>{
+      let newPath=this.apiUrl+"getcustomerbyemail?email="+email;
+      return this.httpClient.get<ItemResponseModel<Customer>>(newPath);
+    }
+    customerUpdate(customer:Customer):Observable<ResponseModel>{
+      let newPath="https://localhost:44342/api/customers/updatecustomer";
+      return this.httpClient.put<ResponseModel>(newPath,customer);
   }
-  getCustomerById(customerId : number) : Observable<ListResponseModel<Customer>>{
-    let newPath = environment.apiUrl + 'customers/getbyid?customerid=' + customerId;
-    return this.httpClient.get<ListResponseModel<Customer>>(newPath);
   }
-  add(customer : Customer):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(environment.apiUrl + "customers/add",customer)
-  }
-}

@@ -2,13 +2,9 @@
 
   <ul class="list-group">
     <li [class]="getAllBrandClass()"
-     routerLink="/cars">Brand List</li>
-    <li 
-    (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands | brandFilterPipe : filterBrandText" 
-    [class]="getCurrentBrandClass(brand)">
-      {{brand.brandName}}
-    </li>
+     routerLink="/brandlist">Brand List</li>
+   
   </ul>
   <br>
+
+  
