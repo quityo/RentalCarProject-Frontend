@@ -16,7 +16,6 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-
   rental : Rental;
   cars : Car;
   customer : Customer;
@@ -29,7 +28,6 @@ export class PaymentComponent implements OnInit {
   cardNumber : string;
   cardCvv : string;
   expirationDate : string;
-
 
   constructor(
     private activatedRoute : ActivatedRoute,
@@ -46,12 +44,12 @@ export class PaymentComponent implements OnInit {
       if(params['rental']){
         this.rental = JSON.parse(params['rental']);
         this.getCustomerId = JSON.parse(params['rental']).customerId;
-        this.getCustomerDetailById(this.getCustomerId);
+        this.getCustomerById(this.getCustomerId);
         this.getCarDetail();
       }
     });
   }
-  getCustomerDetailById(customerId:number){
+  getCustomerById(customerId:number){
     this.customerService.getCustomerById(customerId).subscribe((response) =>{
       this.customer = response.data[0];
       console.log(response);
@@ -90,7 +88,7 @@ export class PaymentComponent implements OnInit {
     };
     this.cardExist = await this.isCardExist(card);
     if(this.cardExist){
-      this.card = await this.getCardByCardNumber(this.cardNumber);
+      this.card = await this.getCardByNumber(this.cardNumber);
       console.log(this.card);
       if(this.card.moneyInTheCard >= this.amountOfPayment){
         this.card.moneyInTheCard = 
@@ -111,7 +109,7 @@ export class PaymentComponent implements OnInit {
   async isCardExist(card : Card){
     return (await this.cardService.isCardExist(card).toPromise()).success;
   }
-  async getCardByCardNumber(cardNumber:string){
+  async getCardByNumber(cardNumber:string){
     return (await this.cardService.getCardByNumber(cardNumber).toPromise()).data[0];
   }
   updateCard(card:Card){

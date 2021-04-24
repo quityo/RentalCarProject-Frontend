@@ -24,6 +24,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoginGuard } from './guards/login.guard';
 import { CarImageComponent } from './components/car/car-image/car-image.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CardComponent } from './components/card/card.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"profile",component:ProfileComponent},
+  {path:"card",component:CardComponent},
 
    
   {path:"cart", component:CartComponent},

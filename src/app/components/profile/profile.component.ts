@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validator, FormBuilder, Validators,} from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Card } from 'src/app/models/card';
 import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserService } from 'src/app/services/user.service';
-
 
 @Component({
   selector: 'app-profile',
@@ -14,30 +17,82 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  profileForm: FormGroup;
+  email: string;
+  password: FormControl;
+  user: User;
+  status: string;
 
-  cards : Card[] = [];
-
-  constructor(private userService : UserService,
-    private toastrService : ToastrService,
-    private localStorageService : LocalStorageService) { }
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private localStorageService:LocalStorageService,
+    private router: Router,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.getAllCard();
+    this.load();
   }
-  getAllCard(){
-    let customerId = this.localStorageService.getIdDecodeToken();
-    this.userService.getAllCard(customerId).subscribe(response => {
-      this.cards = response.data;
-    })
+
+  load(){
+    this.createProfileAddForm();
+    this.email = localStorage.getItem('email')
+    this.getUser();
   }
-  deleteCard(cardId : number){
-    console.log(cardId);
-    this.userService.deleteCard(cardId).subscribe(response => {
-      this.toastrService.success(response.message, "success");
-      window.location.reload();
-    }, responseError =>{
-        this.toastrService.error(responseError.error.message, "error");
+
+  createProfileAddForm() {
+    this.profileForm = this.formBuilder.group({
+      id: this.user.userId,
+      firstName: [this.user.firstName, Validators.required],
+      lastName: [this.user.lastName, Validators.required],
+      email: [this.user.email, Validators.required],
+      password: ['', Validators.required],
+      status: true,
     });
   }
 
+  getUser() {
+    if (this.email) {
+      this.userService.getByEmail(this.email).subscribe(
+        (response) => {
+          this.user = response;
+          if (response.status) {
+            this.status = 'Aktif';
+          } else {
+            this.status = 'Aktif Değil';
+          }
+        },
+        (responseError) => {
+          this.toastrService.error(responseError.error);
+        }
+      );
+    }
+  }
+
+  updateProfile() {
+    if (this.profileForm.valid) {
+      let profileModel = Object.assign({}, this.profileForm.value);
+      this.userService.profileUpdate(profileModel).subscribe(
+        (response) => {
+          this.toastrService.success(response.message);
+        },
+        (responseError) => {
+          this.toastrService.error(responseError.error);
+        }
+      );
+      this.logOut();
+    } else {
+      this.toastrService.error('Formu Boş Bıraktınız');
+    }
+  }
+
+  logOut(){
+    this.localStorageService.clear()
+     this.toastrService.success("Lütfen Tekrar Giriş Yapınız.");
+     this.router.navigate(["/"])
+     setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  }
 }

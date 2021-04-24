@@ -12,7 +12,10 @@ export class CardService {
 
   constructor(private httpClient:HttpClient) { }
 
-  
+  addCard(card:Card):Observable<ResponseModel>{
+    let newPath = environment.apiUrl + 'cards/add';
+    return this.httpClient.post<ResponseModel>(newPath, card);
+  }
 
   isCardExist(card : Card):Observable<ResponseModel>{
     let newPath = environment.apiUrl + "cards/iscardexist";
@@ -27,4 +30,8 @@ export class CardService {
     let newPath = environment.apiUrl + "cards/update";
     this.httpClient.put(newPath,card);
   }
+  getAllCreditCardByCustomerId(customerId:number):Observable<ListResponseModel<Card>>{
+    let newPath=environment.apiUrl+"cards/getallcreditcardbycustomerid="+customerId;
+    return this.httpClient.get<ListResponseModel<Card>>(newPath);
+   }
 }

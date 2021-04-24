@@ -16,43 +16,57 @@
 #card{
     width: 400px;
     height: 15rem;
-    background: url("https://c4.wallpaperflare.com/wallpaper/797/170/504/mask-star-wars-darth-vader-sith-lord-wallpaper-preview.jpg");
-    
+    background: url("https://res.cloudinary.com/fufufu/image/upload/v1618106431/uyy_awqiy5.jpg")center center;
+    background-size:cover;
     border-color: grey;
     border-radius: 10px;
     margin:auto;
    }
  .text-center{
-    font-size: 18px; 
-    color:yellow;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
     font-style: italic;
    }
    
    .card-number{
     position:absolute;
-     bottom: 0.2em;
+     bottom:top-right;
      color: white;
-     left:  0.2em;
+     right:  0.5em;
      
+     text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
    }
    .card-user{
     position:absolute;
-     bottom: 50%;
+     bottom: top;
      color: white;
-     left:  0.2em;
+     left:  0.4em;
      
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
    }
    .card-exp {
     position:absolute;
-    bottom: 25%;
+    bottom: 0;
     color: white;
-    left:  0.2em;
+    left:  0.4em;
+     
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
    }
    
    .payme{
        color: white;
        border-color: grey;
        border-radius: 10px;
+       
    }
    
    .payme:hover{

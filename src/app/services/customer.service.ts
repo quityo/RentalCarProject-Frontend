@@ -13,24 +13,24 @@ import {  ItemResponseModel, ListResponseModel, ResponseModel } from '../models/
 
   export class CustomerService {
 
-    apiUrl = "https://localhost:44315/api/"
+   
 
     constructor(private httpClient : HttpClient) { }
   
     getCustomers():Observable<ListResponseModel<Customer>>{
-      let newPath = this.apiUrl + 'customers/getcustomerdetail';
+      let newPath = environment.apiUrl + 'customers/getcustomerdetail';
       return this.httpClient.get<ListResponseModel<Customer>>(newPath);
     }
     getCustomerById(customerId : number) : Observable<ListResponseModel<Customer>>{
-      let newPath = this.apiUrl + 'customers/getcustomerdetailbyid?customerId=' + customerId;
+      let newPath = environment.apiUrl +'customers/getcustomerdetailbyid?customerId=' + customerId;
       return this.httpClient.get<ListResponseModel<Customer>>(newPath);
     }
     getCustomerByEmail(email:string):Observable<ItemResponseModel<Customer>>{
-      let newPath=this.apiUrl+"getcustomerbyemail?email="+email;
+      let newPath=environment.apiUrl +"getcustomerbyemail?email="+email;
       return this.httpClient.get<ItemResponseModel<Customer>>(newPath);
     }
     customerUpdate(customer:Customer):Observable<ResponseModel>{
-      let newPath="https://localhost:44342/api/customers/updatecustomer";
+      let newPath=environment.apiUrl +"customers/updatecustomer";
       return this.httpClient.put<ResponseModel>(newPath,customer);
   }
   }

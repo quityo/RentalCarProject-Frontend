@@ -38,16 +38,14 @@
                
                   <div class="panel-body">
                     <div>
-                      <div class="card credit-card" id="card">
+                      <div class="card credit-card col-6" id="card">
                      
-                      <div class="card-number">{{cardNumber ? cardNumber : ''}}</div>
+                        <div class="card-number">{{cardNumber ? cardNumber : ''}}</div>
                       <div class="card-user">{{nameOnTheCard  ? nameOnTheCard : ''}}</div>
                       <div class="card-exp">{{expirationDate ? expirationDate: ''}}
                       </div>
                     </div>
-                    <div align="center">
-                          <img class="img-responsive cc-img col align-self-center" id="payment" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> 
-                          </div>
+                    
                     <br>
                     <h3 class="text-center">May The Money Be With You</h3>
                     <br>
@@ -91,13 +89,15 @@
             </div>
         </div>
     </div>
+ 
+ 
     <div class="card-footer">
-        <div class="row">
-            <button (click) = "rentACar()" class="btn btn-warning">
-                {{amountOfPayment}} Ödeme Yap
-            </button>
-        </div>
-    </div>
-    </div>
-  </body>
+      <div class="row">
+          <button (click) = "rentACar()" class="btn btn-warning">
+              {{amountOfPayment}} Ödeme Yap
+          </button>
+      </div>
+  </div>
+  </div>
+</body>
 </html>

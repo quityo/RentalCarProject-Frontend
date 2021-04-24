@@ -2,7 +2,7 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   
   <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
+    
     <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
       <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" alt="Image">
     </div>
@@ -23,7 +23,7 @@
   <br>
 
 <div class="table-responsive-md">
-  <table class="table table-striped table-hover table-bordered">
+  <table class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Brand</th>
@@ -39,7 +39,7 @@
             <td>{{cars.colorName}}</td>
             <td>{{cars.modelYear}}</td>
             <td>{{cars.dailyPrice}}</td>
-            <td>{{cars.description}}</td>
+            <td>"{{cars.description}}"</td>
         </tr>
 
     </tbody>

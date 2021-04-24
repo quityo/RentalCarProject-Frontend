@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Card } from '../models/card';
-import { ItemResponseModel, ListResponseModel, ResponseModel } from '../models/responseModel';
+import { ListResponseModel, ResponseModel } from '../models/responseModel';
 import { User } from '../models/user';
 
 @Injectable({
@@ -14,32 +14,38 @@ import { User } from '../models/user';
 
   
 
-  getById(userId:number):Observable<ItemResponseModel<User>>{
-    let newPath = environment.apiUrl + "getbyid?id="+userId;
-    return this.httpClient.get<ItemResponseModel<User>>(newPath);
+  getByEmail(email:string):Observable<User>{
+    return this.httpClient.get<User>(environment.apiUrl + 'users/email?email='+email);
   }
-  updateInfos(user:User):Observable<ResponseModel>{
-    let newPath = environment.apiUrl+"updateinfos";
-    return this.httpClient.put<ResponseModel>(newPath,user);
+  getUsers():Observable<ListResponseModel<User>>{
+    return this.httpClient.get<ListResponseModel<User>>(environment.apiUrl + 'getall')
   }
-  getUserByMail(mail:string):Observable<ItemResponseModel<User>> {
-    let newPath = environment.apiUrl + "getuserbymail?mail=" + mail;
-    return this.httpClient.get<ItemResponseModel<User>>(newPath);
+
+  profileUpdate(user:User):Observable<ResponseModel>{
+    console.log(user)
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + 'users/updateprofile', {
+      user:{
+        'id': user.userId,
+        'firstName': user.firstName,
+        'lastName': user.lastName,
+        'email': user.email,
+        'status':user.status
+      },
+      password:user.password,
+    });
   }
-  userDtoUpdate(user:User, userId:number):Observable<ResponseModel> {
-    let newPath = environment.apiUrl + "userdtoupdate?userId=" +userId;
-    return this.httpClient.post<ResponseModel>(newPath, user);
-  }
+
+ 
   getAllCard(customerId : number):Observable<ListResponseModel<Card>>{
-    let newPath = environment.apiUrl + "/cards/getallcardbycustomerid?customerId=" + customerId;
+    let newPath = environment.apiUrl + "cards/getallcardbycustomerid?customerId=" + customerId;
     return this.httpClient.get<ListResponseModel<Card>>(newPath);
   }
   deleteCard(cardId : number):Observable<ResponseModel>{
-    let newPath =environment.apiUrl + "/cards/deletebycardid";
+    let newPath =environment.apiUrl + "cards/deletebycardid";
     return this.httpClient.post<ResponseModel>(newPath,cardId);
   }
   addCard(card:Card):Observable<ResponseModel> {
-    let newPath = environment.apiUrl +"/cards/add";
+    let newPath = environment.apiUrl +"cards/add";
     return this.httpClient.post<ResponseModel>(newPath, card);
   }
 }

@@ -10,7 +10,6 @@
           <img class="img-fluid img-thumbnail" src="{{ imageRoot + carImage.imagePath }}" alt="">
           <div *ngIf="carImage.imagePath !='default.jpg'">
               <button class="btn btn-primary btn-sm delete" (click)="delete(carImage)">
-                  
               </button>
           </div>
 
@@ -23,9 +22,8 @@
       <div class="col-6">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="imageFile" (change)="fileSelected($event)" accept=".png,.jpg,.jpeg">
-              <label class="custom-file-label" for="imageFile">Dosya seç</label>
-              <input type="text" class="custom-file-input" id="imageName" (change)="fileSelected($event)" accept="">
-              zzz
+              <label class="custom-file-label" for="imageFile"></label>
+              
           </div>
       </div>
 

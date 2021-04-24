@@ -36,13 +36,13 @@ import { LoginComponent } from './components/login/login.component';
 import { TabComponent } from './components/tab/tab.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { JwtModule } from '@auth0/angular-jwt';
 import { CartComponent } from './components/cart/cart.component';
 import { CardComponent } from './components/card/card.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -72,13 +72,13 @@ import { CardComponent } from './components/card/card.component';
     RegisterComponent,
     LoginComponent,
     ChangePasswordComponent,
-    UserProfileComponent,
     ProfileComponent,
     CartComponent,
     CarFilterPipe,
     BrandFilterPipe,
     ColorFilterPipe,
     CardComponent,
+    AuthComponent,
     
   ],
   imports: [

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 import { Customer } from '../models/customer';
+import { TokenModel } from '../models/tokenModel';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import { Customer } from '../models/customer';
 export class LocalStorageService {
   currentCustomer: string = 'currentCustomer';
   tokenKey = "token"
+  currentUser: string = 'currentUser';
   constructor() { }
 
   setItem(key:string, value:any){localStorage.setItem(key,value);}
@@ -19,6 +22,10 @@ export class LocalStorageService {
 
   getLocalStorage(key:string){
     return localStorage.getItem(key);
+  }
+  addToken(tokenDetail:TokenModel){
+    localStorage.setItem("token",tokenDetail.token);
+    localStorage.setItem("expiration",tokenDetail.expiration)
   }
   getCurrentCustomer():Customer{
     return JSON.parse(localStorage.getItem(this.currentCustomer));
@@ -47,6 +54,10 @@ export class LocalStorageService {
     {
       return localStorage.removeItem(key);
     }
+    getCurrentUser(): User {
+      return JSON.parse(localStorage.getItem(this.currentUser));
+    }
+  
   
     getIdDecodeToken()
     {
@@ -61,4 +72,8 @@ export class LocalStorageService {
       let mail:string = String(Object.values(jwtDecode(token))[1]);
       return mail;
     }
+    removeCurrentUser() {
+      localStorage.removeItem(this.currentUser);
+    }
+    
 }

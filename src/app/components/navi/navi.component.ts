@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
+import { Customer } from 'src/app/models/customer';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -13,28 +16,30 @@ export class NaviComponent implements OnInit {
 
   control : any;
   userName : string;
-brand : Brand[]=[]
-  constructor(
-    private router : Router,    
+
+  constructor(private router : Router,
+    private toastrService : ToastrService,
     private authService : AuthService,
-    private StorageService : StorageService
+    private localStorageService : LocalStorageService
    ) { }
 
   ngOnInit(): void {
-    this.isAuth();
+    this.control = this.localStorageService.getItem("isauth");
+    this.getUserName();
     
   }
-  roleIfExist(claim: string) {
-    return this.authService.tokenDetail?.claims?.indexOf(claim) > -1;
-  }
-  isAuth() {
-    this.userName = this.authService.tokenDetail.username
+  isAuth(): boolean {
     return this.authService.isAuthenticated();
   }
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/']);
+  logout(){
+    this.localStorageService.removeToken();
+    this.localStorageService.removeCurrentCustomer();
+    return this.router.navigate(["/login"]);
   }
-  
-  
+  getCurrentCustomer(): Customer {
+    return this.localStorageService.getCurrentCustomer();
+  }
+  getUserName(){
+    this.userName = this.localStorageService.getUserNameDecodeToken();
+  }
 }
