@@ -10,7 +10,6 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  
   cartItems:CartItem[]=[]
   dataLoaded = false
   cartTotal:number

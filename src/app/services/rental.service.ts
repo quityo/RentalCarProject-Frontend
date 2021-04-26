@@ -30,4 +30,15 @@ export class RentalService {
     let newPath = environment.apiUrl + 'rentals/add'
     this.httpClient.post(newPath,rental).subscribe()
   }
+  isCarAvailable(carId:number):Observable<boolean> {
+    let newPath = environment.apiUrl + "iscaravailable?carId=" + carId;
+    return this.httpClient.get<boolean>(newPath);
+  }
+
+  carIsReturned(carId:number):Observable<SingleResponseModel<Rental>> {
+    let newPath = environment.apiUrl + "carisreturned?carId=" + carId
+    return this.httpClient.get<SingleResponseModel<Rental>>(newPath);
+  }
+ 
+
 }

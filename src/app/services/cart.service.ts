@@ -9,6 +9,7 @@ import { CartItem, CartItems } from '../models/cart';
 
 export class CartService {
   
+   
   private cartSummary = new CartSummary()
   private dataSource = new BehaviorSubject<CartSummary>(this.cartSummary);
   data = this.dataSource.asObservable()
@@ -22,7 +23,7 @@ export class CartService {
   }
 
   removeFromCart(cartItem:CartItem){
-    let item:CartItem = CartItems.find(c=>c.carId===cartItem.carId)
+    let item = CartItems.find(c=>c.carId===cartItem.carId)
     CartItems.splice(CartItems.indexOf(item),1)
     this.calculateCart()
   }

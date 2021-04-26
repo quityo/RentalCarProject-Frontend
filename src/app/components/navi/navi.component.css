@@ -165,6 +165,7 @@ margin: 9px 0 0 575px;
 
 
 #nav{
+  width: 100%;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -221,3 +222,4 @@ margin: 9px 0 0 575px;
  #nav li a:hover{
    color: white;
  }
+

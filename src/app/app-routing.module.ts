@@ -7,16 +7,16 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 
 import { ColorComponent } from './components/color/color.component';
-import { CarAddComponent } from './components/car/car-add/car-add.component';
-import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
-import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { CarAddComponent } from './components/add/car-add/car-add.component';
+import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/add/color-add/color-add.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
-import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { BrandListComponent } from './components/list/brand-list/brand-list.component';
 import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
-import { ColorListComponent } from './components/color/color-list/color-list.component';
-import { CarListComponent } from './components/car/car-list/car-list.component';
+import { ColorListComponent } from './components/list/color-list/color-list.component';
+import { CarListComponent } from './components/list/car-list/car-list.component';
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -25,7 +25,6 @@ import { LoginGuard } from './guards/login.guard';
 import { CarImageComponent } from './components/car/car-image/car-image.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CardComponent } from './components/card/card.component';
-
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -68,10 +67,9 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"profile",component:ProfileComponent},
   {path:"card",component:CardComponent},
-
-   
+  {path:'users/getall',component:CardComponent},
+ 
   {path:"cart", component:CartComponent},
-
   ];
 
 @NgModule({

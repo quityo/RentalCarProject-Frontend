@@ -15,23 +15,18 @@
   
   <ul>
     <li><a href="home">About</a></li>
-    <li><a href="">Dükkan</a>
-      <ul>
-        <li><a routerLink="cars">Car</a></li>
-        <li><a routerLink="brands">Brand</a></li>
-        <li><a routerLink = "colorlist">Color</a></li>
-            
-      </ul>
-    </li>
-    <li><a routerLink="carlist">Car</a></li>
-    <li><a href="brandlist">Brand</a></li>
-    <li><a href="colorlist">Color</a></li>
+    <li><a href="">Dükkan</a></li>
+   
     <li><a href="login">Login</a></li>
     <li><a href="register">Register</a></li>
-    <li><a href="profile">Profile</a></li>
     <li><a href="contact">Contact</a></li>
-    <li><a href="cart">Cart</a></li>
-    <li><a href = "customers">Customer</a></li> 
+    <li><a href="profile">//Profile</a></li>
+    <li><a href="card">//Card</a></li>
+    <li><span *ngIf="cartCount()"> {{ cartCount() }} </span>
+      <a routerLink="cart">//Trunk</a>
+  </li>
+  
+	
   </ul>
 
 </div>

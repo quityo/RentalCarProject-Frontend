@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
-import { Rental } from 'src/app/models/rental';
+import { Rental, RentalDetail } from 'src/app/models/rental';
 import { AuthService } from 'src/app/services/auth.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class RentalComponent implements OnInit {
   returnDate : Date;
   @Input() car : Car;
   
-
+  rentals: Rental[] = [];
   minDate: string | any;
   maxDate: string | null;
   maxMinDate: string | null;
@@ -32,6 +33,7 @@ export class RentalComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private router: Router,
+    private rentalService: RentalService,
     private toastrService: ToastrService,
     private authService : AuthService,
     private datePipe: DatePipe,
@@ -39,6 +41,13 @@ export class RentalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCustomer();
+    this.getRentals();
+  }
+  getRentals() {
+    this.rentalService.getRentals().subscribe(response => {
+      this.rentals = response.data;
+      
+    });
   }
   getRentMinDate() {
     this.minDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
@@ -97,4 +106,5 @@ export class RentalComponent implements OnInit {
       console.log(response.data);
     });
   }
+ 
 }

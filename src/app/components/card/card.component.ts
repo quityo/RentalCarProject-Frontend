@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserService } from 'src/app/services/user.service';
@@ -26,7 +25,7 @@ export class CardComponent implements OnInit {
   createUserUpdateForm()
   {
     this.addCreditCardForm = this.formBuilder.group({
-     
+      customerId:[""],
       nameOnTheCard:["", Validators.required],
       cardNumber:["", Validators.required],
       expirationDate:["", Validators.required],
@@ -37,7 +36,7 @@ export class CardComponent implements OnInit {
   addCreditCard()
   {
     let creditCardModel =  Object.assign({}, this.addCreditCardForm.value);
-   
+    creditCardModel.customerID = Number(this.localStorageService.getIdDecodeToken());
     this.userService.addCard(creditCardModel).subscribe((response) => {
       this.toastrService.success(response.message, "Success");
       window.location.reload();

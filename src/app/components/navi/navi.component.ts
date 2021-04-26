@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Brand } from 'src/app/models/brand';
 import { Customer } from 'src/app/models/customer';
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
-import { StorageService } from 'src/app/services/storage.service';
-
 @Component({
   selector: 'app-navi',
   templateUrl: './navi.component.html',
@@ -20,7 +18,8 @@ export class NaviComponent implements OnInit {
   constructor(private router : Router,
     private toastrService : ToastrService,
     private authService : AuthService,
-    private localStorageService : LocalStorageService
+    private localStorageService : LocalStorageService,
+    private cartService: CartService,
    ) { }
 
   ngOnInit(): void {
@@ -41,5 +40,8 @@ export class NaviComponent implements OnInit {
   }
   getUserName(){
     this.userName = this.localStorageService.getUserNameDecodeToken();
+  }
+  cartCount() {
+    return this.cartService.cartList().length;
   }
 }

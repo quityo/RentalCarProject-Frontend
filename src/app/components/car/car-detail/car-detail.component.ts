@@ -65,4 +65,5 @@ export class CarDetailComponent implements OnInit {
   rentOnClick(){
     this.toastrService.info("Lütfen müşteri ve tarih seçin");
   }
+ 
 }

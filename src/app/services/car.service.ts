@@ -10,6 +10,9 @@ import { ItemResponseModel, ListResponseModel, ResponseModel } from '../models/r
   providedIn: 'root'
 })
 export class CarService {
+  getRentalByCarId(carId: any) {
+    throw new Error('Method not implemented.');
+  }
 
   
 

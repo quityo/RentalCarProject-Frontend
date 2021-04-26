@@ -13,3 +13,4 @@ export interface Car{
     status?:boolean;
     carImages : CarImage[];
 }
+

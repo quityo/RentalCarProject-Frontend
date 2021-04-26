@@ -8,6 +8,8 @@ export interface Customer{
     email : string;
     status:boolean;
     customerFindex : number;
-
-    
 }
+    export interface CustomerDetail extends Customer{
+        firstName:string;
+        lastName:string;
+    }

@@ -18,7 +18,7 @@ import { User } from '../models/user';
     return this.httpClient.get<User>(environment.apiUrl + 'users/email?email='+email);
   }
   getUsers():Observable<ListResponseModel<User>>{
-    return this.httpClient.get<ListResponseModel<User>>(environment.apiUrl + 'getall')
+    return this.httpClient.get<ListResponseModel<User>>(environment.apiUrl + 'users/getall')
   }
 
   profileUpdate(user:User):Observable<ResponseModel>{

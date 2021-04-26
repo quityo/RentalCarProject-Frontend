@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
-import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
 import { BrandService } from 'src/app/services/brand.service';
 

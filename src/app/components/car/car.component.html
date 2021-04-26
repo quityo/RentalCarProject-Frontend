@@ -18,7 +18,9 @@
                   
                   <hr>
                   <p> Model Year : {{car.modelYear}} </p>
-                  
+                  <hr>
+                 <!--  <button (click)="addToCart(car)" routerLink="#rentModal" name="Submit"
+                  alt="chart">Cart</button> -->
                  <!-- <hr>
                   <p> Price : {{car.dailyPrice|currency: "TRY":""}} ₺</p>
                   <hr>
@@ -26,6 +28,7 @@
                   <hr>-->
           <div class="row justify-content-center">
                   <a routerLink="/cars/detail/{{car.carId}}" class="btn  ">Details</a>
+                  
           </div>  
         </div>
   </div>
