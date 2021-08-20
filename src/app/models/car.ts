@@ -13,4 +13,7 @@ export interface Car{
     status?:boolean;
     carImages : CarImage[];
 }
-
+export interface CarDetail extends Car{
+    colorName:string;
+    brandName:string;
+}

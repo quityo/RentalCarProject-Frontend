@@ -1,95 +1,81 @@
-<div class="d-grid gap-2">
-  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#rentModal">
-    Drive Me
-  </button>
-</div>
+<div class="content">
 
-<!-- Modal -->
-<div
-  class="modal fade" id="rentModal" tabindex="-1" aria-labelledby="rentModalLabel"aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="col-12 modal-title  text-center" id="rentModalLabel"> {{car.carName}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row mb-2">
-          <label for="example-date-input" class="col-4 col-form-label">Daily Price</label>
-          <div class="col-8">
-            <input
-              type="number"
-              disabled="disabled"
-              class="form-control"
-              [value]="car.dailyPrice"/>
-          </div>
-        </div>
-        <div class="form-group row mb-2">
-          <label for="example-date-input" class="col-4 col-form-label">Customer</label>
-          <div class="col-8">
-            <select class="form-select" [(ngModel)]="customerId">
-              <option
-                [ngValue]="customer.customerId"
-                *ngFor="let customer of customers">
-                {{ customer.firstName }} {{ customer.lastName }} |
-                {{ customer.companyName }}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group row mb-2">
-           <label for = "brand" class="col-4 col-form-label">Brand</label>
-           <div class="col-8">
-             <input id="brand" type="text" readonly class="form-control" [value]="car.brandName">
-           </div>
-          </div>
-        <div class="form-group row mb-2">
-          <label for="color" class="col-4 col-form-label">Color</label>
-          <div class="col-8">
-            <input id="color" type="text" readonly class="form-control" [value] ="car.colorName">
-          </div>
-        </div>
-        
-        <div class="form-group row mb-2">
-          <label for="example-date-input" class="col-4 col-form-label">Start</label>
-          <div class="col-8">
-            <input
-              (change)="onChangeEvent($event)"
-              min="{{ getRentMinDate() }}"
-              [(ngModel)]="rentDate"
-              type="date"
-              class="form-control"
-              id="rent-date"
-              placeholder="Bir gün seçiniz."
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="example-date-input" class="col-4 col-form-label"
-            >Finish</label>
-          <div class="col-8">
-            <input
-              disabled="{{ !firstDateSelected }}"
-              min="{{ getReturnMinDate() }}"
-              max="{{ getReturnMaxDate() }}"
-              [(ngModel)]="returnDate"
-              type="date"
-              class="form-control"
-              id="return-date"
-              placeholder="Bir gün seçiniz."
-            />
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        
-        <button
-          data-bs-dismiss="modal" (click)="createRental()" type="button" class="btn btn-success"> Rent
-        </button>
-      </div>
-    </div>
+  <div *ngIf="dataLoaded==false" class="spinner-border text-danger d-flex mx-auto" role="status">
+      <span class="visually-hidden">Loading...</span>
   </div>
+
+  <div class="row">
+
+      <h5>
+          <p class="font-weight-bold">Kiradaki Araç Listesi</p>
+      </h5>
+
+      <table *ngIf="dataLoaded==true" class="table table-bordered table-condensed table-hover">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Müşteri</th>
+                  <th scope="col">Marka</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Renk</th>
+                  <th scope="col">Günlük Fiyat</th>
+                  <th scope="col">Kira Tarihi</th>
+                  <th scope="col">Teslim Tarihi</th>
+                  <th scope="col">Teslim Al</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let rental of rentaldetails | rentalFilter : false ">
+                  <td>{{ rental.firstName +" "+ rental.lastName }}</td>
+                  <td>{{ rental.brandName }}</td>
+                  <td>{{ rental.modelYear }}</td>
+                  <td>{{ rental.colorName }}</td>
+                  <td>{{ rental.dailyPrice }} TL</td>
+                  <td>{{ rental.rentDate | date : 'dd.MM.yyyy' }}</td>
+                  <td>{{(rental.returnDate == null) ? "Araç Kirada": rental.returnDate | date:'dd-MM-YYYY'}}</td>
+                  <td>
+                      <button class="btn btn-primary btn-sm" (click)="carIsReturned(rental.carId)">Teslim Al</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+
+
+  </div>
+
+
+  <div class="row">
+
+      <h5>
+          <p class="font-weight-bold">Kiralama Geçmişi</p>
+      </h5>
+
+      <table *ngIf="dataLoaded==true" class="table table-bordered table-condensed table-hover">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Müşteri</th>
+                  <th scope="col">Marka</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Renk</th>
+                  <th scope="col">Günlük Fiyat</th>
+                  <th scope="col">Kira Tarihi</th>
+                  <th scope="col">Teslim Tarihi</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let rental of rentaldetails | rentalFilter : true ">
+                  <td>{{ rental.firstName +" "+ rental.lastName }}</td>
+                  <td>{{ rental.brandName }}</td>
+                  <td>{{ rental.modelYear }}</td>
+                  <td>{{ rental.colorName }}</td>
+                  <td>{{ rental.dailyPrice }} TL</td>
+                  <td>{{ rental.rentDate | date : 'dd.MM.yyyy' }}</td>
+                  <td>{{(rental.returnDate == null) ? "Araç Kirada": rental.returnDate | date:'dd-MM-YYYY'}}</td>
+              </tr>
+          </tbody>
+      </table>
+
+
+  </div>
+
+
 </div>

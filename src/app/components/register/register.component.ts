@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+
+import { StorageService } from 'src/app/services/storage.service';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-register',
@@ -14,6 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toastrService: ToastrService,
+    private storageService: StorageService,
     private formBuilder: FormBuilder,
     private router:Router
   ) {}
@@ -38,12 +41,13 @@ export class RegisterComponent implements OnInit {
 
       this.authService.register(registerModel).subscribe(response=>{
         this.toastrService.success(response.message);
+         
+        this.authService.decodeToken(response.data.token)    
+        this.storageService.set("token",response.data.token)
         this.router.navigate(["/"])
-      },responseError=>{
-        this.toastrService.error(responseError.error)
-      })
+      });
     }else{
-      this.toastrService.error("Lütfen Boş Bırakmayınız")
+      this.toastrService.error("Lütfen Formu Boş Bırakmayınız")
     }
   }
 }

@@ -30,10 +30,11 @@
     <tbody>
         <tr *ngFor="let brand of brands" style="text-align: center;">
           <td> <a routerLink= "/cars/brand/{{brand.brandId}}">  {{brand.brandName}}</a>
-            
-          <td>
-            <button class="btn btn-warning" routerLink="/brands/update/{{brand.brandId}}">Update</button>
-          </td>
+            <td class="operations">
+                    
+                           
+              <app-brand-update>Update</app-brand-update>
+            </td>
           <td><button class="btn btn-danger" (click)="deleteBrand(brand)">Delete</button></td>
         </tr>
       </tbody>

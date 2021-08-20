@@ -1,3 +1,6 @@
+
+
+
 export interface Customer{
     
     customerId:number;
@@ -12,4 +15,5 @@ export interface Customer{
     export interface CustomerDetail extends Customer{
         firstName:string;
         lastName:string;
+        companyName:string;
     }

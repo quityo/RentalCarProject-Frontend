@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import{ToastrModule} from 'ngx-toastr';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,7 +19,6 @@ import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/add/car-add/car-add.component';
 import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
-import { ColorAddComponent } from './components/add/color-add/color-add.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -29,11 +28,9 @@ import { BrandListComponent } from './components/list/brand-list/brand-list.comp
 import { CarImageComponent } from './components/car/car-image/car-image.component';
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { ColorListComponent } from './components/list/color-list/color-list.component';
-import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { TabComponent } from './components/tab/tab.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
@@ -41,14 +38,25 @@ import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { JwtModule } from '@auth0/angular-jwt';
 import { CartComponent } from './components/cart/cart.component';
 import { CardComponent } from './components/card/card.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
 import { RentalFilterPipe } from './pipes/rental-filter.pipe';
 import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CarListComponent } from './components/list/car-list/car-list.component';
-
+import { UserComponent } from './components/user/user.component';
+import { UserFilterPipe } from './pipes/user-filter.pipe';
+import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { CustomerListComponent } from './components/list/customer-list/customer-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserImageComponent } from './components/user/user-image/user-image.component';
+import { RentalListComponent } from './components/list/rental-list/rental-list.component';
+import { RentalPeriodComponent } from './components/rental/rental-period/rental-period/rental-period.component';
+import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AdminComponent } from './components/admin/admin/admin.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { ColorAddComponent } from './components/add/color-add/color-add.component';
+import { PaginationComponent } from './components/pagination/pagination/pagination.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +81,6 @@ import { CarListComponent } from './components/list/car-list/car-list.component'
     CarListComponent,
     CarUpdateComponent,
     ColorListComponent,
-    ColorUpdateComponent,
     RegisterComponent,
     LoginComponent,
     ChangePasswordComponent,
@@ -83,12 +90,22 @@ import { CarListComponent } from './components/list/car-list/car-list.component'
     BrandFilterPipe,
     ColorFilterPipe,
     CardComponent,
-    AuthComponent,
-    RentalAddComponent,
     RentalFilterPipe,
     ListComponent,
     AddComponent,
     MenuComponent,
+    UserComponent,
+    UserFilterPipe,
+    UserDetailComponent,
+    CustomerListComponent,
+    ColorUpdateComponent,
+    RentalAddComponent,
+    RentalListComponent,
+    UserImageComponent,
+    RentalPeriodComponent,
+    AdminComponent,
+    PaginationComponent
+   
     
   ],
   imports: [
@@ -106,8 +123,7 @@ import { CarListComponent } from './components/list/car-list/car-list.component'
     JwtModule,
    
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  
+  providers: [ {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

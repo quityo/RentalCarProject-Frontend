@@ -1,15 +1,13 @@
 <div class="container">
 
-  <div>
-      <h5 class="title font-weight-bold">Araç Resimleri </h5>
-  </div>
+    <div class="row">
 
   <div class="row text-center text-lg-left">
-      <div class="col-lg-3 col-md-4 col-6 box" *ngFor="let carImage of carImage">
+      <div class="col-4" *ngFor="let carImage of carImage">
 
           <img class="img-fluid img-thumbnail" src="{{ imageRoot + carImage.imagePath }}" alt="">
           <div *ngIf="carImage.imagePath !='default.jpg'">
-              <button class="btn btn-primary btn-sm delete" (click)="delete(carImage)">
+              <button class="btn btn-primary btn-sm" (click)="delete(carImage)">Resim Sil
               </button>
           </div>
 
@@ -17,7 +15,7 @@
   </div>
 
 
-  <div class="row">
+  
 
       <div class="col-6">
           <div class="custom-file">
@@ -28,6 +26,7 @@
       </div>
 
       <div class="col-4">
+       
           <button class="btn btn-primary" (click)="addImage()">Resim Ekle</button>
       </div>
 

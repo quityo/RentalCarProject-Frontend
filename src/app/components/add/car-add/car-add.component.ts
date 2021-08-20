@@ -35,6 +35,7 @@ export class CarAddComponent implements OnInit {
   createCarAddForm(){
     this.carAddForm = this.formBuilder.group({
       description : ["",Validators.required],
+      carName : ["",Validators.required],
       dailyPrice : ["",Validators.required],
       brandId:["",Validators.required],
       colorId:["",Validators.required],

@@ -21,10 +21,13 @@
    
     
     <tbody>
+        
         <tr *ngFor = "let color of colors" style="text-align: center;">
             <td> <a routerLink= "/cars/color/{{color.colorId}}">  {{color.colorName}}</a>
                 <td class="operations">
-                <button class="btn btn-warning" routerLink="/colors/update/{{color.colorId}}">Update</button>
+                    
+                           
+                          <app-color-update>Update</app-color-update>
             </td>
             <td><button class="btn btn-danger" (click)="deleteColor(color)">Sil</button></td>
         </tr>

@@ -6,8 +6,9 @@ export interface Rental{
     dailyPrice : number;
     description : string;
     customerId : number;
-    rentDate : Date;
-    returnDate:Date;
+    rentDate:Date;
+    returnDate?:Date;
+   
 }
 export interface RentalDetail extends Rental{
     carId:number;
@@ -19,4 +20,5 @@ export interface RentalDetail extends Rental{
     description:string;
     modelYear:number;
     dailyPrice:number;
+    carName: string;
 }

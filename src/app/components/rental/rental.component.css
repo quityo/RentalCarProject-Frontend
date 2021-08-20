@@ -1,30 +1,22 @@
 
-table.table.table-bordered {
-  text-align: center;
-}
-.table-bordered{
-  background-color: black;
-  border-width: 5px solid;
-  
-}
+
 
 .modal-content{
   display:flex;
   flex-wrap:wrap; 
-  
-  justify-content:space-between;
   background-color: black;
   color:white;
+ 
 }
+
+
 .modal-title{
   font-size: 25px;
     font-weight: 100;
     line-height: 2;
     color: white;
-    
-    text-transform: inherit;
-    letter-spacing: inherit;
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 
+    0 0 10px #ff8d00, 0 0 98px #ff0000;
 }
 .modal-dialog {
   margin-top: 0;
@@ -33,4 +25,8 @@ table.table.table-bordered {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+}
+.my-module {
+  z-index: 1500;
 }

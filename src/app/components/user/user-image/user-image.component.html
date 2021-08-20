@@ -1,0 +1,34 @@
+<div class="container">
+
+  
+
+    <div class="row text-center text-lg-left">
+        <div class="col-lg-3 col-md-4 col-6 box" *ngFor="let userImage of userImage">
+  
+            <img class="img-fluid img-thumbnail" src="{{ imageRoot + userImage.imagePath }}" alt="">
+            <div *ngIf="userImage.imagePath !='default.jpg'">
+                <button class="btn btn-primary btn-sm delete" (click)="delete(userImage)">
+                </button>
+            </div>
+  
+        </div>
+    </div>
+  
+  
+    <div class="row">
+  
+        <div class="col-6">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="imageFile" (change)="fileSelected($event)" accept=".png,.jpg,.jpeg">
+                <label class="custom-file-label" for="imageFile"></label>
+                
+            </div>
+        </div>
+  
+        <div class="col-4">
+            <button class="btn btn-primary" (click)="addImage()">Resim Ekle</button>
+        </div>
+  
+    </div>
+  
+  </div>

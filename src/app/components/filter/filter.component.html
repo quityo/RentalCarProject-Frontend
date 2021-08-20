@@ -15,8 +15,24 @@
                     {{brand.brandName}}
                 </option>
             </select>
-        </div>
-    </div>
+            <br>
+            <div class="row pb-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <button 
+                    class="btn btn-danger"
+                    routerLink="/cars/brand/{{currentBrandId}}" >
+                        Filter
+                    </button>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <button class="btn btn-warning"
+                    routerLink="/cars">
+                        Clear
+                    </button>
+                </div>
+            </div>
+       
     <br><br>
     <div class="row">  
         <div class="col-md-12">
@@ -37,20 +53,21 @@
         </div>       
     </div>
     <br>
-    <div class="row pb-3">
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-            <button 
-            class="btn btn-danger"
-            routerLink="/cars/filter/{{currentBrandId}}/{{currentColorId}}" >
-                Filter
-            </button>
-        </div>
-        
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-            <button class="btn btn-warning"
-            routerLink="/cars">
-                Clear
-            </button>
-        </div>
-    </div>
+    
+            <div class="row pb-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <button 
+                    class="btn btn-danger"
+                    routerLink="/cars/color/{{currentColorId}}" >
+                        Filter
+                    </button>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <button class="btn btn-warning"
+                    routerLink="/cars">
+                        Clear
+                    </button>
+                </div>
+            </div>
 </div>

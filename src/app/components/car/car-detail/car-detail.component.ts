@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car} from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
@@ -20,10 +21,13 @@ export class CarDetailComponent implements OnInit {
   currentImage : CarImage;
   imageBasePath  = environment.imageUrl;
   carName: string;
-
+  isCarAvail: boolean
+  cardetail : CarDetail
   constructor(
     private carService:CarService,
     private carImageService : CarImageService,
+    
+    private rentalService: RentalService,  
     private activatedRoute : ActivatedRoute,
     private toastrService : ToastrService
     
@@ -34,8 +38,20 @@ export class CarDetailComponent implements OnInit {
       if(params["carId"]){
         this.getCarDetailsByCarId(params["carId"]);
         this.getCarImages(params["carId"]);
+        
+        this.isCarAvailable(params["carId"])
       }
     })
+  }
+  isCarAvailable(carId:number) {
+    this.rentalService.isCarAvailable(carId).subscribe(
+      response=>{        
+        this.isCarAvail = response
+      }, 
+      responseError=>{
+        this.toastrService.error("Bu araç kiralanamaz","Uyarı")         
+      }
+    );
   }
   getCarDetailsByCarId(carId: number) {
     this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
@@ -65,5 +81,5 @@ export class CarDetailComponent implements OnInit {
   rentOnClick(){
     this.toastrService.info("Lütfen müşteri ve tarih seçin");
   }
- 
+  
 }

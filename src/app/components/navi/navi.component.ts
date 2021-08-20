@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Customer } from 'src/app/models/customer';
 import { AuthService } from 'src/app/services/auth.service';
-import { CartService } from 'src/app/services/cart.service';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
+
 @Component({
   selector: 'app-navi',
   templateUrl: './navi.component.html',
@@ -12,36 +10,44 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 })
 export class NaviComponent implements OnInit {
 
-  control : any;
-  userName : string;
+  isVerified: boolean = false;
+  userName:string
+  Email:string;
+  claim:string;
 
-  constructor(private router : Router,
-    private toastrService : ToastrService,
-    private authService : AuthService,
-    private localStorageService : LocalStorageService,
-    private cartService: CartService,
-   ) { }
+  constructor(
+    private authService: AuthService,
+    private localStorageService: LocalStorageService,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.control = this.localStorageService.getItem("isauth");
+    this.IsUserVerified();
+    if(this.isVerified){
     this.getUserName();
-    
+    this.getUserClaim();
+    }
   }
-  isAuth(): boolean {
-    return this.authService.isAuthenticated();
+
+  IsUserVerified() {
+    if (this.authService.isAuthenticated()) {
+      this.isVerified = true;
+    } else {
+      this.isVerified = false;
+    }
   }
-  logout(){
-    this.localStorageService.removeToken();
-    this.localStorageService.removeCurrentCustomer();
-    return this.router.navigate(["/login"]);
-  }
-  getCurrentCustomer(): Customer {
-    return this.localStorageService.getCurrentCustomer();
-  }
-  getUserName(){
+
+  getUserName() {
     this.userName = this.localStorageService.getUserNameDecodeToken();
   }
-  cartCount() {
-    return this.cartService.cartList().length;
+
+  getUserClaim() {
+    this.claim = this.localStorageService.getClaimsDecodeToken();
+  }
+
+  logOut() {
+    this.localStorageService.removeLocalStorage("token");
+    this.toastrService.info("You Logged Out");
+    this.ngOnInit();
   }
 }

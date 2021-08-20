@@ -16,19 +16,23 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  rentals : Rental[] = [];
+  currentRental : Rental;
+
   brands : Brand[] = []
-  currentBrand : Brand;
+  currentBrand : Brand;  
   filterBrandText ="";
+
   colors : Color[] = [];
   currentColor : Color;
   filterColorText : "";
-  cars : Car[] = [];
-  
+
+  cars : Car[] = [];  
   currentCar : Car;
   filterText : "";
  
   currentCustomer : Customer;
-  currentRental : Rental;
+  
 
   constructor(private brandService : BrandService,
     private colorService : ColorService,
@@ -40,6 +44,7 @@ export class ListComponent implements OnInit {
     this.getBrands();
     this.getColors();
     this.getCars();
+    this.getRentals();
     
   }
   
@@ -123,6 +128,24 @@ export class ListComponent implements OnInit {
       return "list-group-item"
     }
 
+  }
+  
+  getRentals(){
+    this.rentalService.getRentals().subscribe(response=>{
+      this.rentals = response.data
+    })
+  }
+  setCurrentRental(rental:Rental){
+    this.currentRental = rental;
+  }
+
+  getCurrentRentalClass(rental:Rental){
+    if(rental == this.currentRental){
+      return "list-group-item active"
+    }
+    else{
+      return "list-group-item"
+    }
   }
   getAllRentalClass(){
     if(!this.currentRental){

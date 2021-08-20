@@ -1,0 +1,101 @@
+<!-- <div id="ppm-content" role="main" class="content">
+    <div class="box">
+        </div>
+        <h5 *ngFor="let user of users | userFilter:filterText"></h5>
+        <div class="avatar pointer idTrigger" style="background: url('https://res.cloudinary.com/fufufu/image/upload/v1510225725/FuFu.jpg') no-repeat;" onclick="window.location.href='/World/Popmundo.aspx/Character/2912477';"><div class="idHolder" style="display: none;">2912477</div></div>
+        <div class="float_left characterPresentation"> 
+            <p>{{user.firstName}} {{user.lastName  | uppercase}}
+                                O, <a href="/World/Popmundo.aspx/Artist/2700025">Funky Monkeys</a> bünyesinde Mızıkacı olarak görev alıyor.
+                
+                Sun, <a href="/World/Popmundo.aspx/City/47">İzmir</a> sokaklarını terk etti ve şu anda <strong>Isla de Erich Zann</strong> adlı mekânı keşfediyor.
+            </p>
+            <p>Sun boş zamanlarında <strong>gizlenmek</strong> ile uğraşmayı seviyor ve profesyonel olarak kendisini geliştirebilmek için <strong>yetenek geliştirmek</strong> ile uğraşıyor.</p>
+            
+            
+        </div>
+    </div>   
+     -->
+<!--      
+<div class="row" >
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let user of users | userFilter:filterText">
+      <div  class="card bg-dark text-white " style="width: 100%;">
+     
+            <div class="left">
+                <img id="profile_img" class="card-img-top" src="{{imageBasePath}}{{user.profilImagePath}}" alt="">
+               <button class="btn" routerLink="/profilimages/{{user.userId}}">Image</button>
+               <div class="card-body" >
+            </div>
+            
+                <h5 class="card-title text-center" id="name">{{user.firstName}} {{user.lastName}}</h5>
+                <p class="interests_title">User Info: </p>
+                <p class="title">Company Name: {{user.companyName}}</p>
+                <p class="title">E-Mail: {{user.email}}</p> -->
+                <!-- <p class="interests_title">Car Info: </p>
+                <p class="location">Car Name: {{user.carName}}</p>
+                <p class="location">Brand Name: {{user.brandName}}</p>
+                                <div class="interests">
+                    <p class="interests_title">IRental Details: </p>
+                    <p class="location">Rent Date: {{user.rentDate}}</p>
+                <p class="location">Return Date: {{user.returnDate}}</p>
+                    <span class="interests_item">Technology</span>
+                    
+                </div> -->
+               <!--  <div class="row justify-content-center">
+                    <a routerLink="/users/detail/{{user.userId}}" class="btn  ">Details</a>
+                    
+            </div>  
+            </div>
+        </div> -->
+
+   <div class="row">
+        <div class="col-lg-4 "*ngFor ="let user of users">
+            <div  class="card  text-white " style="width: 100%;">
+                <div class="card-body">
+                <div class="right" >
+                <img class="profile_img" src="{{imageBasePath}}{{user.imagePath}}" alt="">
+                <h2 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h2>
+                <p>{{user.email}}</p>
+               <button class="btn" routerLink="/userimages/{{user.userId}}">Image</button>
+            </div>
+            <div class="left">
+                
+                <p>Company: {{user.companyName}}</p>
+                
+                
+                <!-- <p>Car: {{user.carName}}</p>
+                <p>Brand: {{user.brandName}}</p>
+                
+                <div class="interests">
+                    
+                    <p>Rent Date: {{user.rentDate}}</p>
+                    <p>{{user.rentDate}}</p>
+                <p>Return Date:</p>
+                <p>{{user.returnDate}}</p> -->
+                <div class="row justify-content-center">
+                    <a routerLink="/users/{{user.userId}}" class="btn  ">Details</a>
+                    
+            </div>  
+                </div> 
+            
+                 <!-- <body>
+                    <div class="card" *ngFor="let user of users | userFilter:filterText">
+                        <div class="left">
+                            <img class="profile_img" src="{{imageBasePath}}{{user.profileImagePath}}" alt="">
+                            <div class="flag_wrapper">
+                                <img class="flag" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/flag-south-korea_1f1f0-1f1f7.png" alt="South Korean Flag" />
+                            </div>
+                        </div>
+                        <div class="right">
+                            <h2 class="name">Nam Do-San</h2>
+                            <p class="title">Developer</p>
+                            <p class="location">Seoul, South Korea</p>
+                            <div class="interests">
+                                <p class="interests_title">Interests: </p>
+                                <span class="interests_item">A.I.</span>
+                                <span class="interests_item">Technology</span>
+                                <span class="interests_item">Coding</span>
+                                <span class="interests_item">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </body>-->

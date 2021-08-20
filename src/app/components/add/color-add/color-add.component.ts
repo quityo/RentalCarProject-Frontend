@@ -15,7 +15,7 @@ export class ColorAddComponent implements OnInit {
   constructor(private formBuilder : FormBuilder,
     private colorService : ColorService,
     private toastrService : ToastrService
-    ) { }
+     ) { }
 
   ngOnInit(): void {
     this.createColorAddForm();
@@ -29,19 +29,16 @@ export class ColorAddComponent implements OnInit {
     if(this.colorAddForm.valid){
       let colorModel = Object.assign({},this.colorAddForm.value)
       this.colorService.add(colorModel).subscribe(response => {
-        this.toastrService.success(response.message,"Başarılı")
+        this.toastrService.success(response.message,"Successful")
       },responseError => {
         if(responseError.error.Errors.length > 0){
-          for(let i=0;i<responseError.error.Errors.lenth;i++){
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası");
-          }
-        }
-      });
-    }else{
-      this.toastrService.error("Formunuz Eksik","Dikkat");
+          for(let i =0; i<responseError.error.Errors.length; i++){
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Validation error");
+          } }
+        });
+      }else{
+        this.toastrService.error("Form Is Missing");
+      }
     }
-  }
- 
- 
-
-}
+    
+  } 

@@ -9,7 +9,7 @@
         <h1 class="display1">Funky Sun</h1>
         <p class="subhead">Rental Car</p>
         <hr>
-         <h2 class="display2"> <hr>Customer List Form <hr></h2>
+         <h2 class="display2"> <hr>Customer List<hr></h2>
          </div>
          <hr>
          <!-- <div class="content"> -->
@@ -17,16 +17,16 @@
   <thead>
     <tr>
       
-      <td>First Name </td>
-        <td>Last Name </td>
-          <td>Company</td>
+      <td>Full Name </td>
+        
+          <td>Company Name</td>
             <td>Email Address</td>
     </tr>
   </thead>
     <tr *ngFor = "let customer of customers" >
       
-      <td>{{customer.firstName}}</td>
-      <td>{{customer.lastName}}</td>
+      <td> <a routerLink="customer/{{customer.userId}}">{{customer.firstName}} {{customer.lastName | uppercase}}</a>
+      
       <td>{{customer.companyName}}</td>
       <td>{{customer.email}}</td>
   </tr>

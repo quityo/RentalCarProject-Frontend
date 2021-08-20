@@ -10,6 +10,8 @@
 <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars | carFilter:filterText">
   <div  class="card bg-dark text-white " style="width: 100%;">
         <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="Araba Resmi">
+
+        
       <div class="card-body">
                   
         <h5 class="card-title text-center">{{car.carName | uppercase}}</h5>
@@ -33,6 +35,14 @@
         </div>
   </div>
 </div>
-
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center" style="margin:20px 0">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="">2</a></li>
+    <li class="page-item"><a class="page-link" href="">3</a></li>
+    <li class="page-item"><a class="page-link" href="">Next</a></li>
+  </ul>
+</nav>
 </div>
 

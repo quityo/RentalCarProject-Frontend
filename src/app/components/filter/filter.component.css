@@ -5,7 +5,7 @@
     
 }
 .filter{
-    background-color:darkslategrey;
+    opacity:inherit;
     height: 280px;
     border-radius: 5px;
 }

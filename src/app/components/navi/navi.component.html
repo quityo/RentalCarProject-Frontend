@@ -10,24 +10,63 @@
   <p id="code">RE<span>N</span>TAL C<span>AR</span></p>
  
 </header>
-  
-<div id="nav" role="navigation" >
-  
-  <ul>
-    <li><a href="home">About</a></li>
-    <li><a href="">Dükkan</a></li>
-   
-    <li><a href="login">Login</a></li>
-    <li><a href="register">Register</a></li>
-    <li><a href="contact">Contact</a></li>
-    <li><a href="profile">//Profile</a></li>
-    <li><a href="card">//Card</a></li>
-    <li><span *ngIf="cartCount()"> {{ cartCount() }} </span>
-      <a routerLink="cart">//Trunk</a>
-  </li>
-  
-	
-  </ul>
+<nav class="navbar  navbar-expand-lg ">
 
-</div>
+  <div  class="container">
 
+    
+
+      <div class="collapse navbar-collapse" id="navcontent">
+
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="home">Hakkımızda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="">Ana Sayfa</a>
+            </li>
+              <li  class="nav-item">
+                  <a class="nav-link" routerLink="/customerlist">Müşteriler</a>
+              </li>
+              <li *ngIf="claim===('admin')" class="nav-item">
+                  <a class="nav-link" routerLink="rentallist">Kira Listesi</a>
+              </li>
+              
+
+
+              <li  class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">Yönetim</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" routerLink="carlist">Araç Listesi</a></li>
+                      <li><a class="dropdown-item" routerLink="brandlist">Marka Listesi</a></li>
+                      <li><a class="dropdown-item" routerLink="colorlist">Renk Listesi</a></li>
+                  </ul>
+              </li>
+
+          </ul>
+
+      </div>
+
+      <div *ngIf="!isVerified">
+          <button class="btn btn-outline-primary" routerLink="register">Kayıt Ol</button>
+          <button class="btn btn-primary ms-lg-2" routerLink="login">Giriş Yap</button>
+      </div>
+      
+      <div *ngIf="isVerified">
+          <div class="btn-group" >
+            
+         
+              <button class="btn dropdown-toggle btn-info btn-sm" data-bs-toggle="dropdown">
+                {{ userName }}
+       </button>
+
+              <div class="dropdown-menu dropdown-menu-end">
+                <button class="dropdown-item" routerLink="/profile">Profile</button>
+                <button *ngIf="claim === 'admin'" class="dropdown-item" routerLink="admin">Admin Panel</button>
+                <button class="dropdown-item" routerLink="/login" (click)="logOut()">Log Out</button>
+              </div>
+          </div>
+      </div>
+    
+  </div>
+</nav>

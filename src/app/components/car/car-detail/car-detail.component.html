@@ -4,7 +4,7 @@
   <div class="carousel-inner">
     
     <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
-      <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" alt="Image">
+      <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block" alt="Image">
     </div>
   </div>
   
@@ -47,15 +47,8 @@
 </div>
   <br>
 <hr>
-<div>
-  <div class="d-grid gap-2 mb-2">
-    <div *ngIf = "cars.status == true" class="dd-grid gap-2 mb-2">
-      <div style="margin: auto;">
-        <app-rental [car] = "cars"></app-rental>
-      </div>
-    </div>
-  </div>
-  <div class="dd-grid gap-2 mb-2" *ngIf = "cars.status == false">
-    <div class="alert alert-danger">Araç şu an kiralanamaz.</div>
-  </div>
-</div> 
+
+  <div class="card-body">
+    <button type="button" [hidden]="!isCarAvail" routerLink="/rentals/add" [queryParams]="{carId: cardetail?.carId}"  class="btn btn-primary">Kirala</button>
+    <h4 *ngIf="!isCarAvail" ><p>ARAÇ MÜSAİT DEĞİL</p></h4>
+</div>

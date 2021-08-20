@@ -1,13 +1,13 @@
-
-
-
+main{
+ 
+  background-color: transparent;}
 
 .signin-card {
   -webkit-animation: cardEnter 0.75s ease-in-out 0.5s;
   animation: cardEnter 0.75s ease-in-out 0.5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  opacity: 0;
+  
 }
 
 
@@ -16,10 +16,10 @@
   max-width: 350px;
   border-radius: 2px;
   margin: 20px auto;
-  padding: 20px;   
-  background-color:black; 
+  padding: 20px;  
   box-shadow: 0 10px 20px rgba(0, 0, 0, .19),
   0 6px 6px rgba(0, 0, 0, .23); 
+  
 }
 
   

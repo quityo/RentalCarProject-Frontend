@@ -45,6 +45,7 @@ export class RentalAddComponent implements OnInit {
 
     this.getCustomers()
     this.createRentalAddForm()
+    
     this.calcTotalPrice()
   }
 
@@ -73,8 +74,8 @@ export class RentalAddComponent implements OnInit {
       rentalModel.description = this.currentCar.description
       rentalModel.modelYear = this.currentCar.modelYear
       rentalModel.dailyPrice = this.currentCar.dailyPrice
-      rentalModel.totalPrice =  this.totalPrice
       
+      rentalModel.totalPrice =  this.totalPrice
       // findex puanlarını al
       let customerPoint = this.findexService.getPointByCustomerId(rentalModel.customerId)
       let carPoint = this.findexService.getPointByCarId(rentalModel.carId)

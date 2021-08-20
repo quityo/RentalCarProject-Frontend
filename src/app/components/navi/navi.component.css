@@ -26,11 +26,9 @@ div#header-logo img {
   text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;text-decoration: none;
 	padding: 0px 30px 0 0;
   position: absolute;
-  margin: 10px 0 0 200px;
-  left: 250px;
+  margin: 10px 0 0 0;
+  left: 33%;
   top: 13px;}
- 
-
 #code {
   font-family: Governor Bevel;
 	font-size: 40px;
@@ -38,9 +36,9 @@ div#header-logo img {
 	text-decoration: none;
 	padding: 0px 30px 0 0;
   position: absolute;
-margin: 9px 0 0 575px;
+margin: 9px 0 0 0;
   top: 13px;
-  left: 250px;
+  left: 56%;
   text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
   0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px 
   #ff8d00, 0 0 98px #ff0000;
@@ -164,62 +162,71 @@ margin: 9px 0 0 575px;
 
 
 
-#nav{
+.navbar{
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   font-family: Governor 3D;
-  float: left;
   height: 50px;
-  z-index: 9999;
+  z-index: 1;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: black;
   opacity: 80%;
   border: solid;
   border-radius: 1px;
 }
- 
+.nav-search-btn
+{
+    background-color: #28a745;
+    border-color: #28a745;
+    color:white;
+}
 
-  #nav ul {
-   
+.navbar ul {
+  margin: auto ;
   list-style: none;
-    width:98.8vw;
   padding:0;
-  text-align: center;
-  
+  margin: auto;
   font-size: 11px;
 }
-#nav ul ul{
-  display:none;
+.nav ul ul{
+  
+  background-color: black;
+  margin: auto;
 }
-#nav ul >li{
-  display: inline-block;
-  list-style-type: disc;
-  margin: 5px 0 5px ;
-    padding: 0;
+.navbar ul >li{
+  margin: auto ;
     list-style: none;
     padding:0 10px 0 0;
-    float:none;
+    background-color: black;
 }
-#nav ul >li:before{
+.navbar ul >li:before{
    
 	position: absolute;
 }
-#nav li a 
-{display: inline-block;
+.navbar li a 
+{
   
   font-family: Governor 3D;
   font-size: 1.5em;
   text-decoration: none;
   padding: 9px 5px 8px 5px;
     color: rgb(75, 213, 238);
-    z-index: 9999;
+    z-index: 1;
   text-align: center;
+  background-color: black;
  }
- #nav li a:hover{
-   color: white;
+ .navbar li a:hover{
+   color: black;
+   background-color:rgb(75, 213, 238); 
  }
 
+
+
+
+.badge{
+  float:right;
+  margin-bottom:-10px;
+}

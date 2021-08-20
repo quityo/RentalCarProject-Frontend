@@ -31,9 +31,6 @@ export class CarImageComponent implements OnInit {
     constructor(
       private activatedRoute: ActivatedRoute, 
       private carImageService:CarImageService,
-      private formBuilder:FormBuilder,
-      private http: HttpClient,
-      private router:Router,
       private toastrService: ToastrService) { }
   
     ngOnInit(): void {

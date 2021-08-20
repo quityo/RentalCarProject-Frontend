@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
@@ -11,45 +10,40 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand-update.component.css']
 })
 export class BrandUpdateComponent implements OnInit {
-  brand : Brand;
-  brandUpdateForm : FormGroup;
+  brandUpdateForm:FormGroup;
+  brands:Brand[] = [];
 
-  constructor(
-    private formBuilder : FormBuilder,
-    private brandService : BrandService,
-    private toastrService : ToastrService,
-    private activatedRoute : ActivatedRoute
-  ) { }
+  constructor(private formBuilder:FormBuilder, private brandService: BrandService,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
-    this.createBrandUpdateForm()
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
-        this.getBrandById(params["brandId"])
-      }
-    })
+    this.createBrandUpdateForm();
+    this.getAllBrands();
   }
-  createBrandUpdateForm(){
+
+  getAllBrands()
+  {
+    this.brandService.getBrands().subscribe(response =>{
+      this.brands = response.data;
+    });
+  }
+
+  createBrandUpdateForm()
+  {
     this.brandUpdateForm = this.formBuilder.group({
-      brandName : ["",Validators.required]
-    })
+      brandId:["",Validators.required],
+      brandName:["",Validators.required]
+    });
   }
-  getBrandById(brandId:number){
-    this.brandService.getById(brandId).subscribe(response =>{
-      this.brand = response.data;
-    })
-  }
-  updateBrand(){
-    if(this.brandUpdateForm.valid){
-      let brandModel = Object.assign({},this.brandUpdateForm.value)
-      brandModel.brandId = this.brand.brandId
-      this.brandService.update(brandModel).subscribe(response =>{
-        this.toastrService.success(response.message)
-      },responseError => {
-        this.toastrService.error(responseError.messaage)
-      })
-    }else{
-      this.toastrService.error("Form eksik","Hata")
+  updateBrand() {
+    if (this.brandUpdateForm.valid) {
+      let brandModel = Object.assign({}, this.brandUpdateForm.value);
+      this.brandService.update(brandModel).subscribe((response) => {
+        this.toastrService.success(response.message, "Success");
+      });
+    }
+    else{
+        this.toastrService.error("Please fill in all fields on the form","Error");
     }
   }
 }

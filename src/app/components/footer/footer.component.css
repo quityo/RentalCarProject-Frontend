@@ -1,50 +1,44 @@
-footer {
-    background-color: black;
+footer .pull-left{
+  opacity:inherit;
     color: rgb(75, 213, 238);;
     margin-bottom: 30px;
-    margin-top: 50px;
-   
-  }
-  footer .social {
-    margin: 80px 0;
+    margin-top: 40px;
+    margin-left: 44px;
     
+   width: 100%;
   }
-  
-  .h4 {
-    margin-bottom: 40px;
-    justify-content: center;
-        align-items: center;
+ 
+  .container{
+    
+    margin: 80px 20px 0 20px;
+    font-size: 0.7em;
   }
   
   footer a {
     color: rgb(75, 213, 238);
     transition: color 0.3s linear;
     margin-right: 20px;
-   
+    
   }
   
   footer a:hover {
     color: white;
   }
   
-  footer ul, footer small {
+  footer ul {
     display: inline;
     
   }
   
   footer small {
-    margin: 5px 20px;
+    margin: 40px 20px 0 20px;
     font-size: 0.7em;
   }
   
   .list-inline>li {
-    margin-top: 20px;
+    
     float: left;
-    
+    align-items:flex-start;
     
   }
-  .container {
-    display: flex;
-        justify-content: center;
-        align-items: center;
-  }
+ 

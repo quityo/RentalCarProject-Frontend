@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import{FormGroup,FormBuilder,FormControl,Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Color } from 'src/app/models/color';
 import { ColorService } from 'src/app/services/color.service';
+
 
 @Component({
   selector: 'app-color-update',
@@ -12,46 +12,40 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class ColorUpdateComponent implements OnInit {
 
-  color : Color;
-  colorUpdateForm : FormGroup;
-
-  constructor(
-    private formBuilder : FormBuilder,
-    private colorService : ColorService,
-    private toastrService : ToastrService,
-    private activatedRoute : ActivatedRoute
-  ) { }
+  colors:Color[]=[];
+  colorUpdateForm:FormGroup;
+  constructor(private formBuilder:FormBuilder,private colorService: ColorService,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
-    this.createColorUpdateForm()
-    this.activatedRoute.params.subscribe(params =>{
-      if(params["colorId"]){
-        this.getColorById(params["colorId"])
-      }
-    })
+    this.createColorUpdateForm();
+    this.getColors();
   }
-  createColorUpdateForm(){
+
+
+  getColors()
+  {
+    this.colorService.getColors().subscribe(response =>{
+      this.colors = response.data;
+    });
+  }
+  createColorUpdateForm()
+  {
     this.colorUpdateForm = this.formBuilder.group({
-      colorName : ["",Validators.required]
-    })
+      colorId:["",Validators.required],
+      colorName:["",Validators.required]
+    });
   }
-  getColorById(colorId : number){
-    this.colorService.getbyId(colorId).subscribe(response =>{
-      this.color = response.data
-    })
-  }
-  updateColor(){
-    if(this.colorUpdateForm.valid){
-      let colorModel = Object.assign({},this.colorUpdateForm.value)
-      colorModel.colorId = this.color.colorId
-      this.colorService.update(colorModel).subscribe(response =>{
-        this.toastrService.success(response.message)
-      },responseError =>{
-        this.toastrService.success(responseError.messaage)
-      })
+
+  updateColor() {
+    if (this.colorUpdateForm.valid) {
+      let colorModel = Object.assign({}, this.colorUpdateForm.value);
+      this.colorService.update(colorModel).subscribe((response) => {
+        this.toastrService.success(response.message, "Success");
+      });
     }
     else{
-      this.toastrService.error("Form Eksik","Hata")
+        this.toastrService.error("Please fill in all fields on the form","Error");
     }
   }
 

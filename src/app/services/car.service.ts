@@ -10,16 +10,10 @@ import { ItemResponseModel, ListResponseModel, ResponseModel } from '../models/r
   providedIn: 'root'
 })
 export class CarService {
-  getRentalByCarId(carId: any) {
-    throw new Error('Method not implemented.');
-  }
-
-  
-
+ 
   constructor(private httpClient: HttpClient) { }
 
   getCars():Observable<ListResponseModel<Car>>{
-    //gelen datayı CarResponseModel ' a map edeceksin.
     let newPath = environment.apiUrl + "cars/getcardetails"
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }

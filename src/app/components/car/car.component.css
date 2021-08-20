@@ -1,5 +1,6 @@
 .mb3{
     color: black;
+    opacity: 70;
 }
 #image{
     vertical-align: middle;
@@ -23,15 +24,10 @@ p{
 .btn {
    color:white;
     border-color:silver;
-    font-family: Star Jedi;
+    font-family: Starwars;
 }
 
-.btn:hover{
-    color: black;
-    font-family: Star Jedi;
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-    
-}
+
 .card-title .button{
    
         color:black;
