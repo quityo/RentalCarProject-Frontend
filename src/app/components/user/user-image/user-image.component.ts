@@ -37,12 +37,12 @@ export class UserImageComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       if(params["userId"]){
         this.userId = params["userId"]
-        this.getUserDetail(params["userId"])
+        this.getUserDetails(params["userId"])
       }
     })
   }
 
-  getUserDetail(userId:number) {
+  getUserDetails(userId:number) {
     this.userImageService.getUserImages(userId).subscribe((response) => {
       this.userImage = response.data;
     });
@@ -50,7 +50,7 @@ export class UserImageComponent implements OnInit {
 
   delete(userImage:UserImage){
     this.userImageService.delete(userImage).subscribe(response=>{
-      this.getUserDetail(this.userId)
+      this.getUserDetails(this.userId)
       this.toastrService.success("Resim silindi","Başarılı")
     }, responseError => {
       this.toastrService.success("Resim silinemedi!","Hata")
@@ -63,7 +63,7 @@ export class UserImageComponent implements OnInit {
     userImage.append("imageFile", this.imageFile, this.imageFile.name);
     this.userImageService.add( userImage ).subscribe(response=>{
       this.toastrService.success(response.message)
-      this.getUserDetail(this.userId)
+      this.getUserDetails(this.userId)
     },responseError=>{
       this.toastrService.error(responseError.error.message)
     })

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Card } from '../models/card';
 import { ListResponseModel, ResponseModel, SingleResponseModel } from '../models/responseModel';
 import { User,} from '../models/user';
+import { UserForUpdate } from '../models/UserForUpdate';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,11 +24,11 @@ export class UserService {
     return this.httpClient.get<SingleResponseModel<User>>(newPath)
   }
   
- getUserDetails():Observable<ListResponseModel<User>>{
+ getUserDetail():Observable<ListResponseModel<User>>{
     let newPath =environment.apiUrl + "users/getuserdetails";
     return this.httpClient.get<ListResponseModel<User>>(newPath);
   }  
-  getUserDetail(userId:number):Observable<ListResponseModel<User>>{
+  getUserDetails(userId:number):Observable<ListResponseModel<User>>{
     let newPath =environment.apiUrl + "users/getuserdetail?userId=" + userId;
     return this.httpClient.get<ListResponseModel<User>>(newPath);
   } 
@@ -40,20 +41,9 @@ export class UserService {
     return this.httpClient.post<SingleResponseModel<User>>(newPath,user)
   }
   profileUpdate(user:User):Observable<ResponseModel>{
-    console.log(user)
-    return this.httpClient.post<ResponseModel>(environment.apiUrl + 'users/updateprofile', {
-      user:{
-        'id': user.userId,
-        'firstName': user.firstName,
-        'lastName': user.lastName,
-        'email': user.email,
-        'status':user.status
-      },
-      password:user.password,
-    });
+    let newPath = environment.apiUrl + "users/updateprofile"
+      return this.httpClient.put<ResponseModel>(newPath,user);
   }
-
- 
   getAllCard(customerId : number):Observable<ListResponseModel<Card>>{
     let newPath = environment.apiUrl + "cards/getallcardbycustomerid?customerId=" + customerId;
     return this.httpClient.get<ListResponseModel<Card>>(newPath);
@@ -65,6 +55,11 @@ export class UserService {
   addCard(card:Card):Observable<ResponseModel> {
     let newPath = environment.apiUrl +"cards/add";
     return this.httpClient.post<ResponseModel>(newPath, card);
+  }
+
+  userDtoUpdate(user:UserForUpdate, userId:number):Observable<ResponseModel> {
+    let newPath = environment.apiUrl + "users/userdtoupdate?userId=" +userId;
+    return this.httpClient.post<ResponseModel>(newPath, user);
   }
  
 }

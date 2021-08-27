@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { RentalComponent } from './components/rental/rental.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -50,13 +49,13 @@ import { CustomerListComponent } from './components/list/customer-list/customer-
 import { ProfileComponent } from './components/profile/profile.component';
 import { UserImageComponent } from './components/user/user-image/user-image.component';
 import { RentalListComponent } from './components/list/rental-list/rental-list.component';
-import { RentalPeriodComponent } from './components/rental/rental-period/rental-period/rental-period.component';
-import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 import { ColorAddComponent } from './components/add/color-add/color-add.component';
 import { PaginationComponent } from './components/pagination/pagination/pagination.component';
+import { RentalComponent } from './components/rental/rental/rental.component';
+import { CardListComponent } from './components/list/card-list/card-list/card-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +63,6 @@ import { PaginationComponent } from './components/pagination/pagination/paginati
     NaviComponent,
     ColorComponent,
     CustomerComponent,
-    RentalComponent,
     TabComponent,
     CarDetailComponent,
     FilterComponent,
@@ -99,12 +97,12 @@ import { PaginationComponent } from './components/pagination/pagination/paginati
     UserDetailComponent,
     CustomerListComponent,
     ColorUpdateComponent,
-    RentalAddComponent,
     RentalListComponent,
     UserImageComponent,
-    RentalPeriodComponent,
     AdminComponent,
-    PaginationComponent
+    PaginationComponent,
+    RentalComponent,
+    CardListComponent
    
     
   ],

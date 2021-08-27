@@ -1,4 +1,4 @@
-
+import { UserImage } from "./userImage";
 
 export interface User{
     
@@ -14,11 +14,8 @@ export interface User{
     carName:string;
     rentDate : Date;
     returnDate:Date;
-    userImage:UserImage[];
+    userImages:UserImage[];
     
     }
     
-export interface UserImage extends User{
-    imageId:number;
-    imagePath:string;
-}
+

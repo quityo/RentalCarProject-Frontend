@@ -17,18 +17,14 @@
 <br>
 
 
-<table class="table table-bordered table-condensed table-hover" >
+<table class="table table-bordered table-hover" >
    
     
     <tbody>
         
         <tr *ngFor = "let color of colors" style="text-align: center;">
-            <td> <a routerLink= "/cars/color/{{color.colorId}}">  {{color.colorName}}</a>
-                <td class="operations">
-                    
-                           
-                          <app-color-update>Update</app-color-update>
-            </td>
+            <td> <a routerLink= "/cars/color/{{color.colorId}}">  {{color.colorName}}</a></td>
+            <td><app-color-update></app-color-update></td>
             <td><button class="btn btn-danger" (click)="deleteColor(color)">Sil</button></td>
         </tr>
     </tbody>

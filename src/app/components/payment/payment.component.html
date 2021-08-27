@@ -13,13 +13,13 @@
             <th>Brand</th>
             <th>Color</th>
             <th>Description</th>
-            <th>Daily Price}</th>
+            <th>Daily Price</th>
             <th>Total</th>
         </tr>
     </thead>
     <tbody>
         <tr >
-            <td >{{rental.rentDate}}</td>
+            <td>{{rental.rentDate}}</td>
             <td>{{rental.returnDate}}</td>
             <td>{{rental.brandName}}</td>
             <td>{{rental.colorName}}</td>
@@ -45,8 +45,7 @@
                       </div>
                     </div>
                     
-                    <br>
-                    <h3 class="text-center">May The Money Be With You</h3>
+                    <h3 class="text-center">"May The Money Be With You"</h3>
                     <br>
                       <div class="row">
                           <div class="col-md-6 mb-3">
@@ -70,7 +69,7 @@
                           <div class="row">
                             <div class="col-md-6 mb-3">
                               <label for="cc-expiration">Expiration</label>
-                              <input [(ngModel)] = "expirationDate" type="text" class="form-control" id="cc-expiration" placeholder="MM/YYYY" required>
+                              <input [(ngModel)] = "expirationDate" type="date" class="form-control" id="cc-expiration" placeholder="MM/YYYY" required>
                               <div class="invalid-feedback">
                                 Expiration date required
                               </div>
@@ -97,6 +96,13 @@
           </button>
       </div>
   </div>
+  <div class="card-footer">
+    <div class="row">
+    <button> <app-card [customer] = "customer"></app-card>
+             Kart Bilgileri Ekleme
+        </button>
+    </div>
+</div>
   </div>
 </body>
 </html>

@@ -10,7 +10,6 @@ export class UserFilterPipe implements PipeTransform {
     return filterUserText ? value.filter((u:User)=>
     u.firstName.toLocaleLowerCase().indexOf(filterUserText) !== -1 ||
     u.lastName.toLocaleLowerCase().indexOf(filterUserText) !== -1 ||
-    u.email.toLocaleLowerCase().indexOf(filterUserText) !== -1 ||
-    u.companyName.toLocaleLowerCase().indexOf(filterUserText) !== -1):value;
+    u.email.toLocaleLowerCase().indexOf(filterUserText) !== -1):value;
   }
 }

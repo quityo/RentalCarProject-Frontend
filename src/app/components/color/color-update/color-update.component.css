@@ -11,8 +11,10 @@
 	padding:6px 12px;
 	color:white;
 	text-decoration:none;
+  margin: auto;
+  text-align: center;
   }
 
   .btn:hover {
-    color:#44c6eb;
+    color:yellow;
   }

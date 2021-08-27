@@ -31,22 +31,27 @@
               <li *ngIf="claim===('admin')" class="nav-item">
                   <a class="nav-link" routerLink="rentallist">Kira Listesi</a>
               </li>
+              <li *ngIf="claim===('admin')" class="nav-item">
+                <a class="nav-link" routerLink="payments">Ödeme</a>
+            </li>
               
+              <li *ngIf="claim===('admin')" class="nav-item">
+                <a class="nav-link" routerLink="admin">Admin</a>
+            </li>
 
-
-              <li  class="nav-item dropdown">
+              <!-- <li  class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">Yönetim</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" routerLink="carlist">Araç Listesi</a></li>
                       <li><a class="dropdown-item" routerLink="brandlist">Marka Listesi</a></li>
                       <li><a class="dropdown-item" routerLink="colorlist">Renk Listesi</a></li>
                   </ul>
-              </li>
+              </li> -->
 
           </ul>
 
       </div>
-
+  
       <div *ngIf="!isVerified">
           <button class="btn btn-outline-primary" routerLink="register">Kayıt Ol</button>
           <button class="btn btn-primary ms-lg-2" routerLink="login">Giriş Yap</button>
@@ -54,13 +59,13 @@
       
       <div *ngIf="isVerified">
           <div class="btn-group" >
-            
          
-              <button class="btn dropdown-toggle btn-info btn-sm" data-bs-toggle="dropdown">
+              <button class="btn dropdown-toggle btn-info btn-sm"  data-bs-toggle="dropdown">
                 {{ userName }}
        </button>
 
-              <div class="dropdown-menu dropdown-menu-end">
+              <div class="dropdown-menu dropdown-menu-end" style="
+              z-index: 1;">
                 <button class="dropdown-item" routerLink="/profile">Profile</button>
                 <button *ngIf="claim === 'admin'" class="dropdown-item" routerLink="admin">Admin Panel</button>
                 <button class="dropdown-item" routerLink="/login" (click)="logOut()">Log Out</button>

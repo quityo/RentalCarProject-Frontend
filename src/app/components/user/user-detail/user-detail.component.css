@@ -1,0 +1,145 @@
+
+h2 {
+	font-family: "Poppins";
+	font-weight: 500;
+	font-size: 28px;
+	margin: 23px 0;
+}
+
+.col-lg-4{
+	margin:50px auto;
+}
+
+.card {
+	
+	background-color: transparent;
+	opacity: 90%;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	display: flex;
+	flex-direction: row;
+	
+	transition: all 0.5s ease;
+	justify-content: center;
+}
+
+.card:hover {
+	box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+		1px 6px 12px rgba(39, 44, 49, 0.04);
+	transform: translate3D(0, -1px, 0) scale(1.02);
+	transition: all 0.5s ease;
+}
+
+.profile_img {
+	display: block;
+	margin: auto;
+	width: 140px;
+	height: 140px;
+    object-fit: cover;
+	object-position: 50% 50%;
+	border-radius: 100%;
+	
+}
+
+
+.flag_wrapper {
+	width: 25px;
+	height: 25px;
+	background-color: #f2f2f2;
+	border-radius: 100%;
+	position: relative;
+	top: -20px;
+	left: 55px;
+}
+
+.flag {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+}
+
+.left {
+	margin-right: 12.5px;
+}
+.right {
+	margin-left: 12.5px;
+}
+
+.interests {
+	justify-content: center;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.interests_title {
+	justify-content: center;
+	color: white;
+	margin-bottom: 5px;
+}
+
+.interests_item {
+	padding: 0 15px;
+	margin-right: 5px;
+	line-height: 35px;
+	background-color: #e6e6e6;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+#image{
+    vertical-align: middle;
+}
+
+p{
+	color: white;
+    
+    text-align:center;
+    letter-spacing:2px;
+    font-family: Governor 3D;
+}
+
+.btn {
+ 	
+	color:white;
+	border-color:silver;
+	font-family: Starwars;
+	background-color: transparent;
+  }
+
+.btn:hover{
+    color: yellow;
+    
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
+}
+.card-title .button{
+   
+	color:black;
+	font-size: 11px;
+	padding: 5px 10px;
+	border: 1px solid #999;
+	background-color: transparent;
+	text-align: center;
+ 
+}
+
+
+
+p{
+    
+    text-align:center;
+    letter-spacing:2px;
+    font-family: Governor 3D;
+}
+.card-title{
+  
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
+}
+
+

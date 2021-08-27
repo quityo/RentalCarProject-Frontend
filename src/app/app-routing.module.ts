@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {NgModule} from '@angular/core';
 import { CarComponent } from './components/car/car.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { RentalComponent } from './components/rental/rental.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 
@@ -28,10 +27,12 @@ import { UserComponent } from './components/user/user.component';
 import { CustomerListComponent } from './components/list/customer-list/customer-list.component';
 import { UserImageComponent } from './components/user/user-image/user-image.component';
 import { RentalListComponent } from './components/list/rental-list/rental-list.component';
-import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
 import { AdminGuard } from './guards/admin.guard';
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { ColorAddComponent } from './components/add/color-add/color-add.component';
+import { RentalComponent } from './components/rental/rental/rental.component';
+import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { CardListComponent } from './components/list/card-list/card-list/card-list.component';
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -62,12 +63,12 @@ const routes: Routes = [
   {path:"customers", component: CustomerComponent},  
   {path:"customerlist", component: CustomerListComponent}, 
 
-  {path:"rentals",component:RentalComponent},
-  {path:"rental/:carId", component:RentalComponent},
-  {path:"rentals/paymentadd",component:RentalComponent},
+  
   {path:"rentallist",component:RentalListComponent},
-  {path:"rentals/add/:carId", component: RentalAddComponent},
-  {path:"rentals/add", component: RentalAddComponent},
+  {path:"rental",component:RentalComponent},
+  {path:"rental/:carId", component:RentalComponent},
+  {path:"rental/paymentadd",component:RentalComponent},
+  
 
   {path:"payments/:rental",component:PaymentComponent},
   {path:"payments", component:PaymentComponent, canActivate:[LoginGuard]},
@@ -80,14 +81,13 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"profile",component:ProfileComponent},
+
   {path:"card",component:CardComponent},
+  {path:"cardlist",component:CardListComponent},
   
  {path:'users/getall',component:UserComponent},
- {path:'users',component:UserComponent},
- {path:'users/:userId',component:UserComponent},
- {path:"users/detail/:userId",component:UserComponent},
- {path:"users/getuserdetails",component:UserComponent},
- {path:"users/customer/:customerId",component:UserComponent},
+ {path:'users/:userId',component:UserDetailComponent},
+ {path:"users/customer/:customerId",component:UserDetailComponent},
 
  {path:"userimages/:userId", component:UserImageComponent, canActivate:[LoginGuard]},
  

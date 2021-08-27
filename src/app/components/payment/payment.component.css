@@ -1,5 +1,5 @@
 *{
-    background-color: black;
+    background-color: transparent;
 }
 #payment{
     width:200px;
@@ -9,11 +9,13 @@
     text-align: center;
     border:2px solid  silver;
     color: white;
+    background-color: transparent;
 }
 #tablerentalthead{
-    background-color: rgb(163, 206, 255);
+    background-color: transparent;
 }
 #card{
+    background-color: transparent;
     width: 400px;
     height: 15rem;
     background: url("https://res.cloudinary.com/fufufu/image/upload/v1618106431/uyy_awqiy5.jpg")center center;

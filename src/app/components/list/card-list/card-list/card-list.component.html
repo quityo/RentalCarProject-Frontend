@@ -1,0 +1,38 @@
+<hr>
+<main class="form-add">
+    <div class="container">
+      <div id="add" class="add-card">
+        <div class="logo-image">
+          <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Funky Sun" id="Logo"
+            width="80">
+        </div>
+        <h1 class="display1">Funky Sun</h1>
+        <p class="subhead">Rental Car</p>
+        <hr>
+         <h2 class="display2"> <hr>Card List Page<hr></h2>
+         </div>
+         <hr>
+         <br>
+        
+         <table class="table table-bordered table-condensed table-hover" >
+   
+            <thead>
+                <tr>
+                  
+                  <td>Name On The Card </td>
+                    
+                      <td>Card Number</td>
+                        <td>Expiration Date</td>
+                        <td>Card Cvv</td>
+                </tr>
+              </thead>
+            <tbody>
+                <tr *ngFor = "let card of cards" style="text-align: center;">
+                    <td>{{card.nameOnTheCard  | uppercase}}</td>
+              
+              <td>{{card.cardNumber}}</td>
+              <td>{{card.expirationDate}}</td>
+              <td>{{card.cardCvv}}</td>
+            </tr>
+            </tbody>
+        </table>

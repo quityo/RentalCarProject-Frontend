@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
 import { CarImage } from 'src/app/models/carImage';
@@ -12,7 +13,8 @@ export class BrandListComponent implements OnInit {
   carImages : CarImage[] = [];
 
   brands : Brand[] = [];
-  constructor(private brandService : BrandService) { }
+  constructor(private brandService : BrandService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.getBrands();
@@ -23,7 +25,11 @@ export class BrandListComponent implements OnInit {
     });
   }
   deleteBrand(brand : Brand){
-    this.brandService.delete(brand).subscribe();
+    this.brandService.delete(brand).subscribe()
+    this.router.navigate(['brandlist'])
+        .then(() => {
+          window.location.reload();
+        });
   }
 
 }

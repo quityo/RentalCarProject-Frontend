@@ -22,11 +22,15 @@ p{
     
 }
 .btn {
+    
+	
    color:white;
     border-color:silver;
     font-family: Starwars;
 }
-
+.card{
+    background-color: transparent;
+}
 
 .card-title .button{
    

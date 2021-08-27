@@ -11,6 +11,7 @@ export interface Car{
     colorId:number;
     imagePath:string;
     status?:boolean;
+    isRented:boolean;
     carImages : CarImage[];
 }
 export interface CarDetail extends Car{

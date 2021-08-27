@@ -20,6 +20,7 @@ export class RentalService {
     let newPath = environment.apiUrl + 'rentals/getrentaldetail'
     return this.httpClient.get<ListResponseModel<RentalDetail>>(newPath);
   }
+  
   getRentalByCarId(carId : number):Observable<ListResponseModel<Rental>>{
     let newPath = environment.apiUrl + 'rentals/getrentaldetailbycarId?carId=' + carId;
     return this.httpClient.get<ListResponseModel<Rental>>(newPath);
@@ -28,9 +29,9 @@ export class RentalService {
     let newPath = environment.apiUrl + 'rentals/add';
     return this.httpClient.post<ResponseModel>(newPath,{payment:{amount:amount},rental:{rental}})
   }
-  addRental(rental:Rental):Observable<ListResponseModel<CarDetail>> {
-    let newPath = environment.apiUrl + "rentals/add";
-    return this.httpClient.post<ListResponseModel<CarDetail>>(newPath, rental);
+  addRental(rental:Rental){
+    let newPath = environment.apiUrl + "rentals/add"
+    this.httpClient.post(newPath,rental).subscribe()
   }
   isCarAvailable(carId:number):Observable<boolean> {
     let newPath = environment.apiUrl + "rentals/iscaravailable?carId=" + carId;
@@ -41,6 +42,10 @@ export class RentalService {
     let newPath = environment.apiUrl+ "rentals/carisreturned?carId=" + carId;
     return this.httpClient.get<SingleResponseModel<Rental>>(newPath);
   }
- 
+  checkFindeks(carId:number, customerId:number):Observable<ResponseModel>
+  {
+    let newPath = environment.apiUrl + "/rentals/checkfindeks?carId=" + carId + "&customerId=" + customerId;
+    return this.httpClient.get<ResponseModel>(newPath);
+  }
 
 }

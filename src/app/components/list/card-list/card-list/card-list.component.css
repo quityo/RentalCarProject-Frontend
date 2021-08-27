@@ -1,35 +1,30 @@
 
+  
   .table {
     
     border-color: rgb(75, 213, 238);
     text-decoration: none;
+  }
+  
+  .t-body{
+    background-color: Black;
     color: white;
     text-align: center;
     text-decoration: none;
     
   }
-
-  .table td, a{
-    font-size: 20px;
-    font-weight: 100;
-    line-height: 2;
+  .table td{
     color: white;
-    text-transform: inherit;
-    letter-spacing: inherit;
+    text-align: center;
     text-decoration: none;
-  }
-  .table a:hover{
     font-size: 20px;
     font-weight: 100;
     line-height: 2;
     color: white;
     text-transform: inherit;
     letter-spacing: inherit;
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     
   }
-                    
-
   .btn{
     color:black;
     font-size: 11px;
@@ -63,10 +58,9 @@
         color: rgb(75, 213, 238);
         text-transform: inherit;
         letter-spacing: inherit;
-        
       }
       
-  .display1 {
+  .display1{
     font-size: 28px;
     font-weight: 100;
     line-height: 2;
@@ -157,3 +151,23 @@
       transform: scale3d(1, 1, 1);
     }
   } 
+  .table a{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    
+  }
+  .table a:hover{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
+  }

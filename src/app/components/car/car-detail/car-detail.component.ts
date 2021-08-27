@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
-
+  isRented: boolean;
   cars : Car;
   carImages : CarImage[] = [];
   currentImage : CarImage;
@@ -23,6 +23,7 @@ export class CarDetailComponent implements OnInit {
   carName: string;
   isCarAvail: boolean
   cardetail : CarDetail
+  status: boolean
   constructor(
     private carService:CarService,
     private carImageService : CarImageService,

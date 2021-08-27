@@ -26,7 +26,7 @@ export class UserImageService {
     return this.httpClient.get<ListResponseModel<UserImage>>(newPath)
   }
   getAllImages():Observable<ListResponseModel<UserImage>> {
-    let newPath = this.path + "getall";
+    let newPath = environment.apiUrl + "userimages/getall";
     return this.httpClient.get<ListResponseModel<UserImage>>(newPath);
   }
   add(userImage:FormData):Observable<ListResponseModel<UserImage>> {

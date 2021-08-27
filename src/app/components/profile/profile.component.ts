@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
     let userId = Number(this.localStorageService.getIdDecodeToken());
     let userModel =  Object.assign({}, this.userUpdateForm.value);
 
-    this.userService.profileUpdate(userModel).subscribe((response) => {
+    this.userService.userDtoUpdate(userModel,userId).subscribe((response) => {
       this.toastrService.success(response.message, "Success");
     });
 

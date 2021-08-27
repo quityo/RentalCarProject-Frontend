@@ -16,25 +16,26 @@ export class RentalListComponent implements OnInit {
     private rentalService: RentalService,
     private toastrService:ToastrService) {}
 
-  ngOnInit(): void {
-    this.getRentalDetails();
-  }
-
-  getRentalDetails() {
-    this.rentalService.getRentalDetails().subscribe(response => {
-      this.rentaldetails = response.data;
-      this.dataLoaded = true;
-    });
-  }
-
-  carIsReturned(carId:number){
-    this.rentalService.carIsReturned(carId).subscribe(response => {
-      this.toastrService.success(response.message)
+    ngOnInit(): void {
       this.getRentalDetails();
-    }, responseError=>{
-      this.toastrService.success(responseError.message)
-    });
-  }
+    }
+  
+    getRentalDetails() {
+      this.rentalService.getRentalDetails().subscribe(response => {
+        this.rentaldetails = response.data;
+        this.dataLoaded = true;
+      });
+    }
+  
+    carIsReturned(carId:number){
+      this.rentalService.carIsReturned(carId).subscribe(response => {
+        this.toastrService.success(response.message)
+        this.getRentalDetails();
+      }, responseError=>{
+        this.toastrService.success(responseError.message)
+      });
+    }
+  
   isCarAvailable(carId:number) {
     this.rentalService.isCarAvailable(carId).subscribe(
       response=>{        

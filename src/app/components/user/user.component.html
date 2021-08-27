@@ -47,7 +47,7 @@
             </div>
         </div> -->
 
-   <div class="row">
+   <!-- <div class="row">
         <div class="col-lg-4 "*ngFor ="let user of users">
             <div  class="card  text-white " style="width: 100%;">
                 <div class="card-body">
@@ -55,27 +55,27 @@
                 <img class="profile_img" src="{{imageBasePath}}{{user.imagePath}}" alt="">
                 <h2 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h2>
                 <p>{{user.email}}</p>
-               <button class="btn" routerLink="/userimages/{{user.userId}}">Image</button>
+               <button class="btn" routerLink="/userimages/{{user.userId}}">Upload Image</button>
             </div>
-            <div class="left">
+            <div class="left"> -->
                 
-                <p>Company: {{user.companyName}}</p>
+               <!--  <p>Company: {{user.companyName}}</p>
                 
                 
-                <!-- <p>Car: {{user.carName}}</p>
-                <p>Brand: {{user.brandName}}</p>
+                 <p>Car: {{user.carName}}</p>
+                <p>Brand: {{user.brandName}}</p> -->
                 
-                <div class="interests">
+                <!-- <div class="interests"> -->
                     
-                    <p>Rent Date: {{user.rentDate}}</p>
+                   <!--  <p>Rent Date: {{user.rentDate}}</p>
                     <p>{{user.rentDate}}</p>
                 <p>Return Date:</p>
-                <p>{{user.returnDate}}</p> -->
-                <div class="row justify-content-center">
-                    <a routerLink="/users/{{user.userId}}" class="btn  ">Details</a>
+                <p>{{user.returnDate}}</p>  -->
+           <!--      <div class="row justify-content-center">
+                    <a routerLink="/userdetail/{{user.userId}}" class="btn  ">Details</a>
                     
             </div>  
-                </div> 
+                </div>  -->
             
                  <!-- <body>
                     <div class="card" *ngFor="let user of users | userFilter:filterText">
@@ -99,3 +99,48 @@
                         </div>
                     </div>
                 </body>-->
+                <!-- <div class="container">
+                <hr>
+                <h2 class="display2"> <hr>User List Page<hr></h2>
+                </div>
+                <hr>
+                <br>
+                
+       <table class="table table-bordered table-condensed table-hover" >
+          
+           <thead>
+               <tr>
+                 
+                 <td>Full Name </td>
+                       <td>Email Address</td>
+                       <td>Detail</td>
+               </tr>
+             </thead>
+           <tbody>
+               <tr *ngFor = "let user of users" style="text-align: center;">
+                   <td>{{user.firstName}} {{user.lastName | uppercase}}</td>
+             
+             
+             <td>{{user.email}}</td>
+             <td><a routerLink= "/users/{{user.userId}}">Detail</a></td>
+           </tr>
+           </tbody>
+       </table> -->
+       <br>
+       <div class="row">
+        <div class="col-lg-4 "*ngFor ="let user of users">
+            <div  class="card  text-white " style="width: 100%;">
+                <div class="card-body">
+                <div class="right" >
+                <img class="profile_img" src="{{imageBasePath}}{{user.imagePath}}" alt="">
+                <h2 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h2>
+                <p>{{user.email}}</p></div>
+               <!-- <button class="btn" routerLink="/userimages/{{user.userId}}">Image</button> -->
+               <div class="row justify-content-center">
+                <a routerLink="/users/{{user.userId}}" class="btn  ">Details</a>
+                
+        </div>  
+            </div>
+
+
+            

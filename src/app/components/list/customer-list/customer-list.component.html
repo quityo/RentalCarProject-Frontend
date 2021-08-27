@@ -27,7 +27,7 @@
       </thead>
     <tbody>
         <tr *ngFor = "let customer of customers" style="text-align: center;">
-            <td><a routerLink= "/users/{{customer.customerId}}">{{customer.firstName}} {{customer.lastName | uppercase}}</a></td>
+            <td><a routerLink= "/users/{{customer.userId}}">{{customer.firstName}} {{customer.lastName | uppercase}}</a></td>
       
       <td>{{customer.companyName}}</td>
       <td>{{customer.email}}</td>

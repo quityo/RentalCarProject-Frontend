@@ -18,7 +18,8 @@ export class NaviComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private localStorageService: LocalStorageService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    
   ) {}
 
   ngOnInit(): void {

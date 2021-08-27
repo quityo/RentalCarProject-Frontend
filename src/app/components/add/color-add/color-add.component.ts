@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -14,7 +15,8 @@ export class ColorAddComponent implements OnInit {
 
   constructor(private formBuilder : FormBuilder,
     private colorService : ColorService,
-    private toastrService : ToastrService
+    private toastrService : ToastrService,
+    private router: Router
      ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,8 @@ export class ColorAddComponent implements OnInit {
       let colorModel = Object.assign({},this.colorAddForm.value)
       this.colorService.add(colorModel).subscribe(response => {
         this.toastrService.success(response.message,"Successful")
+        
+        this.router.navigate(['colorlist'])
       },responseError => {
         if(responseError.error.Errors.length > 0){
           for(let i =0; i<responseError.error.Errors.length; i++){

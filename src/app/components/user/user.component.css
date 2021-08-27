@@ -9,8 +9,8 @@ h2 {
 
 
 .card {
-	background-color: black;
 	
+	background-color: transparent;
 	opacity: 90%;
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 	border-radius: 20px;
@@ -38,78 +38,24 @@ h2 {
 	border-radius: 100%;
 	
 }
-
-
-.flag_wrapper {
-	width: 25px;
-	height: 25px;
-	background-color: #f2f2f2;
-	border-radius: 100%;
-	position: relative;
-	top: -20px;
-	left: 55px;
-}
-
-.flag {
-	width: 15px;
-	height: 15px;
-	position: absolute;
-	right: 0;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	margin: auto auto;
-}
-
-.left {
-	margin-right: 12.5px;
-}
-.right {
-	margin-left: 12.5px;
-}
-
-.interests {
-	justify-content: center;
-	margin-top: 10px;
-	text-align: center;
-}
-
-.interests_title {
-	justify-content: center;
-	color: white;
-	margin-bottom: 5px;
-}
-
-.interests_item {
-	padding: 0 15px;
-	margin-right: 5px;
-	line-height: 35px;
-	background-color: #e6e6e6;
-	border-radius: 5px;
-	display: inline-block;
-}
-
-#image{
-    vertical-align: middle;
-}
-
 p{
 	color: white;
-    font-family: Starwars;
+    
     text-align:center;
     letter-spacing:2px;
     font-family: Governor 3D;
 }
 
 .btn {
-   color:white;
-    border-color:silver;
-    font-family: Star Jedi;
+ 	
+  color:white;
+  border-color:silver;
+  font-family: Starwars;
+  background-color: transparent;
 }
 
 .btn:hover{
-    color: black;
-    font-family: Star Jedi;
+    color: yellow;
     text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     
 }
@@ -119,7 +65,7 @@ p{
         font-size: 11px;
         padding: 5px 10px;
         border: 1px solid #999;
-        background-color: #fafafa;
+        background-color: transparent;
         text-align: center;
      
 }
@@ -127,7 +73,7 @@ p{
 
 
 p{
-    font-family: Starwars;
+  
     text-align:center;
     letter-spacing:2px;
     font-family: Governor 3D;
@@ -139,3 +85,101 @@ p{
 }
 
 
+  @-webkit-keyframes cardEnter {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      -ms-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1);
+      -ms-transform: scale3d(1.1, 1.1, 1.1);
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+      -webkit-transform: scale3d(0.9, 0.9, 0.9);
+      -ms-transform: scale3d(0.9, 0.9, 0.9);
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: scale3d(1.03, 1.03, 1.03);
+      -ms-transform: scale3d(1.03, 1.03, 1.03);
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+      -webkit-transform: scale3d(0.97, 0.97, 0.97);
+      -ms-transform: scale3d(0.97, 0.97, 0.97);
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes cardEnter {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      -ms-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1);
+      -ms-transform: scale3d(1.1, 1.1, 1.1);
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+      -webkit-transform: scale3d(0.9, 0.9, 0.9);
+      -ms-transform: scale3d(0.9, 0.9, 0.9);
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: scale3d(1.03, 1.03, 1.03);
+      -ms-transform: scale3d(1.03, 1.03, 1.03);
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+      -webkit-transform: scale3d(0.97, 0.97, 0.97);
+      -ms-transform: scale3d(0.97, 0.97, 0.97);
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  } 
+  .table a{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    
+  }
+  .table a:hover{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 2;
+    color: white;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
+  }

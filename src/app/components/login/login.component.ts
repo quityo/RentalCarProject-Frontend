@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { TokenDetail } from 'src/app/models/tokenModel';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -40,7 +39,10 @@ export class LoginComponent implements OnInit {
         this.toastrService.info(response.message)
         this.storageService.set("token",response.data.token) 
         this.authService.decodeToken(response.data.token)    
-        this.router.navigate(['/'])
+        this.router.navigate([''])
+  .then(() => {
+    window.location.reload();
+  });
       }, responseError =>{
         this.toastrService.error(responseError.error)
       })

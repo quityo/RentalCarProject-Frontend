@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/models/customer';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
@@ -13,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 export class CardComponent implements OnInit {
   addCreditCardForm:FormGroup;
 
+  @Input() customer : Customer;
   constructor(
     private formBuilder : FormBuilder,
     private userService : UserService,

@@ -21,32 +21,36 @@
                         <div class="mb-3">
                            
                             </div>
-                        <div class="mb-3">
-                        <label for="description">Description</label>
-                        <div class="form-group">
-                            <input type="text" id="description" 
-                            formControlName="description" class="form-control"
-                            placeholder="Enter car descriptoin"/>
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="carName">Car Name</label>
-                            <div class="form-group">
-                                <input type="text" id="carName" 
-                                formControlName="carName" class="form-control"
-                                placeholder="Enter car name"/>
+                            <div class="mb-3">
+                                <label for="brandId">Brand</label>
+                                <div class="form-group">
+                                <select type = "number" id="brandId" formControlName="brandId"
+                                class="form-select">
+                            <option [ngValue] = "brand.brandId"
+                            *ngFor = "let brand of brands">{{brand.brandName}}</option>
+                            </select>
                             </div>
                             </div>
-                        <div class="mb-3">
-                            <label for="brandId">Brand</label>
-                            <div class="form-group">
-                            <select type = "number" id="brandId" formControlName="brandId"
-                            class="form-select">
-                        <option [ngValue] = "brand.brandId"
-                        *ngFor = "let brand of brands">{{brand.brandName}}</option>
-                        </select>
-                        </div>
-                        </div>
+                            <div class="mb-3">
+                                <label for="colorId">Color</label>
+                                <div class="form-group">
+                                    <select type="number" id="colorId" formControlName="colorId"
+                                    class="form-select">
+                            <option [ngValue] = "color.colorId"
+                            *ngFor = "let color of colors">{{color.colorName}}</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carName">Car Name</label>
+                                <div class="form-group">
+                                    <input type="text" id="carName" 
+                                    formControlName="carName" class="form-control"
+                                    placeholder="Enter car name"/>
+                                </div>
+                                </div>
+                       
+                        
                         <div class="mb-3">
                             <label for="modelYear">Model Year</label>
                             <div class="form-group">
@@ -55,16 +59,7 @@
                                 placeholder="Enter model year">
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="colorId">Color</label>
-                            <div class="form-group">
-                                <select type="number" id="colorId" formControlName="colorId"
-                                class="form-select">
-                        <option [ngValue] = "color.colorId"
-                        *ngFor = "let color of colors">{{color.colorName}}</option>
-                            </select>
-                            </div>
-                        </div>
+                        
                         <div class="mb-3">
                         <label for="dailyPrice">Daily Price</label>
                         <div class="form-group">
@@ -78,6 +73,15 @@
                             <div class="form-group">
                                 <input type="number" id="carFindexPoint" formControlName="carFindexPoint" class="form-control" placeholder="Car Findex Points"/>
                             </div></div>
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <div class="form-group">
+                                    <input type="text" id="description" 
+                                    formControlName="description" class="form-control"
+                                    placeholder="Enter car descriptoin"/>
+                                </div>
+                                </div>
+                                
                     </form>
                 </div>
                 <div class="card-footer">

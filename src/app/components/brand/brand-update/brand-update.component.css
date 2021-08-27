@@ -12,8 +12,9 @@
 padding:6px 12px;
 color:white;
 text-decoration:none;
+margin: auto;
 }
 
 .btn:hover {
-  color:#44c6eb;
+  color:yellow;
 }
