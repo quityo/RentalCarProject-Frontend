@@ -1,0 +1,63 @@
+<hr>
+<!-- <main class="form-add">
+    <div class="container">
+      <div id="add" class="add-card">
+        <div class="logo-image">
+          <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Funky Sun" id="Logo"
+            width="80">
+        </div>
+        <h1 class="display1">Funky Sun</h1>
+        <p class="subhead">Rental Car</p>
+        <hr>
+         <h2 class="display2"> <hr>Color Add Form <hr></h2>
+         </div> -->
+         <hr>
+         <!-- <div class="content"> -->
+    
+<div class="col-md-12">
+    <div class="card">
+        
+        <div class="card-body">
+            <form [formGroup] = "customerAddForm">
+                <div class="mb-3">
+                    <label for="userId">User</label>
+                    <div class="form-group">
+                    <select type = "number" id="userId" formControlName="userId"
+                    class="form-select">
+                <option [ngValue] = "user.userId"
+                *ngFor = "let user of users">{{user.firstName}} {{user.lastName}}</option>
+                </select>
+                </div>
+                </div>
+               
+                    <div class="mb-3">
+                    <label for ="companyName">companyName</label>
+                    <div class="form-group">
+                        <input type = "text" id = "companyName"
+                        formControlName = "companyName" class="form-control"
+                        placeholder="Enter companyName">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for ="customerFindex">customerFindex</label>
+                    <div class="form-group">
+                        <input type = "number" id = "customerFindex"
+                        formControlName = "customerFindex" class="form-control"
+                        placeholder="Enter customerFindex">
+                    </div>
+                </div>
+                <div class="mb-3">
+                           
+                </div>
+               
+            </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-fill btn-info" (click)="add()">ADD</button>
+        </div>
+    </div>
+    
+
+               
+               
+

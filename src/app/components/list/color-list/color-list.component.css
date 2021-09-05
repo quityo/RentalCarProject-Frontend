@@ -55,7 +55,18 @@
     .logo-image, h1, h2, p{
       text-align: center; 
     }    
-   
+    .xxx{
+      background-color: transparent;
+      border-color: grey;
+      border-radius: 10px;
+      color:white;
+    }
+  .xxx:hover{
+      color:yellow;
+  }
+  .col-md-6{
+    background-color: transparent;
+  }
     .display2 {
         font-size: 25px;
         font-weight: 100;

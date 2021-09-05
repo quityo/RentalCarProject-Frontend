@@ -1,0 +1,39 @@
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#userAddModal">
+  addRole
+     </button>
+       
+       <!-- Modal -->
+       <div class="modal fade" id="userAddModal" tabindex="-1" aria-labelledby="userAddModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="userAddModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userAddForm">
+                    <div class="form-group">
+                        <label for="userId">Select User</label>
+                        <div class="form-group">
+                            
+                        <select formControlName="userId" class="form-select" aria-placeholder="Select User" id="userSelectAdd">
+                                <option [ngValue] = "customer.userId"
+                        *ngFor = "let customer of customers">{{customer.firstName}} {{customer.lastName | uppercase}}</option>
+                            </select>
+                        </div>
+                        <label for="userId">Select User</label>
+                        <div class="form-group">
+                        <select formControlName="name" class="form-select" aria-placeholder="Select User" id="userSelectAdd">
+                            <option [ngValue] = "user.name"
+                    *ngFor = "let user of users">{{user.name}}</option>
+                        </select></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="addRole()" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>

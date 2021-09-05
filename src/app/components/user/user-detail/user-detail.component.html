@@ -1,31 +1,57 @@
 <div class="row" style="margin:auto;">
-    <div class="col-lg-4 "*ngFor ="let user of users">
-        <div  class="card  text-white " style="width: 100%;">
+    <div class="col-lg-4 " *ngFor="let user of users">
+        <div class="card  text-white " style="width: 100%;">
             <div class="card-body">
-            <div class="right" >
-            <img class="profile_img" src="{{imageBasePath}}{{user.imagePath}}" alt="">
-            <button class="btn " style="margin-left:40%; margin-top: 10px;"routerLink="/userimages/{{user.userId}}">Image</button>
-            <h2 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h2>
-            <p>{{user.email}}</p>
-           
-        </div>
-    
-    
-        
-            
-            <p>Company: {{user.companyName}}</p>
-            
-            
-             <p>Car: {{user.carName}}</p>
-            <p>Brand: {{user.brandName}}</p>
-            <p>Rent: {{user.rentDate}}</p>
-            <div class="interests" >
-               
-            <div class="row justify-content-center">
-                <a routerLink="/users/{{user.userId}}" class="btn  ">Details</a>
-                
-        </div>  
-            </div> 
-        
+                <div class="right">
+                    <img class="profile_img" src="{{imageBasePath}}{{user.imagePath}}" alt="">
+                    <h2 class="card-title text-center">{{user.firstName}} {{user.lastName | uppercase}}</h2>
+                    <p>Status:"{{user.name}}"</p>
+                    <p>E-mail: {{user.email}}</p>
+                    <p>Company: {{user?.companyName | uppercase}}</p>
 
-            
+                   
+                    <!-- <p>Car: {{user.carName}}</p>
+                    <p>Brand: {{user.brandName}}</p>
+                    <p>Rent: {{user.rentDate}}</p> -->
+                </div>
+                <div class="interests">
+                    <div class="social-icons">
+                        <ul class="list-unstyled list-inline">
+                            <li>
+                                <a href="#"><i class="fa fa-envelope fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-github fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-codepen fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fire fa-2x"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook-official fa-2x"></i></a>
+                            </li>
+                            <li>
+                        </ul>
+                    </div>
+                    <!--    <div class="row justify-content-center">
+                <a routerLink="/users/{{user.userId}}" class="btn  ">Details</a> -->
+                <app-profile></app-profile>
+                    <button class="btn " style=" margin-top:23px;  margin-left: 2px;"
+                        routerLink="/userimages/{{user.userId}}">Image Update</button>
+                </div>
+               <!--  <button class="btn " style=" margin-top:23px;  margin-left: 2px;"
+                    routerLink="/customers/add">Company Update</button>
+            </div> -->
+                
+                    </div>
+                    
+                </div>
+            </div>
+    
+ 

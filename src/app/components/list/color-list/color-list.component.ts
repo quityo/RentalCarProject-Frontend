@@ -36,7 +36,14 @@ export class ColorListComponent implements OnInit {
     });
   });}
  
-
+  addColor(color : Color){
+    this.colorService.add(color).subscribe(response => {
+      this.toastrService.success(response.message,"Successful")
+    this.router.navigate(['colorlist'])
+    .then(() => {
+      window.location.reload();
+    });
+  });}
   createColorUpdateForm()
   {
     this.colorUpdateForm = this.formBuilder.group({
@@ -49,7 +56,13 @@ export class ColorListComponent implements OnInit {
     if (this.colorUpdateForm.valid) {
       let colorModel = Object.assign({}, this.colorUpdateForm.value);
       this.colorService.update(colorModel).subscribe((response) => {
-        this.toastrService.success(response.message, "Success");
+        this.toastrService.success(response.message, "Success")
+        
+    this.router.navigate(['colorlist'])
+    .then(() => {
+      window.location.reload();
+    });
+        
       });
     }
     else{

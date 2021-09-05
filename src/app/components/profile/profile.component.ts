@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import{FormGroup,FormBuilder,FormControl,Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { UserImage } from 'src/app/models/userImage';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -14,15 +17,24 @@ export class ProfileComponent implements OnInit {
 
   user:User;
   userUpdateForm:FormGroup;
+  users: User[]= [];
+  userImages: UserImage[]= [];
+  filterText = "";
+  imageBasePath  = environment.imageUrl;
 
+
+  baseUrl = environment.baseUrl;
   constructor(private formBuilder:FormBuilder, private userService:UserService,
+    private activatedRoute : ActivatedRoute,
     private toastrService:ToastrService, private localStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
+    {
+    
     this.getByEmail();
     this.createUserUpdateForm();
   }
-
+}
   createUserUpdateForm()
   {
     this.userUpdateForm = this.formBuilder.group({
@@ -40,15 +52,16 @@ export class ProfileComponent implements OnInit {
 
     this.userService.userDtoUpdate(userModel,userId).subscribe((response) => {
       this.toastrService.success(response.message, "Success");
+      window.location.reload();
     });
 
     if(this.user.email !== this.userUpdateForm.controls["email"].value)
     {
       this.localStorageService.removeLocalStorage("token");
-      window.location.reload();
+     
     }
   }
-
+ 
   getByEmail()
   {
     let mail = this.localStorageService.getMailDecodeToken();

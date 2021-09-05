@@ -6,6 +6,7 @@ import { Card } from '../models/card';
 import { ListResponseModel, ResponseModel, SingleResponseModel } from '../models/responseModel';
 import { User,} from '../models/user';
 import { UserForUpdate } from '../models/UserForUpdate';
+import { UserOperationClaims } from '../models/userOperationClaims';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,10 +14,13 @@ import { UserForUpdate } from '../models/UserForUpdate';
 export class UserService { 
 
   constructor(private httpClient : HttpClient) { }
-
+  getAllUsers():Observable<ListResponseModel<User>>{
+    let newPath = environment.apiUrl + "users/getall"
+    return this.httpClient.get<ListResponseModel<User>>(newPath);
+  }
   
   getUsers():Observable<ListResponseModel<User>>{
-    let newPath = environment.apiUrl + "users/getall"
+    let newPath = environment.apiUrl + "users/getuserdetails"
     return this.httpClient.get<ListResponseModel<User>>(newPath);
   }
   getByEmail(email:string):Observable<SingleResponseModel<User>>{
@@ -43,6 +47,14 @@ export class UserService {
   profileUpdate(user:User):Observable<ResponseModel>{
     let newPath = environment.apiUrl + "users/updateprofile"
       return this.httpClient.put<ResponseModel>(newPath,user);
+  }
+  addRole(userOperationClaims:UserOperationClaims):Observable<ResponseModel>{
+    let newPath = environment.apiUrl + "userOperationClaims/add"
+    return this.httpClient.post<ResponseModel>(newPath,userOperationClaims)
+  }
+  getRoles():Observable<ListResponseModel<User>>{
+    let newPath = environment.apiUrl + "operationClaims/getall"
+    return this.httpClient.get<ListResponseModel<User>>(newPath);
   }
   getAllCard(customerId : number):Observable<ListResponseModel<Card>>{
     let newPath = environment.apiUrl + "cards/getallcardbycustomerid?customerId=" + customerId;

@@ -1,10 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 import {NgModule} from '@angular/core';
 import { CarComponent } from './components/car/car.component';
-import { CustomerComponent } from './components/customer/customer.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
-
 import { ColorComponent } from './components/color/color.component';
 import { CarAddComponent } from './components/add/car-add/car-add.component';
 import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
@@ -33,6 +31,9 @@ import { ColorAddComponent } from './components/add/color-add/color-add.componen
 import { RentalComponent } from './components/rental/rental/rental.component';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
 import { CardListComponent } from './components/list/card-list/card-list/card-list.component';
+import { ProfileDetailComponent } from './components/profile/profile-detail/profile-detail/profile-detail.component';
+import { CustomerAddComponent } from './components/add/customer-add/customer-add/customer-add.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update/user-update.component';
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -43,24 +44,25 @@ const routes: Routes = [
   {path:"cars/detail/:carId",component:CarDetailComponent},
   {path:"cars/filter/:colorId",component:CarComponent},
   {path:"cars/filter/:brandId",component:CarComponent},
-  {path:"cars/add",component:CarAddComponent, canActivate:[LoginGuard, AdminGuard]},
-  {path:"carlist",component:CarListComponent},
-  {path:"cars/update/:carId",component:CarUpdateComponent, canActivate:[LoginGuard]},
-  {path:"cars/images/add/:carId",component:CarUpdateComponent, canActivate:[LoginGuard]},
+  {path:"cars/add",component:CarAddComponent, canActivate:[ AdminGuard]},
+  {path:"carlist",component:CarListComponent, canActivate:[ AdminGuard]},
+  {path:"cars/update/:carId",component:CarUpdateComponent, canActivate:[AdminGuard]},
+  {path:"cars/images/add/:carId",component:CarUpdateComponent, canActivate:[AdminGuard]},
 
   {path:"brands",component:BrandComponent},
-  {path:"brands/add",component:BrandAddComponent, canActivate:[LoginGuard]},
-  {path:"brands/update/:brandId",component:BrandUpdateComponent, canActivate:[LoginGuard]},
-  {path:"brandlist",component:BrandListComponent},
+  {path:"brands/add",component:BrandAddComponent, canActivate:[AdminGuard]},
+  {path:"brands/update/:brandId",component:BrandUpdateComponent, canActivate:[AdminGuard]},
+  {path:"brandlist",component:BrandListComponent, canActivate:[AdminGuard]},
 
   {path:"colors",component:ColorComponent},
   {path:"colors/add",component:ColorAddComponent, canActivate:[LoginGuard]},
   {path:"colors/update/:colorId",component:ColorUpdateComponent, canActivate:[LoginGuard]},
   {path:"colors/update",component:ColorUpdateComponent, canActivate:[LoginGuard]},
-  {path:"colorlist",component:ColorListComponent},
+  {path:"colorlist",component:ColorListComponent, canActivate:[AdminGuard]},
 
-  {path:"customers/getcustomerdetail",component:CustomerComponent},
-  {path:"customers", component: CustomerComponent},  
+  
+  {path:"customers/add",component:CustomerAddComponent},
+ 
   {path:"customerlist", component: CustomerListComponent}, 
 
   
@@ -80,15 +82,19 @@ const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"profile",component:ProfileComponent},
+
+  {path:"profile",component:ProfileComponent,canActivate:[LoginGuard]},
+  {path:"profile/:userId",component:ProfileDetailComponent,canActivate:[LoginGuard]},
 
   {path:"card",component:CardComponent},
-  {path:"cardlist",component:CardListComponent},
+  {path:"cardlist",component:CardListComponent, canActivate:[AdminGuard]},
   
- {path:'users/getall',component:UserComponent},
- {path:'users/:userId',component:UserDetailComponent},
- {path:"users/customer/:customerId",component:UserDetailComponent},
-
+ {path:'users/getall',component:UserComponent, canActivate:[AdminGuard]},
+ {path:'users/:userId',component:UserDetailComponent, canActivate:[LoginGuard]},
+ {path:'users',component:UserDetailComponent},
+ {path:'user',component:UserComponent},
+ {path:"users/customer/:customerId",component:UserComponent},
+ {path:"users/rolesupdate/:userId",component:UserUpdateComponent},
  {path:"userimages/:userId", component:UserImageComponent, canActivate:[LoginGuard]},
  
  {path:"cart", component:CartComponent, canActivate:[LoginGuard]},

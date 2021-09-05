@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorComponent } from './components/color/color.component';
-import { CustomerComponent } from './components/customer/customer.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -56,13 +55,16 @@ import { ColorAddComponent } from './components/add/color-add/color-add.componen
 import { PaginationComponent } from './components/pagination/pagination/pagination.component';
 import { RentalComponent } from './components/rental/rental/rental.component';
 import { CardListComponent } from './components/list/card-list/card-list/card-list.component';
+import { ProfileImageComponent } from './components/profile/profile-image/profile-image/profile-image.component';
+import { ProfileDetailComponent } from './components/profile/profile-detail/profile-detail/profile-detail.component';
+import { CustomerAddComponent } from './components/add/customer-add/customer-add/customer-add.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update/user-update.component';
 @NgModule({
   declarations: [
     AppComponent,
     CarComponent,
     NaviComponent,
     ColorComponent,
-    CustomerComponent,
     TabComponent,
     CarDetailComponent,
     FilterComponent,
@@ -102,7 +104,11 @@ import { CardListComponent } from './components/list/card-list/card-list/card-li
     AdminComponent,
     PaginationComponent,
     RentalComponent,
-    CardListComponent
+    CardListComponent,
+    ProfileImageComponent,
+    ProfileDetailComponent,
+    CustomerAddComponent,
+    UserUpdateComponent
    
     
   ],

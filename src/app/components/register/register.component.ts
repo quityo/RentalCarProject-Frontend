@@ -44,10 +44,16 @@ export class RegisterComponent implements OnInit {
          
         this.authService.decodeToken(response.data.token)    
         this.storageService.set("token",response.data.token)
-        this.router.navigate(["/"])
+             
+    this.router.navigate(['customers/add'])
+    .then(() => {
+      window.location.reload();
+    });
       });
-    }else{
-      this.toastrService.error("Lütfen Formu Boş Bırakmayınız")
+    }
+    else{
+        this.toastrService.error("Please fill in all fields on the form","Error");
     }
   }
+
 }

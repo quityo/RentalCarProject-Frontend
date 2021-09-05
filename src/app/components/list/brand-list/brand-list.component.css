@@ -20,7 +20,18 @@
     border: 1px solid #999;
     background-color: #fafafa;
   }
-  
+  .xxx{
+    background-color: transparent;
+    border-color: grey;
+    border-radius: 10px;
+    color:white;
+  }
+.xxx:hover{
+    color:yellow;
+}
+.col-md-6{
+  background-color: transparent;
+}
   .content {
   width: 200px;
   height:200px;

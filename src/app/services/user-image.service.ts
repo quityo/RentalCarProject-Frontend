@@ -34,13 +34,13 @@ export class UserImageService {
     return this.httpClient.post<ListResponseModel<UserImage>>(newPath, userImage );
   }
 
-  updateImage(userImage:UserImage){
-    let newPath = this.path + "update";
+  updateImage(userImage:FormData){
+    let newPath = environment.apiUrl + "userimages/update";
     return this.httpClient.post<ResponseModel>(newPath, userImage);
   }
 
   delete(userImage:UserImage){
-    let newPath = this.path + "delete";
+    let newPath = environment.apiUrl + "userimages/delete";
     return this.httpClient.post<ResponseModel>(newPath, userImage);
   }
   }

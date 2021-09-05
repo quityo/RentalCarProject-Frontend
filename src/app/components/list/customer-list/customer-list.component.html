@@ -23,6 +23,8 @@
             
               <td>Company Name</td>
                 <td>Email Address</td>
+                <td>customerFindex</td>
+                
         </tr>
       </thead>
     <tbody>
@@ -31,6 +33,11 @@
       
       <td>{{customer.companyName}}</td>
       <td>{{customer.email}}</td>
+      <td>{{customer.customerFindex}}</td>
+      
+     
+      <td><button class="btn" routerLink="/userimages/{{customer.userId}}">Image</button></td>
     </tr>
     </tbody>
+    <button class="btn"><app-user-update></app-user-update></button>
 </table>

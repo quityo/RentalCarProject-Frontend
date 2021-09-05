@@ -1,23 +1,28 @@
-
-  
-  .table {
-    
-    border-color: rgb(75, 213, 238);
-    text-decoration: none;
-    color: white;
+.card-header{
     text-align: center;
-    text-decoration: none;
+    background-color: Black;
+    color: white;
+    
   }
   
+  .card {
+    
+    border-color: rgb(75, 213, 238);
+  }
   
+  .card-body, .card-footer{
+    background-color: Black;
+    color: white;
+    text-align: center;
+  }
   .btn{
     color:black;
     font-size: 11px;
     padding: 5px 10px;
     border: 1px solid #999;
     background-color: #fafafa;
+   
   }
-  
   .content {
   width: 200px;
   height:200px;
@@ -54,8 +59,8 @@
     letter-spacing: inherit;
   }
   p{
-    color: white;
-}
+      color: white;
+  }
   @-webkit-keyframes cardEnter {
     0%, 20%, 40%, 60%, 80%, 100% {
       -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);

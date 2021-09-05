@@ -1,45 +1,43 @@
-
 <header>
-   <div class="logo">
-    <a><img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" 
-      id="header-img" 
-      alt="Funky Sun" style="border-width:0px;"></a>
-  </div> 
-  
-<p id="fallout"><span>F</span>unky Sun</p>
+  <div class="logo">
+    <a><img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" id="header-img"
+        alt="Funky Sun" style="border-width:0px;"></a>
+  </div>
+
+  <p id="fallout"><span>F</span>unky Sun</p>
   <p id="code">RE<span>N</span>TAL C<span>AR</span></p>
- 
+
 </header>
 <nav class="navbar  navbar-expand-lg ">
 
-  <div  class="container">
+  <div class="container">
 
-    
 
-      <div class="collapse navbar-collapse" id="navcontent">
 
-          <ul class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="home">Hakkımızda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="">Ana Sayfa</a>
-            </li>
-              <li  class="nav-item">
-                  <a class="nav-link" routerLink="/customerlist">Müşteriler</a>
-              </li>
-              <li *ngIf="claim===('admin')" class="nav-item">
-                  <a class="nav-link" routerLink="rentallist">Kira Listesi</a>
-              </li>
-              <li *ngIf="claim===('admin')" class="nav-item">
-                <a class="nav-link" routerLink="payments">Ödeme</a>
-            </li>
-              
-              <li *ngIf="claim===('admin')" class="nav-item">
-                <a class="nav-link" routerLink="admin">Admin</a>
-            </li>
+    <div class="collapse navbar-collapse" id="navcontent">
 
-              <!-- <li  class="nav-item dropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home">Hakkımızda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Ana Sayfa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customerlist">Müşteriler</a>
+        </li>
+        <li *ngIf="claim===('admin')" class="nav-item">
+          <a class="nav-link" routerLink="rentallist">Kira Listesi</a>
+        </li>
+        <li *ngIf="claim===('admin')" class="nav-item">
+          <a class="nav-link" routerLink="payments">Ödeme</a>
+        </li>
+
+        <li *ngIf="claim===('admin')" class="nav-item">
+          <a class="nav-link" routerLink="admin">Admin</a>
+        </li>
+
+        <!-- <li  class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">Yönetim</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" routerLink="carlist">Araç Listesi</a></li>
@@ -48,30 +46,32 @@
                   </ul>
               </li> -->
 
-          </ul>
+      </ul>
 
-      </div>
-  
-      <div *ngIf="!isVerified">
-          <button class="btn btn-outline-primary" routerLink="register">Kayıt Ol</button>
-          <button class="btn btn-primary ms-lg-2" routerLink="login">Giriş Yap</button>
-      </div>
-      
-      <div *ngIf="isVerified">
-          <div class="btn-group" >
-         
-              <button class="btn dropdown-toggle btn-info btn-sm"  data-bs-toggle="dropdown">
-                {{ userName }}
-       </button>
+    </div>
 
-              <div class="dropdown-menu dropdown-menu-end" style="
+    <div *ngIf="!isVerified">
+      <button class="btn btn-outline-primary" routerLink="register">Kayıt Ol</button>
+      <button class="btn btn-primary ms-lg-2" routerLink="login">Giriş Yap</button>
+    </div>
+
+    <div *ngIf="isVerified">
+
+      <div class="btn-group">
+        <button class="btn dropdown-toggle btn-info btn-sm" data-bs-toggle="dropdown">
+          {{ userName }}
+
+
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-end" style="
               z-index: 1;">
-                <button class="dropdown-item" routerLink="/profile">Profile</button>
-                <button *ngIf="claim === 'admin'" class="dropdown-item" routerLink="admin">Admin Panel</button>
-                <button class="dropdown-item" routerLink="/login" (click)="logOut()">Log Out</button>
-              </div>
-          </div>
+          <button class="dropdown-item" routerLink="/users/{{ userId }}">Profile</button>
+          <button *ngIf="claim === 'admin'" class="dropdown-item" routerLink="admin">Admin Panel</button>
+          <button class="dropdown-item" routerLink="/login" (click)="logOut()">Log Out</button>
+        </div>
       </div>
-    
+    </div>
+
   </div>
 </nav>

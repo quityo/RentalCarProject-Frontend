@@ -8,7 +8,6 @@ export const environment = {
   baseUrl: 'https://localhost:44315/',
 
   imageUrl : 'https://localhost:44315/images/',
-  
 };
 
 /*

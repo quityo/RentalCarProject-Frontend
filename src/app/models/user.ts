@@ -1,3 +1,4 @@
+
 import { UserImage } from "./userImage";
 
 export interface User{
@@ -15,7 +16,7 @@ export interface User{
     rentDate : Date;
     returnDate:Date;
     userImages:UserImage[];
-    
+    name:string;
     }
     
 

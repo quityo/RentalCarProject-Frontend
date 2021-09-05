@@ -50,4 +50,5 @@ export class LocalStorageService {
     let claim:string = String(Object.values(jwtDecode(token))[3]);
     return claim;
   }
+
 }

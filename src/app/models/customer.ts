@@ -1,3 +1,4 @@
+import { User } from "./user";
 
 
 
@@ -11,6 +12,8 @@ export interface Customer{
     email : string;
     status:boolean;
     customerFindex : number;
+    name:string;
+    user:User[];
 }
     export interface CustomerDetail extends Customer{
         firstName:string;

@@ -1,3 +1,4 @@
+import { UserDetailService } from './../../services/user-detail.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private storageService: StorageService,
     private toastrService : ToastrService,
+    private userDetailService:UserDetailService,
     private router:Router) { }
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.toastrService.info(response.message)
         this.storageService.set("token",response.data.token) 
         this.authService.decodeToken(response.data.token)    
-        this.router.navigate([''])
+        this.router.navigate(['/'])
   .then(() => {
     window.location.reload();
   });

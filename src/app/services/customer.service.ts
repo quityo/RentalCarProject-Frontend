@@ -33,4 +33,8 @@ import {  ItemResponseModel, ListResponseModel, ResponseModel } from '../models/
       let newPath=environment.apiUrl +"customers/updatecustomer";
       return this.httpClient.put<ResponseModel>(newPath,customer);
   }
+  add(customer:Customer):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(environment.apiUrl + "customers/add",customer)
   }
+  }
+  

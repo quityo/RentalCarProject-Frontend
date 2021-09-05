@@ -17,19 +17,18 @@ h2 {
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 	border-radius: 20px;
 	display: flex;
-	z-index: 1060;
 	flex-direction: row;
+	
 	transition: all 0.5s ease;
 	justify-content: center;
 }
-h5 {
-	font-family: "Poppins";
-	font-weight: 500;
-	font-size: 28px;
-	margin: 23px 0;
-	color:black;
-}
 
+.card:hover {
+	box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+		1px 6px 12px rgba(39, 44, 49, 0.04);
+	transform: translate3D(0, -1px, 0) scale(1.02);
+	transition: all 0.5s ease;
+}
 
 .profile_img {
 	display: block;
@@ -104,25 +103,20 @@ p{
     font-family: Governor 3D;
 }
 
-.modal-content{
-	background-color: black;
-	margin-top: 38%;
+.btn {
+ 	
+	color:white;
 	border-color:silver;
+	font-family: Starwars;
+	background-color: transparent;
   }
-  .btn {
-	   
-	  color:white;
-	  border-color:silver;
-	  font-family: Starwars;
-	  background-color: black;
-	}
-  
-  .btn:hover{
-	  color: yellow;
-	  
-	  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-	  
-  }
+
+.btn:hover{
+    color: yellow;
+    
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    
+}
 .card-title .button{
    
 	color:black;
@@ -150,7 +144,7 @@ p{
 
 .social-icons{
 margin: 30px auto;
-margin-left: 22%;
+margin-left: 20%;
     font-size: 0.7em;}
 
 

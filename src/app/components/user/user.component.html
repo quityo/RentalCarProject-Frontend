@@ -133,8 +133,8 @@
                 <div class="card-body">
                 <div class="right" >
                 <img class="profile_img" src="{{imageBasePath}}{{user.imagePath}}" alt="">
-                <h2 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h2>
-                <p>{{user.email}}</p></div>
+                <h2 class="card-title text-center">{{user.firstName}} {{user.lastName | uppercase}}</h2>
+                <!-- <p>"{{user.name}}"</p> -->
                <!-- <button class="btn" routerLink="/userimages/{{user.userId}}">Image</button> -->
                <div class="row justify-content-center">
                 <a routerLink="/users/{{user.userId}}" class="btn  ">Details</a>

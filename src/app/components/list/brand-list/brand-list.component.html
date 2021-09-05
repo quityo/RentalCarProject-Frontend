@@ -30,12 +30,26 @@
     <tbody>
         <tr *ngFor="let brand of brands" style="text-align: center;">
           <td> <a routerLink= "/cars/brand/{{brand.brandId}}">  {{brand.brandName}}</a>
-            <td class="operations">
+          <!--   <td class="operations">
                     
                            
               <app-brand-update>Update</app-brand-update>
-            </td>
+            </td> -->
           <td><button class="btn btn-danger" (click)="deleteBrand(brand)">Delete</button></td>
         </tr>
       </tbody>
 </table>
+>
+
+<div class="card-footer">
+  <div class="row">
+    <button class="xxx btn-warning"><app-brand-update>Update</app-brand-update>
+    </button>
+</div>
+<br>
+  <div class="row">
+      <button a routerLink="/brands/add" class="xxx btn-warning">
+        Add Brand
+      </button>
+  </div>
+</div>

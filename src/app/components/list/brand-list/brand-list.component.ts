@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
 import { CarImage } from 'src/app/models/carImage';
 import { BrandService } from 'src/app/services/brand.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-brand-list',
@@ -14,6 +15,7 @@ export class BrandListComponent implements OnInit {
 
   brands : Brand[] = [];
   constructor(private brandService : BrandService,
+    private toastrService:ToastrService,
     private router:Router) { }
 
   ngOnInit(): void {
@@ -31,5 +33,12 @@ export class BrandListComponent implements OnInit {
           window.location.reload();
         });
   }
-
+  addBrand(brand : Brand){
+    this.brandService.add(brand).subscribe(response => {
+      this.toastrService.success(response.message,"Successful")
+    this.router.navigate(['brandlist'])
+    .then(() => {
+      window.location.reload();
+    });
+  });}
 }

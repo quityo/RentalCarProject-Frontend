@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class UserComponent implements OnInit {
   users: User[]= [];
   userImages: UserImage[]= [];
-  
+  filterText = "";
   imageBasePath  = environment.imageUrl;
 
 
@@ -28,10 +28,9 @@ export class UserComponent implements OnInit {
     ngOnInit(): void {this.activatedRoute.params.subscribe(params=>{
       if(params["userId"]){
        
-        this.getUserImages(params["userId"]);
+        this.getUserImagesByUserId(params["userId"]);
       }else{
         this.getUsers();
-        this.getUserDetail()
       }
     })
   }
@@ -53,8 +52,8 @@ getUserDetail() {
   });
 
 }
-getUserImages(userId:number){
-  this.userImageService.getUserImages(userId).subscribe((response)=>{
+getUserImagesByUserId(userId:number){
+  this.userImageService.getUserImagesByUserId(userId).subscribe((response)=>{
     this.userImages = response.data;
   })
 }

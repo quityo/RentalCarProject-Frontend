@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/customer';
 import { User } from 'src/app/models/user';
+import { UserImage } from 'src/app/models/userImage';
 import { CustomerService } from 'src/app/services/customer.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,22 +14,21 @@ import { UserService } from 'src/app/services/user.service';
 export class CustomerListComponent implements OnInit {
 
 customers : Customer[]= []
-user :User[]= [];
+users :User[]= [];
+userId:number;
+userImages:UserImage[]= [];
+name:string;
   constructor(private customerService : CustomerService,
     private userService: UserService) { }
 
   ngOnInit(): void {
+  
   this.getCustomers();
-  this.getUsers();
   }
+
   getCustomers(){
     this.customerService.getCustomers().subscribe((response) =>{
       this.customers  = response.data
-    })
-  }
-  getUsers(){
-    this.userService.getUsers().subscribe((response) =>{
-      this.user  = response.data
     })
   }
 }

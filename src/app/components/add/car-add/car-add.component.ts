@@ -19,7 +19,7 @@ export class CarAddComponent implements OnInit {
   brands:Brand[];
   colors:Color[];
   carAddForm : FormGroup;
-
+  userId:number;
   constructor(private formBuilder:FormBuilder, 
     private carService:CarService,
     private toastrService : ToastrService,
