@@ -1,88 +1,34 @@
-<hr>
-<main class="form-add">
-    <div class="container">
-      <div id="add" class="add-card">
-        <div class="logo-image">
-          <img src="https://res.cloudinary.com/sunadramali/image/upload/v1523811887/yellow.png" alt="Logo" title="Funky Sun" id="Logo"
-            width="80">
-        </div>
-        <h1 class="display1">Funky Sun</h1>
-        <p class="subhead">Rental Car</p>
-        <hr>
-         <h2 class="display2"> <hr>Rent Detail Page<hr></h2>
-         </div>
-         <hr>
-         <!-- <div class="content"> -->
-          
-<br>
 <div class="content">
 
-    <div class="row">
-
-        <h5>
-            <p class="font-weight-bold">Kiralama Geçmişi</p>
-        </h5>
-
-        <table *ngIf="dataLoaded==true" class="table table-bordered">
-            <thead class="thead-dark">
-                <tr class="th">
-                     <th>Müşteri</th> 
-                    <th scope="col">Marka</th>
-                     <th scope="col">Model</th> 
-                    <th scope="col">Renk</th>
-                    <th scope="col">Günlük Fiyat</th>
-                    <th scope="col">Kira Tarihi</th>
-                    <th scope="col">Teslim Tarihi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let rental of rentaldetails | rentalFilter : true ">
-                    <td>{{ rental.firstName +" "+ rental.lastName }}</td> 
-                    <td>{{ rental.brandName }}</td>
-                     <td>{{ rental.modelYear }}</td>
-                    <td>{{ rental.colorName }}</td>
-                    <td>{{ rental.dailyPrice }} TL</td>
-                    <td>{{ rental.rentDate | date : 'dd.MM.yyyy' }}</td>
-                    <td>{{(rental.returnDate === null) ? "Araç Kirada": rental.returnDate | date:'dd-MM-YYYY'}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-    </div>
-
-<br />
-  
-
+   
     <div class="row">
 
         <h5>
             <p class="font-weight-bold">Kiradaki Araç Listesi</p>
         </h5>
 
-        <table *ngIf="dataLoaded==true" class="table table-bordered table-condensed table-hover">
+        <table *ngIf="dataLoaded==true" class="table table-bordered table-condensed">
             <thead class="thead-dark">
-                <tr class="th" >
-                    <th >Müşteri</th> 
-                    <th >Marka</th>
-                    <th >Model</th> 
-                    <th >Renk</th>
-                    <th >Günlük Fiyat</th>
-                    <th >Kira Tarihi</th>
-                    <th >Teslim Tarihi</th>
-                    
-                    <th >Teslim Al</th>
+                <tr>
+                    <th scope="col">Müşteri</th>
+                    <th scope="col">Marka</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Renk</th>
+                    <th scope="col">Günlük Fiyat</th>
+                    <th scope="col">Kira Tarihi</th>
+                    <th scope="col">Teslim Tarihi</th>
+                    <th scope="col">Teslim Al</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let rental of rentaldetails | rentalFilter : false ">
-                    <td>{{ rental.firstName +" "+ rental.lastName }}</td> 
+                <tr *ngFor="let rental of rentaldetails| rentalFilter : false">
+                    <td>{{ rental.firstName +" "+ rental.lastName }}</td>
                     <td>{{ rental.brandName }}</td>
-                    <td>{{ rental.modelYear }}</td> 
+                    <td>{{ rental.modelYear }}</td>
                     <td>{{ rental.colorName }}</td>
                     <td>{{ rental.dailyPrice }} TL</td>
                     <td>{{ rental.rentDate | date : 'dd.MM.yyyy' }}</td>
-                    <td>{{(rental.returnDate == null) ? "Araç Kirada": rental.returnDate | date:'dd-MM-YYYY'}}</td>
+                    <td>{{(rental.returnDate != null) ? "Araç Kirada": rental.returnDate | date:'dd-MM-YYYY'}}</td>
                     <td>
                         <button class="btn btn-primary btn-sm" (click)="carIsReturned(rental.carId)">Teslim Al</button>
                     </td>
@@ -92,4 +38,41 @@
 
 
     </div>
+
+
+    <div class="row">
+
+        <h5>
+            <p class="font-weight-bold">Kiralama Geçmişi</p>
+        </h5>
+
+        <table *ngIf="dataLoaded==true" class="table table-bordered table-condensed table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Müşteri</th>
+                    <th scope="col">Marka</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Renk</th>
+                    <th scope="col">Günlük Fiyat</th>
+                    <th scope="col">Kira Tarihi</th>
+                    <th scope="col">Teslim Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rental of rentaldetails | rentalFilter : true ">
+                    <td>{{ rental.firstName +" "+ rental.lastName }}</td>
+                    <td>{{ rental.brandName }}</td>
+                    <td>{{ rental.modelYear }}</td>
+                    <td>{{ rental.colorName }}</td>
+                    <td>{{ rental.dailyPrice }} TL</td>
+                    <td>{{ rental.rentDate | date : 'dd.MM.yyyy' }}</td>
+                    <td>{{(rental.returnDate == null) ? "Araç Kirada": rental.returnDate | date:'dd-MM-YYYY'}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
 </div>

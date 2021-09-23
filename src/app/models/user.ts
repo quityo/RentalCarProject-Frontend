@@ -18,5 +18,3 @@ export interface User{
     userImages:UserImage[];
     name:string;
     }
-    
-

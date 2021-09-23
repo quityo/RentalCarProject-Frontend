@@ -34,6 +34,8 @@ import { CardListComponent } from './components/list/card-list/card-list/card-li
 import { ProfileDetailComponent } from './components/profile/profile-detail/profile-detail/profile-detail.component';
 import { CustomerAddComponent } from './components/add/customer-add/customer-add/customer-add.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update/user-update.component';
+import { UserOperationClaimUpdateComponent } from './components/Operation/user-operation/user-operation-claim-update/user-operation-claim-update/user-operation-claim-update.component';
+
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -74,7 +76,6 @@ const routes: Routes = [
 
   {path:"payments/:rental",component:PaymentComponent},
   {path:"payments", component:PaymentComponent, canActivate:[LoginGuard]},
-  
   {path:"carimages",component:CarImageComponent},
   {path:"carimages/:carId", component:CarImageComponent, canActivate:[LoginGuard]},
   
@@ -94,7 +95,7 @@ const routes: Routes = [
  {path:'users',component:UserDetailComponent},
  {path:'user',component:UserComponent},
  {path:"users/customer/:customerId",component:UserComponent},
- {path:"users/rolesupdate/:userId",component:UserUpdateComponent},
+ {path:"users/rolesupdate/:userId",component:UserOperationClaimUpdateComponent},
  {path:"userimages/:userId", component:UserImageComponent, canActivate:[LoginGuard]},
  
  {path:"cart", component:CartComponent, canActivate:[LoginGuard]},

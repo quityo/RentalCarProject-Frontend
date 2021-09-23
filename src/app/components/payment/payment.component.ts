@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
@@ -28,7 +28,7 @@ export class PaymentComponent implements OnInit {
   cardNumber: string;
   cardCvv: string;
   expirationDate: string;
-
+  @Input() rentForPayment: Rental;
   constructor(
     private activatedRoute: ActivatedRoute,
     private carService: CarService,

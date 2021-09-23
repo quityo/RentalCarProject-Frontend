@@ -1,0 +1,36 @@
+<button type="button" class="btn btn-primary" style=" margin-top:23px; margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#exModal">
+
+    Company Update
+</button>
+<!-- Modal -->
+<div class="modal fade"  id="exModal" tabindex="-1" aria-labelledby="exModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+
+            <div class="modal-header">
+                <h5 class="col-12 modal-title  text-center" id="exModalLabel">Update Company Name</h5>
+            </div>
+        <div class="modal-body">
+            <div class="content">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form [formGroup]="customerUpdateForm">
+                                <label for="companyName"> Company Name</label>
+                                <div class="form-group">
+                                    <input type="text" id="companyName" formControlName="companyName" class="form-control" placeholder="{{customer?.companyName}}"/>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click) ="updateCustomer()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

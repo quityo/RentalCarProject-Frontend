@@ -42,7 +42,7 @@ customers :Customer[];
       let customerModel = Object.assign({},this.customerAddForm.value)
       this.customerService.add(customerModel).subscribe(response => {
         this.toastrService.success(response.message,"Successful")
-        this.router.navigate(['userimages/:userId'])
+        this.router.navigate(['card'])
       },responseError => {
         if(responseError.error.Errors.length > 0){
           for(let i =0; i<responseError.error.Errors.length; i++){

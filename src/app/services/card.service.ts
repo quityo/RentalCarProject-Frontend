@@ -16,11 +16,12 @@ export class CardService {
     let newPath = environment.apiUrl + "cards/getall"
     return this.httpClient.get<ListResponseModel<Card>>(newPath);
   }
-  addCard(card:Card):Observable<ResponseModel>{
-    let newPath = environment.apiUrl + 'cards/add';
-    return this.httpClient.post<ResponseModel>(newPath, card);
+  
+    
+  addCard(card : Card):Observable<ResponseModel>{
+    let newPath = environment.apiUrl + "cards/add";
+    return this.httpClient.post<ResponseModel>(newPath,card);
   }
-
   isCardExist(card : Card):Observable<ResponseModel>{
     let newPath = environment.apiUrl + "cards/iscardexist";
     console.log(card);

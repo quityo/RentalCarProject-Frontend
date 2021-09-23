@@ -11,9 +11,9 @@ export class RentalFilterPipe implements PipeTransform {
     
     
     if(filterText){
-      return value.filter((b:RentalDetail) => b.returnDate !== null ) 
+      return value.filter((b:RentalDetail) => b.returnDate != null ) 
     } else {
-      return value.filter((b:RentalDetail) => b.returnDate === null ) 
+      return value.filter((b:RentalDetail) => b.returnDate == null ) 
     }
 
   }

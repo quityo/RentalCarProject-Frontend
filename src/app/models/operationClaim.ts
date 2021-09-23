@@ -1,7 +1,7 @@
-import { UserOperationClaims } from './userOperationClaims';
+import { UserOperationClaim } from './userOperationClaim';
 export interface OperationClaim{
     
     operationClaimId:number;
     name:string;
-    userOperationClaims: UserOperationClaims[];
+    userOperationClaim: UserOperationClaim[];
      }

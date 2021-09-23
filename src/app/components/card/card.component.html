@@ -15,24 +15,34 @@
               <div class="col-md-12">
                   <div class="card">
                       <div class="card-body">
-                          <form [formGroup]="addCreditCardForm">
-                            <input type="hidden" formControlName="customerId">
-                            <label for="nameOnTheCard"> Kart üzerindeki isim ve soyisim </label>
-                            <div class="form-group">
-                                <input type="text" id="nameOnTheCard" formControlName="nameOnTheCard" class="form-control" placeholder=" "/>
-                            </div>
-                            <label for="cardNumber">Kart Numarası</label>
-                            <div class="form-group">
-                                <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control" placeholder=" "/>
-                            </div>
-                            <label for="expirationDate">Son Kullanım Tarihi</label>
-                            <div class="form-group">
-                                <input type="text" id="expirationDate" formControlName="expirationDate" class="form-control" placeholder=" "/>
-                            </div>
-                            <label for="cardCvv">CVV</label>
-                            <div class="form-group">
-                                <input type="text" id="cardCvv" formControlName="cardCvv" class="form-control" placeholder=" "/>
-                            </div>
+                          <form [formGroup]="cardAddForm">
+                              <label for="customerId">User</label>
+                    <div class="form-group">
+                    <select type = "number" id="customerId" formControlName="customerId"
+                    class="form-select">
+                <option [ngValue] = "customer.customerId"
+                *ngFor = "let customer of customers">{{customer.firstName}} {{customer.lastName}}</option>
+                </select> </div>
+                              <label for="nameOnTheCard"> Card Name </label>
+                              <div class="form-group">
+                                  <input type="text" id="nameOnTheCard" formControlName="nameOnTheCard" class="form-control" placeholder=" "/>
+                              </div>
+                              <label for="cardNumber">Card Number</label>
+                              <div class="form-group">
+                                  <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control" placeholder=" "/>
+                              </div>
+                              <label for="expirationDate"> Expiration Date</label>
+                              <div class="form-group">
+                                  <input type="date" id="expirationDate" formControlName="expirationDate" class="form-control" placeholder=" "/>
+                              </div>
+                              <label for="cardCvv">Security Code</label>
+                              <div class="form-group">
+                                  <input type="text" id="cardCvv" formControlName="cardCvv" class="form-control" placeholder=" "/>
+                              </div>
+                              <label for="moneyInTheCard">moneyInTheCard</label>
+                              <div class="form-group">
+                                  <input type="number" id="moneyInTheCard" formControlName="moneyInTheCard" class="form-control" placeholder=" "/>
+                              </div>
                           </form>
                       </div>
                   </div>
@@ -40,8 +50,8 @@
           </div>
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click) ="addCreditCard()">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal"  (click)="addCard()">Save changes</button>
       </div>
     </div>
   </div>

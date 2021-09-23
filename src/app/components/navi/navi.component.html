@@ -29,13 +29,17 @@
         <li *ngIf="claim===('admin')" class="nav-item">
           <a class="nav-link" routerLink="rentallist">Kira Listesi</a>
         </li>
-        <li *ngIf="claim===('admin')" class="nav-item">
+        <!-- <li *ngIf="claim===('admin')" class="nav-item">
           <a class="nav-link" routerLink="payments">Ödeme</a>
-        </li>
+        </li> -->
 
         <li *ngIf="claim===('admin')" class="nav-item">
           <a class="nav-link" routerLink="admin">Admin</a>
         </li>
+        <!-- <li class="nav-item">
+          <span *ngIf="cartCount()" class="badge badge-pill badge-primary"> {{ cartCount() }} </span>
+          <a class="nav-link" routerLink="cart">Sepet</a>
+      </li> -->
 
         <!-- <li  class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">Yönetim</a>

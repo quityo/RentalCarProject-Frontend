@@ -59,6 +59,10 @@ import { ProfileImageComponent } from './components/profile/profile-image/profil
 import { ProfileDetailComponent } from './components/profile/profile-detail/profile-detail/profile-detail.component';
 import { CustomerAddComponent } from './components/add/customer-add/customer-add/customer-add.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update/user-update.component';
+import { UserOperationClaimComponent } from './components/Operation/user-operation/user-operation-claim/user-operation-claim.component';
+import { UserOperationClaimUpdateComponent } from './components/Operation/user-operation/user-operation-claim-update/user-operation-claim-update/user-operation-claim-update.component';
+import { CustomerUpdateComponent } from './components/list/customer-list/customer-update/customer-update/customer-update.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,7 +112,10 @@ import { UserUpdateComponent } from './components/user/user-update/user-update/u
     ProfileImageComponent,
     ProfileDetailComponent,
     CustomerAddComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    UserOperationClaimComponent,
+    UserOperationClaimUpdateComponent,
+    CustomerUpdateComponent,
    
     
   ],

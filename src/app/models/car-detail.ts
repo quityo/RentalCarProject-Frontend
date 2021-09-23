@@ -8,4 +8,8 @@ export interface CarDetail extends Car{
     modelYear : number;
     dailyPrice : number;
     description : string;
+    status:boolean;
+    colorId:number;
+    brandId:number;
+    carFindex:number;
 }

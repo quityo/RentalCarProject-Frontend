@@ -1,3 +1,4 @@
+
 import { Customer } from 'src/app/models/customer';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -6,6 +7,10 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { CustomerService } from 'src/app/services/customer.service';
 import { UserService } from 'src/app/services/user.service';
+import { UserOperationClaimService } from 'src/app/services/user-operation-claim.service';
+import { UserOperationClaim } from 'src/app/models/userOperationClaim';
+import { OperationClaimService } from 'src/app/services/operation-claim.service';
+import { OperationClaim } from 'src/app/models/operationClaim';
 
 @Component({
   selector: 'app-user-update',
@@ -16,45 +21,50 @@ export class UserUpdateComponent implements OnInit {
 
   customers: Customer[]=[];
   users:User[]=[];
-  userAddForm:FormGroup;
+  operationClaims : OperationClaim[]=[];
+  userOperationClaims : UserOperationClaim[]=[];
+  userOperationClaimUpdateForm:FormGroup;
   constructor(
     private formBuilder:FormBuilder,
     private userService: UserService,
+    private userOperationClaimService: UserOperationClaimService,
     private customerService: CustomerService,
     private toastrService:ToastrService,
-    private router:Router)
+    private router:Router,
+    private operationClaimService: OperationClaimService,)
      { }
 
   ngOnInit(): void {
-    this.createUserAddForm();
+    this.createUserOperationClaimUpdateForm();
     this.getRoles();
-    this.getCustomers()
+    this.getUsers()
   }
 
 
-  getCustomers()
+  getUsers()
   {
-    this.customerService.getCustomers().subscribe(response =>{
-      this.customers = response.data;
+    this.userService.getUsers().subscribe(response =>{
+      this.users = response.data;
     });
   }
   getRoles()
   {
-    this.userService.getRoles().subscribe(response =>{
-      this.users = response.data;
+    this.operationClaimService.getRoles().subscribe(response =>{
+      this.operationClaims = response.data;
     });
   }
-  createUserAddForm()
+  createUserOperationClaimUpdateForm()
   {
-    this.userAddForm = this.formBuilder.group({
-      userId:["",Validators.required],
-      name:["",Validators.required]
+    this.userOperationClaimUpdateForm = this.formBuilder.group({
+      
+      userOperationClaimId:[""], 
+    operationClaimId:["",Validators.required]
     });
   }
-  addRole(){
-    if(this.userAddForm.valid){
-      let userModel = Object.assign({},this.userAddForm.value)
-      this.userService.addRole(userModel).subscribe(response => {
+  updateRole(){
+    if(this.userOperationClaimUpdateForm.valid){
+      let userModel = Object.assign({},this.userOperationClaimUpdateForm.value)
+      this.userOperationClaimService.update(userModel).subscribe(response => {
         this.toastrService.success(response.message,"Successful")
         
         this.router.navigate(['customerlist'])

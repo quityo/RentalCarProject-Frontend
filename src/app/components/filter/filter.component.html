@@ -6,7 +6,7 @@
                     [(ngModel)]="currentBrandId"    >
                 <option 
                     [ngValue]="undefined" disabled  selected> 
-                   --- Marka Seçiniz ---
+                  Brands
                 </option>
                 <option 
                     *ngFor="let brand of brands" 
@@ -41,7 +41,7 @@
                     >
                 <option 
                     [ngValue]="undefined" disabled  selected> 
-                    --- Renk Seçiniz ---
+                    Colors
                 </option>
                 <option 
                     *ngFor="let color of colors" 

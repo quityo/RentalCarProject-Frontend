@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { UserImage } from 'src/app/models/userImage';
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UserImageService } from 'src/app/services/user-image.service';
 import { environment } from 'src/environments/environment';
@@ -29,6 +30,7 @@ export class NaviComponent implements OnInit {
     private userImageService : UserImageService,
     private authService: AuthService,
     private localStorageService: LocalStorageService,
+    private cartService: CartService,
     private toastrService: ToastrService
   ) {}
 
@@ -69,5 +71,8 @@ export class NaviComponent implements OnInit {
     this.localStorageService.removeLocalStorage("token");
     this.toastrService.info("You Logged Out");
     this.ngOnInit();
+  }
+  cartCount() {
+    return this.cartService.cartList().length;
   }
 }

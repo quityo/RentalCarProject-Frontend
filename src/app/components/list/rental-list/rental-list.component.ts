@@ -11,40 +11,29 @@ import { RentalService } from 'src/app/services/rental.service';
 export class RentalListComponent implements OnInit {
   rentaldetails: RentalDetail[] = [];
   dataLoaded = false;
-  isCarAvail: boolean
+
   constructor(
     private rentalService: RentalService,
     private toastrService:ToastrService) {}
 
-    ngOnInit(): void {
+  ngOnInit(): void {
+    this.getRentalDetails();
+  }
+
+  getRentalDetails() {
+    this.rentalService.getRentalDetails().subscribe(response => {
+      this.rentaldetails = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+  carIsReturned(carId:number){
+    this.rentalService.carIsReturned(carId).subscribe(response => {
+      this.toastrService.success(response.message)
       this.getRentalDetails();
-    }
-  
-    getRentalDetails() {
-      this.rentalService.getRentalDetails().subscribe(response => {
-        this.rentaldetails = response.data;
-        this.dataLoaded = true;
-      });
-    }
-  
-    carIsReturned(carId:number){
-      this.rentalService.carIsReturned(carId).subscribe(response => {
-        this.toastrService.success(response.message)
-        this.getRentalDetails();
-      }, responseError=>{
-        this.toastrService.success(responseError.message)
-      });
-    }
-  
-  isCarAvailable(carId:number) {
-    this.rentalService.isCarAvailable(carId).subscribe(
-      response=>{        
-        this.isCarAvail = response
-      }, 
-      responseError=>{
-        this.toastrService.error("Bu araç kiralanamaz","Uyarı")         
-      }
-    );
+    }, responseError=>{
+      this.toastrService.success(responseError.message)
+    });
   }
 
 }

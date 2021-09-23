@@ -1,0 +1,57 @@
+<button type="button" class="btn btn-primary" style=" margin-top:23px; margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#roleModal">
+
+    User Update
+</button>
+<!-- Modal -->
+<div class="modal fade"  id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+
+            <div class="modal-header">
+                <h5 class="col-12 modal-title  text-center" id="roleModalLabel">Update Your Role</h5>
+            </div>
+            <div class="modal-body" >
+                <div class="content" >
+                    <div class="col-md-12" >
+                        <div class="card" >
+                            <div class="card-body" >
+      <form [formGroup]="roleUpdateForm">
+       
+           
+           
+               
+                
+        
+       
+            <label for="userId">User</label>
+            <div class="form-group">
+                <select type="number" id="userId" formControlName="userId"
+            class="form-select">
+            <option [ngValue] = "user.userId"
+            *ngFor = "let user of users">{{user.firstName}}</option>
+        </select>
+        </div>
+          
+            <label for="operationClaimId">Roles</label>
+            <div class="form-group">
+            <select type = "number" id="operationClaimId" formControlName="operationClaimId"
+            class="form-select">
+        <option [ngValue] = "operationClaim.operationClaimId"
+        *ngFor = "let operationClaim of roles">{{operationClaim.name}}</option>
+        </select>
+        </div>
+         
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button  class="btn btn-primary" data-dismiss="modal"  [routerLink]="['/customerlist']" (click)="updateRole()">Update</button>
+  
+</div>
+</div>
+</div>
+</div>

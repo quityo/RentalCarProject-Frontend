@@ -6,7 +6,7 @@ import { Card } from '../models/card';
 import { ListResponseModel, ResponseModel, SingleResponseModel } from '../models/responseModel';
 import { User,} from '../models/user';
 import { UserForUpdate } from '../models/UserForUpdate';
-import { UserOperationClaims } from '../models/userOperationClaims';
+import { UserOperationClaim } from '../models/userOperationClaim';
 @Injectable({
   providedIn: 'root'
 })
@@ -48,30 +48,25 @@ export class UserService {
     let newPath = environment.apiUrl + "users/updateprofile"
       return this.httpClient.put<ResponseModel>(newPath,user);
   }
-  addRole(userOperationClaims:UserOperationClaims):Observable<ResponseModel>{
-    let newPath = environment.apiUrl + "userOperationClaims/add"
-    return this.httpClient.post<ResponseModel>(newPath,userOperationClaims)
-  }
-  getRoles():Observable<ListResponseModel<User>>{
-    let newPath = environment.apiUrl + "operationClaims/getall"
-    return this.httpClient.get<ListResponseModel<User>>(newPath);
-  }
-  getAllCard(customerId : number):Observable<ListResponseModel<Card>>{
-    let newPath = environment.apiUrl + "cards/getallcardbycustomerid?customerId=" + customerId;
-    return this.httpClient.get<ListResponseModel<Card>>(newPath);
-  }
+ 
+ 
   deleteCard(cardId : number):Observable<ResponseModel>{
     let newPath =environment.apiUrl + "cards/deletebycardid";
     return this.httpClient.post<ResponseModel>(newPath,cardId);
   }
-  addCard(card:Card):Observable<ResponseModel> {
-    let newPath = environment.apiUrl +"cards/add";
-    return this.httpClient.post<ResponseModel>(newPath, card);
+  addCard(card : Card):Observable<ResponseModel>{
+    let newPath = environment.apiUrl + "cards/add";
+    return this.httpClient.post<ResponseModel>(newPath,card);
   }
 
   userDtoUpdate(user:UserForUpdate, userId:number):Observable<ResponseModel> {
     let newPath = environment.apiUrl + "users/userdtoupdate?userId=" +userId;
     return this.httpClient.post<ResponseModel>(newPath, user);
+  }
+  getAllCard(customerId:number):Observable<ListResponseModel<Card>>
+  {
+    let newPath = environment.apiUrl + "creditcards/getallcardbycustomerid?customerId=" + customerId;
+    return this.httpClient.get<ListResponseModel<Card>>(newPath);
   }
  
 }
